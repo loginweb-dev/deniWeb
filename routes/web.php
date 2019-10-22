@@ -10,9 +10,13 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+use App\Busine;
 Route::get('/', function () {
-    return view('welcome');
+    $busine=Busine::all();
+    return view('welcome',compact('busine'));
+});
+Route::get('/company', function () {
+    return view('company');
 });
 Route::get('login/{social}', 'SocialController@redirectToProvider')->name('loginFacebook');
 Route::get('login/{social}/callback', 'SocialController@handleProviderCallback');
