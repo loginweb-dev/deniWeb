@@ -1,11 +1,11 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
+<div class="container h-100">
+    <div class="row h-100 justify-content-center">
         <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Login') }}</div>
+            <div class="card" style="margin:100px 0px">
+                <div class="card-header text-white text-center h5">{{ __('Iniciar seccion') }}</div>
 
                 <div class="card-body">
                     <form method="POST" action="{{ route('login') }}">
@@ -67,6 +67,7 @@
                     </form>
                     <hr>
                     <a href="{{ route('loginFacebook', 'facebook') }}" class="btn btn-primary">login con facebook</a>
+                    <a href="{{ route('loginFacebook', 'facebook') }}" class="btn btn-danger">login con Google</a>
                 </div>
             </div>
         </div>

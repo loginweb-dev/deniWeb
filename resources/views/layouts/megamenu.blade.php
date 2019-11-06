@@ -4,7 +4,7 @@
       <nav class="navbar navbar-expand-lg navbar-dark primary-color mt-5">
   
         <!-- Navbar brand -->
-        <a class="font-weight-bold white-text mr-4" href="#">Categories</a>
+        <a class="font-weight-bold white-text mr-4" href="/">Negocios</a>
   
         <!-- Collapse button -->
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent1"
@@ -15,7 +15,7 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent1">
   
           <!-- Links -->
-          <ul class="navbar-nav mr-auto">
+          {{-- <ul class="navbar-nav mr-auto">
   
             <li class="nav-item dropdown mega-dropdown active">
   
@@ -300,15 +300,15 @@
   
             </li>
   
-          </ul>
+          </ul> --}}
           <!-- Links -->
   
           <!-- Search form -->
-          <form class="search-form" role="search">
+          <form class="search-form" role="search" action="{{route('buscar')}}">
   
             <div class="form-group md-form my-0 waves-light">
   
-              <input type="text" class="form-control" placeholder="Search">
+              <input type="text" name="criterio" class="form-control" placeholder="Buscar">
   
             </div>
   

@@ -10,16 +10,17 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-use App\Busine;
-Route::get('/', function () {
-    $busine=Busine::all();
-    return view('welcome',compact('busine'));
-});
-Route::get('/company', function () {
-    return view('company');
-});
+
+Route::get('/', 'FrontendController@index');
+Route::get('/empresa/{slug?}', 'FrontendController@show')->name('company');
+Route::get('/empresa/like/{slug}','FrontendController@like')->middleware('auth')->name('like');
+Route::get('/search', 'FrontendController@search')->name('buscar');
+Route::get('/categoria/{slug?}', 'FrontendController@get_category')->name('lista_categoria');
 Route::get('login/{social}', 'SocialController@redirectToProvider')->name('loginFacebook');
 Route::get('login/{social}/callback', 'SocialController@handleProviderCallback');
+
+Route::get('view/{id}', 'FrontendController@views')->name('vista');
+Route::get('orderby/{id}', 'FrontendController@orderby')->name('orderby');
 
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();

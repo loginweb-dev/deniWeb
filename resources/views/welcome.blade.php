@@ -1,143 +1,63 @@
 @extends('layouts.app')
+@section('title', 'Inicio')
 
 @section('content')
     
 <div class="container">
   
   <div class="row pt-4">
-
+    
     <!-- Content -->
     <div class="col-lg-12">
-
+     
       <!-- Products Grid -->
       <section class="section pt-4">
 
         <!-- Grid row -->
-        <div class="row">
-
-          <!-- Grid column -->
-          <div class="col-lg-8 col-md-12 mb-3 pb-lg-2">
-
-            <!-- Image -->
-            <div class="view zoom z-depth-1">
-
-              <img src="https://mdbootstrap.com/img/Photos/Others/product1.jpg" class="img-fluid" alt="sample image">
-
-              <div class="mask rgba-white-light">
-
-                <div class="dark-grey-text d-flex align-items-center pt-4 ml-3 pl-3">
-
-                  <div>
-
-                    <a><span class="badge badge-danger">bestseller</span></a>
-
-                    <h2 class="card-title font-weight-bold pt-2"><strong>This is news title</strong></h2>
-
-                    <p class="">Lorem ipsum dolor sit amet, consectetur adipisicing elit. </p>
-
-                    <a class="btn btn-danger btn-sm btn-rounded clearfix d-none d-md-inline-block">Read more</a>
-
-                  </div>
-
-                </div>
-
+        <div class="section pt-4" >
+          <!--Carousel Wrapper-->
+          <div id="carousel-example-1z" class="carousel slide carousel-fade carousel-sm" data-ride="carousel">
+            <!--Indicators-->
+            <ol class="carousel-indicators">
+              <li data-target="#carousel-example-1z" data-slide-to="0" class=""></li>
+              <li data-target="#carousel-example-1z" data-slide-to="1" class=""></li>
+              <li data-target="#carousel-example-1z" data-slide-to="2" class="active"></li>
+            </ol>
+            <!--/.Indicators-->
+            <!--Slides-->
+            <div class="carousel-inner" role="listbox">
+              <!--First slide-->
+              <div class="carousel-item">
+                <img class="d-block w-100" src="https://scontent-lim1-1.xx.fbcdn.net/v/t1.0-9/29790578_1652095124869213_3634760196162584576_o.jpg?_nc_cat=105&_nc_oc=AQnjH36ohFi0vNv6S4yp8pxQk8yT3VTUOTfwWIMTlO0wnTYGN_GN0umMA_XFzmW493g&_nc_ht=scontent-lim1-1.xx&oh=0fa75f2122a6abc310bb72f4cc03091f&oe=5E4A431D" alt="First slide">
               </div>
-
+              <!--/First slide-->
+              <!--Second slide-->
+              <div class="carousel-item">
+                <img class="d-block w-100" src="https://scontent-lim1-1.xx.fbcdn.net/v/t1.0-9/29101387_1647344482027980_6174117086654044263_n.jpg?_nc_cat=110&_nc_oc=AQktGouvw1F8rT62tcMEd3LIgD6yZeC6pFkvy3QuhLDvh3eExvFPYlPYdDB-sBUGnKc&_nc_ht=scontent-lim1-1.xx&oh=6a840b0cd12e55114bbf197e1d5c85ac&oe=5E492A7D" alt="Second slide">
+              </div>
+              <!--/Second slide-->
+              <!--Third slide-->
+              <div class="carousel-item active">
+                <img class="d-block w-100" src="https://scontent-lim1-1.xx.fbcdn.net/v/t1.0-9/71337311_2445782875500430_3443607840520929280_n.jpg?_nc_cat=100&_nc_oc=AQkPJe1IU43XizJjvwe2P_fFIp5mXUM8yiqTglECbAETxRN9GlRaVueklKzZVeGVgmo&_nc_ht=scontent-lim1-1.xx&oh=41213b792838244d54f0912f7808da0c&oe=5E5A31FB" alt="Third slide">
+              </div>
+              <!--/Third slide-->
             </div>
-            <!-- Image -->
-
+            <!--/.Slides-->
+            <!--Controls-->
+            <a class="carousel-control-prev" href="#carousel-example-1z" role="button" data-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#carousel-example-1z" role="button" data-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="sr-only">Next</span>
+            </a>
+            <!--/.Controls-->
           </div>
-          <!-- Grid column -->
-
-          <!-- Grid column -->
-          <div class="col-lg-4 col-md-12 mb-4">
-
-            <!-- Section: Categories -->
-            <section class="section">
-
-
-              <ul class="list-group z-depth-1">
-
-                <li class="list-group-item d-flex justify-content-between align-items-center">
-
-                  <a class="dark-grey-text font-small"><i class="fas fa-laptop dark-grey-text mr-2"
-                      aria-hidden="true"></i>
-
-                    Laptops</a>
-
-                  <a href=""></a><span class="badge badge-danger badge-pill">43</span></a>
-
-                </li>
-
-                <li class="list-group-item d-flex justify-content-between align-items-center">
-
-                  <a class="dark-grey-text font-small"><i class="fas fa-mobile-alt dark-grey-text mr-3"
-                      aria-hidden="true"></i>
-
-                    Smartphone</a>
-
-                  <span class="badge badge-danger badge-pill">32</span>
-
-                </li>
-
-                <li class="list-group-item d-flex justify-content-between align-items-center">
-
-                  <a class="dark-grey-text font-small"><i class="fas fa-tablet-alt dark-grey-text mr-3"
-                      aria-hidden="true"></i>
-
-                    Tablet</a>
-
-                  <span class="badge badge-danger badge-pill">18</span>
-
-                </li>
-
-                <li class="list-group-item d-flex justify-content-between align-items-center">
-
-                  <a class="dark-grey-text font-small"><i class="fas fa-headphones-alt dark-grey-text mr-3"
-                      aria-hidden="true"></i>Heahphones</a>
-
-                  <span class="badge badge-danger badge-pill">37</span>
-
-                </li>
-
-                <li class="list-group-item d-flex justify-content-between align-items-center">
-
-                  <a class="dark-grey-text font-small"><i class="fas fa-camera-retro dark-grey-text mr-3"
-                      aria-hidden="true"></i>Camera</a>
-
-                  <span class="badge badge-danger badge-pill">15</span>
-
-                </li>
-
-                <li class="list-group-item d-flex justify-content-between align-items-center">
-
-                  <a class="dark-grey-text font-small"><i class="fas fa-suitcase dark-grey-text mr-3"
-                      aria-hidden="true"></i>Accesories</a>
-
-                  <span class="badge badge-danger badge-pill">64</span>
-
-                </li>
-
-                <li class="list-group-item d-flex justify-content-between align-items-center">
-
-                  <a class="dark-grey-text font-small"><i class="fas fa-tv dark-grey-text mr-3"
-                      aria-hidden="true"></i>TV</a>
-
-                  <span class="badge badge-danger badge-pill">2</span>
-
-                </li>
-
-              </ul>
-
-            </section>
-            <!-- Section: Categories -->
-
-          </div>
-          <!-- Grid column -->
-
+          <!--/.Carousel Wrapper-->
         </div>
         <!-- Grid row -->
-
+<br>
         <!-- Section small products -->
         <section>
 
@@ -168,7 +88,7 @@
                           <img src="{{ asset('storage/'.$item->image) }}"
                             class="img-fluid" alt="">
 
-                          <a>
+                          <a href="{{ route('company', $item->slug) }}">
 
                             <div class="mask rgba-white-slight"></div>
 
@@ -188,8 +108,11 @@
                           <!-- Category & Title -->
                           <h5 class="card-title mb-1"><strong><a href="" class="dark-grey-text">{{ $item->name }}</a></strong>
                           </h5>
-
-                          <span class="badge badge-danger mb-2">categoria</span>
+                          @php
+                          $categoria=App\Categoria::where('id', $item->categoria_id)->first();
+  
+                           @endphp
+                          <span class="badge badge-danger mb-2">{{ $categoria->name }}</span>
 
                           <!-- Rating -->
                           <ul class="rating">
@@ -212,7 +135,7 @@
                             <div class="row mb-0">
 
                               {{-- <span class="float-left"><strong>{{ $item->descriptions }}</strong></span> --}}
-                              <p>{{ $item->descriptions }}</p>
+                              <p>{{ $item->description }}</p>
                               {{-- <span class="float-right">
 
                                 <a class="" data-toggle="tooltip" data-placement="top" title="Add to Cart"><i

@@ -53,36 +53,17 @@
       <li>
 
         <ul class="collapsible collapsible-accordion">
-
-          <li><a class="collapsible-header waves-effect arrow-r"><i class="fas fa-shopping-cart"></i> Cart page<i
+          
+          <li><a class="collapsible-header waves-effect arrow-r"><i class="far fa-hand-pointer"></i> Categorias<i
                 class="fas fa-angle-down rotate-icon"></i></a>
 
             <div class="collapsible-body">
-
+              @php
+                  $categorias=App\Categoria::all();
+              @endphp
               <ul>
-
-                <li><a href="../cart/cart-v1.html" class="waves-effect">Cart V.1</a>
-
-                </li>
-
-                <li><a href="../cart/cart-v2.html" class="waves-effect">Cart V.2</a>
-
-                </li>
-
-              </ul>
-
-            </div>
-
-          </li>
-
-          <li><a class="collapsible-header waves-effect arrow-r"><i class="far fa-hand-pointer"></i> Category page<i
-                class="fas fa-angle-down rotate-icon"></i></a>
-
-            <div class="collapsible-body">
-
-              <ul>
-
-                <li><a href="../category/category-v1.html" class="waves-effect">Category V.1</a>
+                
+                {{-- <li><a href="../category/category-v1.html" class="waves-effect">Category V.1</a>
 
                 </li>
 
@@ -92,67 +73,21 @@
 
                 <li><a href="../category/category-v3.html" class="waves-effect">Category V.3</a>
 
+                </li> --}}
+
+                {{-- <li><a href="" class="waves-effect">{{ $item->name }}</a> --}}
+                  <li><a href="{{ route('lista_categoria') }}" class="waves-effect">Ver</a> 
                 </li>
-
-                <li><a href="../category/category-v4.html" class="waves-effect">Category V.4</a>
-
-                </li>
-
+              
               </ul>
 
             </div>
 
           </li>
-
-          <li><a class="collapsible-header waves-effect arrow-r"><i class="far fa-bookmark"></i> Homepage<i
-                class="fas fa-angle-down rotate-icon"></i></a>
-
-            <div class="collapsible-body">
-
-              <ul>
-
-                <li><a href="../homepage/homepage-v1.html" class="waves-effect">Homepage V.1</a>
-
-                </li>
-
-                <li><a href="../homepage/homepage-v2.html" class="waves-effect">Homepage V.2</a>
-
-                </li>
-
-                <li><a href="../homepage/homepage-v3.html" class="waves-effect">Homepage V.3</a>
-
-                </li>
-
-              </ul>
-
-            </div>
-
-          </li>
-
-          <li><a class="collapsible-header waves-effect arrow-r"><i class="fas fa-camera-retro"></i> Product page<i
-                class="fas fa-angle-down rotate-icon"></i></a>
-
-            <div class="collapsible-body">
-
-              <ul>
-
-                <li><a href="../product/product-v1.html" class="waves-effect">Product V.1</a>
-
-                </li>
-
-                <li><a href="../product/product-v2.html" class="waves-effect">Product V.2</a>
-
-                </li>
-
-              </ul>
-
-            </div>
-
-          </li>
-
+         
           <li><a href="../contact/contact.html" class="collapsible-header waves-effect"><i class="fas fa-envelope"></i>
 
-              Contact</a></li>
+              Contacto</a></li>
 
         </ul>
 
@@ -165,7 +100,7 @@
     <!-- Sidebar navigation -->
 
     <!-- Navbar -->
-    <nav class="navbar fixed-top navbar-expand-lg  navbar-light scrolling-navbar white">
+     <nav class="navbar fixed-top navbar-expand-lg  navbar-light scrolling-navbar white">
 
       <div class="container">
 
@@ -176,7 +111,7 @@
 
         </div>
 
-        <a class="navbar-brand font-weight-bold" href="#"><strong>SHOP</strong></a>
+        <a class="navbar-brand font-weight-bold" href="/"><strong>{{ setting('site.title') }}</strong></a>
 
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-4"
           aria-controls="navbarSupportedContent-4" aria-expanded="false" aria-label="Toggle navigation">
@@ -189,7 +124,7 @@
 
           <ul class="navbar-nav ml-auto">
 
-            <li class="nav-item">
+            {{-- <li class="nav-item">
 
               <a class="nav-link waves-effect waves-light dark-grey-text font-weight-bold" href="#"><i
                   class="fas fa-envelope blue-text"></i>
@@ -223,15 +158,19 @@
 
               </div>
 
-            </li>
+            </li> --}}
 
-          </ul>
-
+          </ul> 
+          <form class="form-inline" role="search" action="{{route('buscar')}}">
+            <div class="md-form my-0">
+              <input class="form-control mr-sm-2" name="criterio" type="text" placeholder="Buscar" aria-label="Search">
+            </div>
+          </form>
         </div>
-
+         </div>
       </div>
-
-    </nav>
+    </nav> 
 
     <!-- Navbar -->
+    <
   </header>

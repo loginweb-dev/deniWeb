@@ -10,7 +10,7 @@
           <!-- Grid column -->
           <div class="col-md-6 col-lg-5 text-center text-md-left mb-4 mb-md-0">
 
-            <h6 class="mb-0 white-text">Get connected with us on social networks!</h6>
+            <h6 class="mb-0 white-text">¡Conéctate con nosotros en las redes sociales!</h6>
 
           </div>
           <!-- Grid column -->
@@ -44,7 +44,7 @@
     </div>
 
     <!-- Footer Links -->
-    <div class="container mt-5 mb-4 text-center text-md-left">
+    {{-- <div class="container mt-5 mb-4 text-center text-md-left">
 
       <div class="row mt-3">
 
@@ -120,7 +120,7 @@
 
       </div>
 
-    </div>
+    </div> --}}
     <!-- Footer Links -->
 
     <!-- Copyright -->
@@ -128,7 +128,7 @@
 
       <div class="container-fluid">
 
-        © 2019 Copyright: <a href="https://mdbootstrap.com/education/bootstrap/" target="_blank"> MDBootstrap.com </a>
+        © 2019 Copyright: <a href="" target="_blank"> LoginWeb.net</a>
 
       </div>
 
