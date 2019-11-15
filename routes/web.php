@@ -19,8 +19,10 @@ Route::get('/categoria/{slug?}', 'FrontendController@get_category')->name('lista
 Route::get('login/{social}', 'SocialController@redirectToProvider')->name('loginFacebook');
 Route::get('login/{social}/callback', 'SocialController@handleProviderCallback');
 
-Route::get('view/{id}', 'FrontendController@views')->name('vista');
-Route::get('orderby/{id}', 'FrontendController@orderby')->name('orderby');
+Route::get('/view/{id}', 'FrontendController@views')->name('vista');
+Route::get('/orderby/{id}', 'FrontendController@orderby')->name('orderby');
+//rutas para el chats
+Route::get('/chats','FrontendController@private')->name('chats');
 
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();
