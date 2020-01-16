@@ -44,7 +44,7 @@
     </div>
 
     <!-- Footer Links -->
-    {{-- <div class="container mt-5 mb-4 text-center text-md-left">
+    <div class="container mt-5 mb-4 text-center text-md-left">
 
       <div class="row mt-3">
 
@@ -120,7 +120,7 @@
 
       </div>
 
-    </div> --}}
+    </div>
     <!-- Footer Links -->
 
     <!-- Copyright -->

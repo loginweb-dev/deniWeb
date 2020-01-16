@@ -8,7 +8,7 @@
 
         <div class="logo-wrapper waves-light">
 
-          <a href="#"><img src="https://mdbootstrap.com/img/logo/mdb-transparent.png" class="img-fluid flex-center"></a>
+          <a href="{{ url('/') }}"><img src="{{ url('recursos/img/logo.png') }}" class="img-fluid flex-center"></a>
 
         </div>
 
@@ -34,7 +34,7 @@
       <!-- Social -->
 
       <!-- Search Form -->
-      <li>
+      {{-- <li>
 
         <form class="search-form" role="search">
 
@@ -46,49 +46,14 @@
 
         </form>
 
-      </li>
+      </li> --}}
       <!-- Search Form -->
 
       <!-- Side navigation links -->
       <li>
 
         <ul class="collapsible collapsible-accordion">
-          
-          <li><a class="collapsible-header waves-effect arrow-r"><i class="far fa-hand-pointer"></i> Categorias<i
-                class="fas fa-angle-down rotate-icon"></i></a>
-
-            <div class="collapsible-body">
-              @php
-                  $categorias=App\Categoria::all();
-              @endphp
-              <ul>
-                
-                {{-- <li><a href="../category/category-v1.html" class="waves-effect">Category V.1</a>
-
-                </li>
-
-                <li><a href="../category/category-v2.html" class="waves-effect">Category V.2</a>
-
-                </li>
-
-                <li><a href="../category/category-v3.html" class="waves-effect">Category V.3</a>
-
-                </li> --}}
-
-                {{-- <li><a href="" class="waves-effect">{{ $item->name }}</a> --}}
-                  <li><a href="{{ route('lista_categoria') }}" class="waves-effect">Ver</a> 
-                </li>
-              
-              </ul>
-
-            </div>
-
-          </li>
-         
-          <li><a href="../contact/contact.html" class="collapsible-header waves-effect"><i class="fas fa-envelope"></i>
-
-              Contacto</a></li>
-
+          <li><a href="{{ route('contact') }}" class="collapsible-header waves-effect"><i class="fas fa-envelope"></i>Contacto</a></li>
         </ul>
 
       </li>
@@ -111,7 +76,7 @@
 
         </div>
 
-        <a class="navbar-brand font-weight-bold" href="/"><strong>{{ setting('site.title') }}</strong></a>
+        <a class="navbar-brand font-weight-bold" href="{{ url('/') }}"><strong>{{ setting('site.title') }}</strong></a>
 
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-4"
           aria-controls="navbarSupportedContent-4" aria-expanded="false" aria-label="Toggle navigation">
@@ -122,50 +87,47 @@
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent-4">
 
-          <ul class="navbar-nav ml-auto">
-
-            {{-- <li class="nav-item">
-
-              <a class="nav-link waves-effect waves-light dark-grey-text font-weight-bold" href="#"><i
-                  class="fas fa-envelope blue-text"></i>
-
-                Contact <span class="sr-only">(current)</span></a>
-
-            </li>
-
-            <li class="nav-item ml-3">
-
-              <a class="nav-link waves-effect waves-light dark-grey-text font-weight-bold" href="#"><i
-                  class="fas fa-cog blue-text"></i>
-
-                Settings</a>
-
-            </li>
-
-            <li class="nav-item dropdown ml-3">
-
-              <a class="nav-link dropdown-toggle waves-effect waves-light dark-grey-text font-weight-bold"
-                id="navbarDropdownMenuLink-4" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i
-                  class="fas fa-user blue-text"></i>
-
-                Profile </a>
-
-              <div class="dropdown-menu dropdown-menu-right dropdown-cyan" aria-labelledby="navbarDropdownMenuLink-4">
-
-                <a class="dropdown-item waves-effect waves-light" href="#">My account</a>
-
-                <a class="dropdown-item waves-effect waves-light" href="#">Log out</a>
-
-              </div>
-
-            </li> --}}
-
-          </ul> 
-          <form class="form-inline" role="search" action="{{route('buscar')}}">
-            <div class="md-form my-0">
-              <input class="form-control mr-sm-2" name="criterio" type="text" placeholder="Buscar" aria-label="Search">
-            </div>
-          </form>
+            <ul class="navbar-nav ml-auto">
+                @guest
+                    @if (Route::has('register'))
+                        <li class="nav-item">
+                            <a class="nav-link waves-effect waves-light dark-grey-text font-weight-bold" href="{{ route('register') }}">
+                                <i class="fas fa-edit blue-text"></i> Registrarse
+                            </a>
+                        </li>
+                    @endif
+                    <li class="nav-item">
+                        <a class="nav-link waves-effect waves-light dark-grey-text font-weight-bold" href="{{ route('login') }}">
+                            <i class="fas fa-sign-in-alt blue-text"></i> Login
+                        </a>
+                    </li>
+                @else
+                    {{-- <li class="nav-item">
+                        <a class="nav-link waves-effect waves-light dark-grey-text font-weight-bold" href="{{route('pedidos_index', ['id'=>'last'])}}" title="Pedidos pendientes" id="label-pedidos">
+                            <i class="fas fa-clipboard-list blue-text"></i> Mis pedidos
+                        </a>
+                    </li> --}}
+                    <li class="nav-item dropdown">
+                        <a id="navbarDropdown" class="nav-link dropdown-toggle waves-effect waves-light dark-grey-text font-weight-bold" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                            <i class="far fa-address-card blue-text"></i> Cuenta <span class="caret"></span>
+                        </a>
+    
+                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                            @if(Auth::user()->role_id != 2)
+                            <a class="dropdown-item link-page" target="_blank" href="{{ url('admin') }}">Administración</a>
+                            @endif
+                            <a class="dropdown-item link-page" href="{{ route('logout') }}"
+                                onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                Salir
+                            </a>
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                @csrf
+                            </form>
+                        </div>
+                    </li>
+                @endguest
+    
+              </ul>
         </div>
          </div>
       </div>

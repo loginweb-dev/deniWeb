@@ -1,12 +1,15 @@
 @extends('layouts.app')
 
+@section('head')
+<title>Rehistro - DENI</title>
+@endsection
+
 @section('content')
 <div class="container h-100">
     <div class="row h-100 justify-content-center">
         <div class="col-md-8">
             <div class="card" style="margin:100px 0px">
-                <div class="card-header">{{ __('Register') }}</div>
-
+                <div class="card-header text-white text-center h5">{{ __('Registrarse') }}</div>
                 <div class="card-body">
                     <form method="POST" action="{{ route('register') }}">
                         @csrf
@@ -74,10 +77,16 @@
                         </div>
 
                         <div class="form-group row mb-0">
-                            <div class="col-md-6 offset-md-4">
+                            <div class="col-md-6 offset-md-4 text-center">
                                 <button type="submit" class="btn btn-primary">
-                                    {{ __('Register') }}
+                                    {{ __('Guardar') }}
                                 </button>
+                                <a href="{{ url('/') }}" type="submit" class="btn btn-danger">
+                                    {{ __('Cancelar') }}
+                                </a>
+                            </div>
+                            <div class="col-md-6 offset-md-4 text-center">
+                                <a class="btn btn-link" href="{{ route('login') }}">Ya tienes cuenta?</a>
                             </div>
                         </div>
                     </form>

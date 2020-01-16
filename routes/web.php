@@ -11,13 +11,23 @@
 |
 */
 
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/policies', function(){
+    return('policies');
+});
+
 Route::get('/', 'FrontendController@index');
+Route::get('/filter/{order}/{category}/{search}', 'FrontendController@companies_list');
 Route::get('/empresa/{slug?}', 'FrontendController@show')->name('company');
-Route::get('/empresa/like/{slug}','FrontendController@like')->middleware('auth')->name('like');
-Route::get('/search', 'FrontendController@search')->name('buscar');
+Route::get('/contact', 'FrontendController@contact')->name('contact');
 Route::get('/categoria/{slug?}', 'FrontendController@get_category')->name('lista_categoria');
 Route::get('login/{social}', 'SocialController@redirectToProvider')->name('loginFacebook');
 Route::get('login/{social}/callback', 'SocialController@handleProviderCallback');
+
+Route::get('/empresa/rating/{slug}/{rating}/{request}','FrontendController@rating')->middleware('auth')->name('rating');
+Route::get('/empresa/like/{slug}/{request}','FrontendController@like')->middleware('auth')->name('like');
 
 Route::get('/view/{id}', 'FrontendController@views')->name('vista');
 Route::get('/orderby/{id}', 'FrontendController@orderby')->name('orderby');
@@ -27,7 +37,3 @@ Route::get('/chats','FrontendController@private')->name('chats');
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();
 });
-
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');

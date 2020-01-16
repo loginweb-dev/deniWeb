@@ -8,7 +8,7 @@
 
     var $container = $(this);
 
-    var titles = ['Very bad', 'Poor', 'OK', 'Good', 'Excellent'];
+    var titles = ['Muy malo', 'Malo', 'Regular', 'Bueno', 'Excelente'];
 
     for (var i = 0; i < 5; i++) {
       $container.append(`<i class="py-2 px-1 rate-popover" data-index="${i}" data-html="true" data-toggle="popover"
