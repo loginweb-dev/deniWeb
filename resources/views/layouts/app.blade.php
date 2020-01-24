@@ -22,7 +22,7 @@
 
     {{-- Sección auxiliar para agregar SEO a vistas del sistema como login y register --}}
     @yield('head')
-
+    @laravelPWA
 </head>
 
 
