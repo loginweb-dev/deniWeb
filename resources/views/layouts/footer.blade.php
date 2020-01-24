@@ -19,19 +19,19 @@
           <div class="col-md-6 col-lg-7 text-center text-md-right">
 
             <!-- Facebook -->
-            <a class="fb-ic ml-0 px-2"><i class="fab fa-facebook-f white-text"> </i></a>
+            <a href="{{ setting('social.link_facebook') ?? '#' }}" class="fb-ic ml-0 px-2"><i class="fab fa-facebook-f white-text"> </i></a>
 
             <!-- Twitter -->
-            <a class="tw-ic px-2"><i class="fab fa-twitter white-text"> </i></a>
+            <a href="{{ setting('social.link_twitter') ?? '#' }}" class="tw-ic px-2"><i class="fab fa-twitter white-text"> </i></a>
 
             <!-- Google + -->
-            <a class="gplus-ic px-2"><i class="fab fa-google-plus-g white-text"> </i></a>
+            <a href="{{ setting('social.link_github') ?? '#' }}" class="gh-ic px-2"><i class="fab fa-github white-text"> </i></a>
 
             <!-- Linkedin -->
-            <a class="li-ic px-2"><i class="fab fa-linkedin-in white-text"> </i></a>
+            <a href="{{ setting('social.link_linkedin') ?? '#' }}" class="li-ic px-2"><i class="fab fa-linkedin-in white-text"> </i></a>
 
             <!-- Instagram -->
-            <a class="ins-ic px-2"><i class="fab fa-instagram white-text"> </i></a>
+            <a href="{{ setting('social.link_instagram') ?? '#' }}" class="ins-ic px-2"><i class="fab fa-instagram white-text"> </i></a>
 
           </div>
           <!-- Grid column -->
@@ -51,39 +51,28 @@
         <!-- First column -->
         <div class="col-md-3 col-lg-4 col-xl-3 mb-4">
 
-          <h6 class="text-uppercase font-weight-bold"><strong>Company name</strong></h6>
+          <h6 class="text-uppercase font-weight-bold"><strong>{{ setting('aboutus.name') }}</strong></h6>
 
           <hr class="blue mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
 
-          <p>Here you can use rows and columns here to organize your footer content. Lorem ipsum dolor sit amet,
-
-            consectetur
-
-            adipisicing elit.</p>
+          <p>{{ setting('aboutus.description') }}</p>
 
         </div>
         <!-- First column -->
 
         <!-- Second column -->
         <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
-
-          <h6 class="text-uppercase font-weight-bold"><strong>Products</strong></h6>
-
+          <h6 class="text-uppercase font-weight-bold"><strong>Productos</strong></h6>
           <hr class="blue mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
-
-          <p><a href="#!">MDBootstrap</a></p>
-
-          <p><a href="#!">MDWordPress</a></p>
-
-          <p><a href="#!">BrandFlow</a></p>
-
-          <p><a href="#!">Bootstrap Angular</a></p>
+          <p><a href="#!">Aplicacaiones Web</a></p>
+          <p><a href="#!">Aplicaciones móviles Android y IOS</a></p>
+          <p><a href="#!">Venta de productos y servicios</a></p>
 
         </div>
         <!-- Second column -->
 
         <!-- Third column -->
-        <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+        {{-- <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
 
           <h6 class="text-uppercase font-weight-bold"><strong>Useful links</strong></h6>
 
@@ -97,23 +86,16 @@
 
           <p><a href="#!">Help</a></p>
 
-        </div>
+        </div> --}}
         <!-- Third column -->
 
         <!-- Fourth column -->
-        <div class="col-md-4 col-lg-3 col-xl-3">
-
-          <h6 class="text-uppercase font-weight-bold"><strong>Contact</strong></h6>
-
+        <div class="col-md-6 col-lg-4 col-xl-4">
+          <h6 class="text-uppercase font-weight-bold"><strong>Contacto</strong></h6>
           <hr class="blue mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
-
-          <p><i class="fas fa-home mr-3"></i> New York, NY 10012, US</p>
-
-          <p><i class="fas fa-envelope mr-3"></i> info@example.com</p>
-
-          <p><i class="fas fa-phone mr-3"></i> + 01 234 567 88</p>
-
-          <p><i class="fas fa-print mr-3"></i> + 01 234 567 89</p>
+          <p><i class="fas fa-home mr-3"></i> {{ setting('aboutus.direccion') }}</p>
+          <p><i class="fas fa-envelope mr-3"></i> i{{ setting('aboutus.email') }}</p>
+          <p><i class="fas fa-phone mr-3"></i>{{ setting('aboutus.telefono') }}</p>
 
         </div>
         <!-- Fourth column -->

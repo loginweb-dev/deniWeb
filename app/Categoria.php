@@ -8,7 +8,6 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class Categoria extends Model
 {
     use SoftDeletes;
-    
     protected $dates = ['deleted_at'];
-    
+    protected $fillable = ['name', 'image', 'icon'];
 }

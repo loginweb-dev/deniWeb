@@ -37,3 +37,10 @@ Route::get('/chats','FrontendController@private')->name('chats');
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();
 });
+
+// Panel de control para el cliente
+Route::get('admin/negocios', 'BusineController@negocios_index')->name('negocios_index');
+Route::get('admin/negocios/{id}/view', 'BusineController@negocios_view');
+Route::get('admin/negocios/{id}/list_images', 'BusineController@list_images')->name('list_images');
+Route::post('admin/negocios/{id}/add_images', 'BusineController@add_images')->name('add_images');
+Route::post('admin/negocios/update', 'BusineController@negocios_update')->name('negocios_update');
