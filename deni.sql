@@ -1,31 +1,23 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.3
+-- version 4.9.0.1
 -- https://www.phpmyadmin.net/
 --
--- Servidor: localhost:3306
--- Tiempo de generación: 16-01-2020 a las 13:08:36
--- Versión del servidor: 5.6.41-84.1
--- Versión de PHP: 7.2.7
+-- Host: localhost:3306
+-- Generation Time: Jan 24, 2020 at 02:03 AM
+-- Server version: 5.7.26
+-- PHP Version: 7.3.8
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
-START TRANSACTION;
 SET time_zone = "+00:00";
 
-
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
-
 --
--- Base de datos: `loginwe3_deni`
+-- Database: `deni`
 --
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `busines`
+-- Table structure for table `busines`
 --
 
 CREATE TABLE `busines` (
@@ -43,7 +35,7 @@ CREATE TABLE `busines` (
   `description_app` text COLLATE utf8mb4_unicode_ci,
   `user_id` bigint(20) UNSIGNED NOT NULL,
   `slug` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `images` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `images` text COLLATE utf8mb4_unicode_ci,
   `range_id` int(11) DEFAULT NULL,
   `busine_relation` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
@@ -54,28 +46,10 @@ CREATE TABLE `busines` (
   `state` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
---
--- Volcado de datos para la tabla `busines`
---
-
-INSERT INTO `busines` (`id`, `name`, `image`, `phone`, `addres`, `longitude`, `latitude`, `description`, `site`, `categoria_id`, `description_long`, `description_app`, `user_id`, `slug`, `images`, `range_id`, `busine_relation`, `created_at`, `updated_at`, `deleted_at`, `sharemap`, `views`, `state`) VALUES
-(1, 'Lorem ipsum', 'busines/October2019/vETF3jTYaNc8XolCxU0i.jpg', '75195380', 'No se puede acceder a este sitio webNo se ha podido encontrar la dirección IP del servidor de www.google.com.', NULL, NULL, 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod', 'www.busine.com', 7, '<p>qweqweqweqewqe</p>', NULL, 1, 'pizzeria-tatu', '[\"busines\\/October2019\\/IgQ2qjZcrME8mZkVQtpr.jpg\",\"busines\\/October2019\\/rVXTQFQLcwdyNfRmU36z.jpg\"]', NULL, '[]', '2019-10-25 05:23:50', '2019-10-30 03:15:26', '2019-10-30 03:15:26', 'https://g.page/PizzasTatu?share', 0, 1),
-(2, 'Campo Ferial Fexpo Beni', 'busines\\October2019\\Xj49ZlHCVS8GaEbiusBa.png', '59175199157', 'Av. Ganadera Km 1,5 Carretera Norte', '-64.9007602', '-14.8125171', 'Campo ferial donde se exponen las mejores e importantes ferias de negocios del Beni', 'www.uabjb.edu.bo/fexpobeni/', 3, '<h1 style=\"text-align: center;\">UBICACION</h1>\r\n<p><iframe style=\"border: 0;\" src=\"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3857.2594519071126!2d-64.90523858542153!3d-14.810689703473097!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x93dd6e2032bbaf29%3A0x51d7c9163bbd5267!2sFexpoBeni!5e0!3m2!1ses-419!2sbo!4v1572312908560!5m2!1ses-419!2sbo\" width=\"1110\" height=\"600\" frameborder=\"0\" allowfullscreen=\"\"></iframe></p>', '<h2 style=\"text-align: center;\"><span style=\"color: #333333;\">LOREM IPSUM</span></h2>\r\n<p><span style=\"color: #808080;\">Historia del Lorem Ipsum ciceron El Lorem Ipsum fue concebido como un texto de relleno, formateado de una cierta manera para permitir la presentaci&oacute;n de elear en la Edici&oacute;n de la Biblioteca Cl&aacute;sica Loeb de 1914 del De Finibus en las secciones 32 y 33. Fue en esta edici&oacute;n del De Finibus en la que H. Rackman tradujo el texto. El siguiente fragmento se selecciona de la secci&oacute;n 32: \"qui dolorem ipsum, quia dolor sit amet consectetur adipisci velit, sed quia non numquam eius modi tempora incidunt, ut labore et dolore magnam aliquam quaerat voluptatem\". Esto es reconocible, en parte, como el est&aacute;ndar del Lorem Ipsum de hoy y fue traducido a:</span></p>\r\n<ol>\r\n<li><span style=\"color: #808080;\">&nbsp;de una copia formal.Lorem I</span></li>\r\n<li><span style=\"color: #808080;\">&nbsp;de una copia formal. El uso de Lore</span></li>\r\n<li><span style=\"color: #808080;\">&nbsp;de una copia formal. El uso de&nbsp;</span></li>\r\n<li><span style=\"color: #808080;\">&nbsp;de una copiao de Lorem I</span></li>\r\n</ol>\r\n<p><img src=\"https://deni.loginweb.net/storage/busines/October2019/GQalNguYjgdb5PoWiDBH.jpg\" alt=\"\" width=\"100%\" /></p>\r\n<p><span style=\"color: #808080;\">Historia del Lorem Ipsum ciceron El Lorem Ipsum fue concebido como un texto de relleno, formateado de una cierta manera para permitir la presentaci&oacute;n de elementos gr&aacute;ficos en documentos, sin necesidad de una copia formal.</span></p>\r\n<p>&nbsp;</p>', 3, 'campo-ferial-fexpo-beni', '[\"busines\\\\October2019\\\\vf6vuGA1r9mMSwUMntQI.png\",\"busines\\\\October2019\\\\mL6LJeJ0hzIlQlpGKOFt.png\",\"busines\\\\October2019\\\\ZEI7heLa0uCFMYzxFOWE.png\"]', 2, '[\"2\"]', '2019-10-27 04:27:01', '2020-01-16 07:18:37', NULL, 'goo.gl/maps/aeQBpAXwFusANorx9', 57, 1),
-(3, 'Colegio la Salle', 'busines\\October2019\\xs6eA1GQVOOfYkMOLAv4.png', '34622422', 'Av Circunvalacion, Trinidad', NULL, NULL, 'CONTRIBUYE A IMPARTIR UNA EDUCACION MODERNA Y DE CALIDAD.', 'collage.salle.com', 6, '<h1 style=\"text-align: center;\">COLEGIO LA SALLE</h1>\r\n<p>CON EL ESFUERZO DE MUCHOS, EL APOYO DE LA COMUNIDAD EDUCATIVA, GRACIAS AL APORTE ECONOMICO DE LOS HERMANOS DE LA SALLE BOLIVIA Y EL CARI&Ntilde;O A LA NI&Ntilde;EZ Y JUVENTUD LA SALLISTA SE HIZO REALIDAD.</p>\r\n<ul>\r\n<li>PRIMARIA</li>\r\n<li>SECUNDARIA</li>\r\n</ul>\r\n<h2 style=\"text-align: center;\">UBICACION</h2>\r\n<p style=\"text-align: center;\">&nbsp;</p>\r\n<p><iframe style=\"border: 0;\" src=\"https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15427.824218511128!2d-64.8959478!3d-14.8277243!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x9cfb4efc6a07210a!2sColegio%20La%20Salle!5e0!3m2!1ses-419!2sbo!4v1572139078432!5m2!1ses-419!2sbo\" width=\"1110\" height=\"600\" frameborder=\"0\" allowfullscreen=\"\"></iframe></p>', NULL, 4, 'richard-eddy', '[\"busines\\/October2019\\/0zMBqM5XqB3sU8IqgRaH.jpg\",\"busines\\/October2019\\/krbViwTiPgsaJ9dRR3z1.jpg\"]', NULL, '[\"3\"]', '2019-10-27 05:13:28', '2020-01-08 04:21:18', NULL, 'https://goo.gl/maps/aza4PdVquoJXuH396', 13, 1),
-(4, 'Pizzeria TaTu', 'busines\\October2019\\KRu56gAeBuBoeGwf36KO.png', NULL, NULL, NULL, NULL, NULL, NULL, 7, NULL, NULL, 2, 'pizzeria-tatu-1', NULL, NULL, '[]', '2019-10-27 05:26:14', '2020-01-16 02:06:56', NULL, '', 17, 1),
-(5, 'Pizzeria La popular', 'busines\\October2019\\Fphet9FertO34CqsHjS4.png', '7519933', 'Av Sta Cruz, Trinidad', NULL, NULL, 'ventas de pizzas', 'www.pizzeriapopular.loginweb.net', 7, NULL, NULL, 1, 'pizzeria-la-popular', '[\"busines\\/October2019\\/F3rA2PcZg7cozFxAAISB.jpg\",\"busines\\/October2019\\/WW0iAOSOR2a0EljkqhTF.jpg\",\"busines\\/October2019\\/NqJVrtT7iWQDKbLNjQJg.jpg\"]', NULL, '[]', '2019-10-27 05:26:27', '2020-01-08 04:39:50', NULL, 'https://goo.gl/maps/avRhgfuSt7XnpSt86', 7, 1),
-(6, 'SION Empresa Constructora', 'busines\\October2019\\HpZUemjw8gk94YydamA4.png', '70261492', 'www.gruposion.bo/', NULL, NULL, 'Empresa constructora de edificios, viviendas, etc', 'www.facebook.com/Constructora-SION-1862769370629700/', 15, '<p style=\"margin: 0px 0px 6px; font-family: Helvetica, Arial, sans-serif; color: #1c1e21;\">Servicios de construcci&oacute;n en seco:</p>\r\n<p style=\"margin: 0px 0px 6px; font-family: Helvetica, Arial, sans-serif; color: #1c1e21;\"><br />- CIELO FALO DE PVC, DRYWAL Y MAS...<span class=\"_5mfr\" style=\"margin: 0px 1px; font-family: inherit;\"><span class=\"_6qdm\" style=\"background-repeat: no-repeat; background-size: contain; color: transparent; display: inline-block; text-shadow: none; vertical-align: text-bottom; font-family: inherit; height: 16px; width: 16px; font-size: 16px; background-image: url(\'https://www.facebook.com/images/emoji.php/v9/tb9/1/16/1f6e0.png\');\">🛠</span></span><span class=\"_5mfr\" style=\"margin: 0px 1px; font-family: inherit;\"><span class=\"_6qdm\" style=\"background-repeat: no-repeat; background-size: contain; color: transparent; display: inline-block; text-shadow: none; vertical-align: text-bottom; font-family: inherit; height: 16px; width: 16px; font-size: 16px; background-image: url(\'https://www.facebook.com/images/emoji.php/v9/t5c/1/16/1f477_200d_2642.png\');\">👷&zwj;♂️</span></span><br />- CERCHA METALICA DE ACERO GALVANIZADO<span class=\"_5mfr\" style=\"margin: 0px 1px; font-family: inherit;\"><span class=\"_6qdm\" style=\"background-repeat: no-repeat; background-size: contain; color: transparent; display: inline-block; text-shadow: none; vertical-align: text-bottom; font-family: inherit; height: 16px; width: 16px; font-size: 16px; background-image: url(\'https://www.facebook.com/images/emoji.php/v9/t54/1/16/1f529.png\');\">🔩</span></span><span class=\"_5mfr\" style=\"margin: 0px 1px; font-family: inherit;\"><span class=\"_6qdm\" style=\"background-repeat: no-repeat; background-size: contain; color: transparent; display: inline-block; text-shadow: none; vertical-align: text-bottom; font-family: inherit; height: 16px; width: 16px; font-size: 16px; background-image: url(\'https://www.facebook.com/images/emoji.php/v9/t8d/1/16/2699.png\');\">⚙️</span></span><br />- CUBIERTAS DE TODO TIPO<span class=\"_5mfr\" style=\"margin: 0px 1px; font-family: inherit;\"><span class=\"_6qdm\" style=\"background-repeat: no-repeat; background-size: contain; color: transparent; display: inline-block; text-shadow: none; vertical-align: text-bottom; font-family: inherit; height: 16px; width: 16px; font-size: 16px; background-image: url(\'https://www.facebook.com/images/emoji.php/v9/tf6/1/16/1f3e0.png\');\">🏠</span></span><br />- TABIQUES Y MUROS DIVISORIOS</p>\r\n<div class=\"text_exposed_show\" style=\"display: inline; font-family: Helvetica, Arial, sans-serif; color: #1c1e21;\">\r\n<p style=\"margin: 0px 0px 6px; font-family: inherit;\">Visitanos: CALLE COCHABAMBA ESQ. BOLIVAR<br />Celulares: 71004836 - 70261492</p>\r\n<p style=\"margin: 0px 0px 6px; font-family: inherit;\">&nbsp;</p>\r\n<h2 style=\"margin: 0px 0px 6px; font-family: inherit; text-align: center;\"><span style=\"text-decoration: underline;\">UBICACION</span></h2>\r\n<p style=\"margin: 0px 0px 6px; font-family: inherit;\">&nbsp;</p>\r\n</div>\r\n<p style=\"text-align: center;\"><iframe style=\"border: 0;\" src=\"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3856.876518419932!2d-64.90422598588943!3d-14.832186789655278!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x93dd6fd4c584afdd%3A0x5f4eddfc25cdee09!2sCONSTRUCTORA%20SION!5e0!3m2!1ses-419!2sbo!4v1572316559180!5m2!1ses-419!2sbo\" width=\"600\" height=\"450\" frameborder=\"0\" allowfullscreen=\"\"></iframe></p>', NULL, 3, 'sion-empresa-constructora', '[\"busines\\/October2019\\/91h2Nc5G9qN4XIZex3Mk.jpg\"]', 1, '[\"2\"]', '2019-10-27 05:33:12', '2020-01-16 02:08:07', NULL, 'Calle Cochabamba, esquina Bolivar', 11, 1),
-(7, 'La Palabra del Beni', 'busines\\October2019\\TzoKro3CVt85eRw8F8Xp.png', '34620808', 'Avenida 6 de agosto, entre Pando y Ejercito', NULL, NULL, 'Medio de Comunicación Digital', 'www.lapalabradelbeni.com.bo', 15, '<p>Somos un medio de comunicacion impreso que sale diariamente a las calles con el objetivo de proporcionar informacion, veraz e imparcial a nuestros lectores</p>\r\n<h2 style=\"text-align: center;\"><span style=\"text-decoration: underline;\">UBICACION</span></h2>\r\n<p style=\"text-align: center;\">&nbsp;</p>\r\n<p style=\"text-align: center;\"><iframe style=\"border: 0;\" src=\"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3856.9580596288597!2d-64.9062952858895!3d-14.827611789658256!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x93dd6e2a3f4d5cf1%3A0xa737847f0851c1cf!2sLa%20Palabra%20Del%20Beni!5e0!3m2!1ses-419!2sbo!4v1572316004598!5m2!1ses-419!2sbo\" width=\"600\" height=\"450\" frameborder=\"0\" allowfullscreen=\"\"></iframe></p>', NULL, 3, 'la-palabra-del-beni', '[\"busines\\/October2019\\/9PkLFE9ahiGaxIiEdrxn.jpg\"]', 3, '[\"2\"]', '2019-10-27 05:55:46', '2020-01-16 02:06:11', NULL, 'goo.gl/maps/GqnUcS8gkac15tPx7', 29, 1),
-(8, 'Super Mercado Trinidad', 'busines\\October2019\\u5yjzKYHTFJo3sWXqSVp.jpg', '4622190.4627060', 'AV. COMUNIDAD EUROPEA', NULL, NULL, 'En el supermercado Trinidad tenemos 🛒\r\nOfertas Todo el año para ti🤯\r\nNo te pierdas de nuestras ‼️', 'www.laguia.bo/empresa/trinidad-supermercado', 12, '<h1 style=\"text-align: center;\">SUPERMERCADO TRINIDAD</h1>\r\n<p>VISITANOS Y VERAS LA VARIEDAD DE PRODUCTOS Q OFRECEMOS AL ALCANCE DE TU BOLSILLO Y PEDIDOS A DOMICILIO COMO SER:</p>\r\n<ul>\r\n<li><span style=\"color: #1c1e21; font-family: Helvetica, Arial, sans-serif;\">PRODUCTOS LACTEOS.</span></li>\r\n<li>MATERIAL DE LIMPIEZA.</li>\r\n<li>SECTOR DE JUGUETERIA.</li>\r\n<li>GALERIA DE VINOS.</li>\r\n<li>CARNE EN TODOS LOS CORTES.</li>\r\n<li>TODO PARA EL HOGAR.</li>\r\n</ul>\r\n<p><span style=\"color: #1c1e21; font-family: Helvetica, Arial, sans-serif;\">TE ESPERAMOS CON MUCHAS OFERTAS MAS !!!</span></p>\r\n<h2 style=\"text-align: center;\">UBICACION</h2>\r\n<p>&nbsp;</p>\r\n<p><iframe style=\"border: 0;\" src=\"https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15428.052947428378!2d-64.9007058!3d-14.8245152!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x4e69039a2801d705!2sSupermercado%20Trinidad!5e0!3m2!1ses-419!2sbo!4v1572141783494!5m2!1ses-419!2sbo\" width=\"1110\" height=\"600\" frameborder=\"0\" allowfullscreen=\"\"></iframe></p>', NULL, 4, 'super-mercado-trinidad', '[\"busines\\/October2019\\/ae45rciUeMu06W6Wjjkb.jpg\"]', 1, '[\"6\"]', '2019-10-27 06:04:04', '2020-01-12 21:17:46', NULL, 'goo.gl/maps/BiCRBAaAih8LuiwJA', 78, 1),
-(9, 'Museo ICTICOLA Dr. Jorge Estivars', 'busines/October2019/GQalNguYjgdb5PoWiDBH.jpg', '76863146', 'Cercado, Trinidad, Beni, Bolivia.', NULL, NULL, 'PROMUEVE EL TURISMO CULTURAL Y CIENTIFICO DEPENDIENTE DEL C.I.R.A.', 'bolivia-natura.com/actividades/trinidad-y-beni/museo-icticola-del-beni/', 2, '<h1 style=\"text-align: center;\">MUSEO ICTICOLA</h1>\r\n<p>UNICO MUSEO EN SU GENERO EN BOLIVIA QUE EXNA, CON FINES EXHIBE AL PUBLICO 509 ESPECIES DE PECES DE LA CUENCA AMAZONICA BOLIVIANA, CON FINES&nbsp; EDUCATIVO RECREACION Y DELEITE.</p>\r\n<h2 style=\"text-align: center;\">UBICACION</h2>\r\n<p>&nbsp;</p>\r\n<p><iframe style=\"border: 0;\" src=\"https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15428.964359913965!2d-64.8959789!3d-14.8117212!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xc91c918e22bebe08!2sMuseo%20Ict%C3%ADcola%20del%20Beni!5e0!3m2!1ses-419!2sbo!4v1572307507653!5m2!1ses-419!2sbo\" width=\"1110\" height=\"600\" frameborder=\"0\" allowfullscreen=\"\"></iframe></p>\r\n<p>&nbsp;</p>', NULL, 4, 'museo-icticola-dr-jorge-estivars', '[\"busines\\/October2019\\/dBpaQM22K5SE4imrjQ9o.jpg\",\"busines\\/October2019\\/m0JxbAiGntSaCZD3Kwz3.jpg\"]', NULL, '[\"2\"]', '2019-10-29 02:06:25', '2020-01-11 02:16:56', NULL, 'https://goo.gl/maps/M4Q5smZ4LY2Nmtd56', 6, 1),
-(10, 'Farmacorp', 'busines/October2019/mM8jfYLcDF71cLMKUT5Y.png', '69053587', 'Edifico Durán, Trinidad', NULL, NULL, 'CADENA NACIONAL DE FARMACIAS ES UNA UNIDAD DE NEGOCIIOS DEL GRUPO EMPRESARIAL NEXOCORP.', 'https://farmacorp.com', 4, '<h1 style=\"text-align: center;\">FARMACIA FARMACORP</h1>\r\n<p style=\"text-align: left;\">FARMACORP LA CADENA DE NACIONAL DE FARMACIAS CON 80 A&Ntilde;OS EN EL MERCADO BOLIVIANO, PONE A DISPOSISCION DE SUS CLIENTES UNA VARIADA OFERTA DE PRODUCTOS</p>\r\n<ul>\r\n<li style=\"text-align: left;\">FARMACEUTICOS&nbsp;</li>\r\n<li style=\"text-align: left;\">INSUMOS MEDICOS</li>\r\n<li>HASTA EL CUIDADO PERSONAL</li>\r\n<li>COSMETICOS</li>\r\n<li>SUPLEMENTOS ALIMENTICION</li>\r\n<li>OTROS.</li>\r\n</ul>\r\n<h2 style=\"text-align: center;\">UBICACION</h2>\r\n<p>&nbsp;</p>\r\n<p><iframe style=\"border: 0;\" src=\"https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15427.325973555256!2d-64.9034555!3d-14.8347124!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x7352017ced2491c3!2sFarmacorp%20-%20Sucursal%20Beni!5e0!3m2!1ses-419!2sbo!4v1572310408851!5m2!1ses-419!2sbo\" width=\"1110\" height=\"600\" frameborder=\"0\" allowfullscreen=\"\"></iframe></p>\r\n<p><iframe src=\"https://www.youtube.com/embed/aLWS-f57P0I\" width=\"1110\" height=\"315\" frameborder=\"0\" allowfullscreen=\"\"></iframe></p>', NULL, 4, 'farmacorp', '[\"busines\\/October2019\\/uoJ95HfQKN5pi8pUYBcW.jpg\"]', 3, '[\"6\"]', '2019-10-29 02:55:16', '2020-01-16 07:28:35', NULL, 'goo.gl/maps/VtBXMRTSBEofJznd9', 47, 1),
-(11, 'Churrasqueria La Estancia', 'busines/October2019/RdV6Qz9FVIJ6eOV3519K.jpg', NULL, 'Calle Ibare 57 between Av. Pedro Ignacio Muiba and Hernan Velarde, Trinidad Bolivia', NULL, NULL, 'TIPOS DE COMIDA\r\nCHURRASQUERIA\r\nPARRILLADA\r\nTELF: 59134620022', NULL, 7, '<h1 style=\"text-align: center;\">CHURRASQUERIA LA ESTANCIA</h1>\r\n<div style=\"margin: 0px; padding: 0px; color: #2c2c2c; font-family: Arial, Tahoma, \'Bitstream Vera Sans\', sans-serif; font-size: medium;\">\r\n<div class=\"restaurants-detail-overview-cards-DetailsSectionOverviewCard__categoryTitle--2RJP_\" style=\"margin: 0px; padding: 0px; text-transform: uppercase; font-weight: bold; color: #000a12; font-size: 12px; line-height: 16px;\">COMIDAS</div>\r\n<ul>\r\n<li class=\"restaurants-detail-overview-cards-DetailsSectionOverviewCard__tagText--1OH6h\" style=\"font-size: 14px; line-height: 18px;\">Almuerzo</li>\r\n<li class=\"restaurants-detail-overview-cards-DetailsSectionOverviewCard__tagText--1OH6h\" style=\"font-size: 14px; line-height: 18px;\">Cena</li>\r\n</ul>\r\n</div>\r\n<div class=\"restaurants-detail-overview-cards-DetailsSectionOverviewCard__categoryTitle--2RJP_\" style=\"margin: 0px; padding: 0px; text-transform: uppercase; font-weight: bold; color: #000a12; font-size: 12px; line-height: 16px; text-align: left;\">CARACTER&Iacute;STICAS</div>\r\n<ul>\r\n<li class=\"restaurants-detail-overview-cards-DetailsSectionOverviewCard__tagText--1OH6h\" style=\"font-size: 14px; line-height: 18px; text-align: left;\">Servicio de mesa</li>\r\n<li class=\"restaurants-detail-overview-cards-DetailsSectionOverviewCard__tagText--1OH6h\" style=\"font-size: 14px; line-height: 18px; text-align: left;\">Reservas ind&iacute;genas</li>\r\n</ul>\r\n<h2 style=\"text-align: center;\">UBICACION</h2>\r\n<p>&nbsp;</p>\r\n<p><iframe style=\"border: 0;\" src=\"https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15426.962396110823!2d-64.9036612!3d-14.8398097!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x147d68df5eea15b1!2sChurrasquer%C3%ADa%20La%20Estancia!5e0!3m2!1ses-419!2sbo!4v1572312644249!5m2!1ses-419!2sbo\" width=\"1110\" height=\"600\" frameborder=\"0\" allowfullscreen=\"\"></iframe></p>', NULL, 4, 'churrasqueria-la-estancia', '[\"busines\\/October2019\\/7BtFa4jRxJhQeceoFMit.jpg\",\"busines\\/October2019\\/gBtC3lCioK9ms1plIemQ.jpg\"]', NULL, '[\"6\"]', '2019-10-29 03:40:14', '2020-01-08 04:22:02', NULL, 'https://goo.gl/maps/hbiiy6gK6AexH9DM9', 1, 1),
-(12, 'Churrasqueria El Pacumuto Trinitario', 'busines/October2019/LSxmbaQc0InCl9agWraC.jpg', '72820537', 'Calle Santa Cruz Norte entre Av Del Mar y Felix Sattori\r\nTrinidad (Bolivia).', NULL, NULL, 'RESTAURANTES DE CARNES EN TRINIDAD(BOLIVIA)', NULL, 7, '<h1 style=\"text-align: center;\">CHURRASQUERIA EL PACUMUTO TRINITARI</h1>\r\n<p>RESTAURANTE DE TRADICION FAMILIAR:</p>\r\n<p>CARNES DE CORTE DE LOMO A LA PARRILLA CON GUARNICION DE ARROZ CON QUESO,YUCA FRITA, ENSALADA DE TOMATE Y CEBOLLA.</p>\r\n<p>SE SIRVE:</p>\r\n<ul>\r\n<li>ALMUERZO.</li>\r\n<li>CENA.</li>\r\n<li>BEBIDAS.</li>\r\n</ul>\r\n<p>SERVICIOS:</p>\r\n<ul>\r\n<li>IDEAL PARA GRUPOS.</li>\r\n<li>ACEPTA RESERVAS.</li>\r\n<li>PARA LLEVAR.</li>\r\n<li>SERVICIO MESERO.</li>\r\n<li>NO REQUIERE RESERVAS.</li>\r\n</ul>\r\n<h2 style=\"text-align: center;\">UBICACION&nbsp;</h2>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>\r\n<p><iframe style=\"border: 0;\" src=\"https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15427.714245191886!2d-64.9064742!3d-14.829267!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x187641bacba11d92!2sChurrasqueria%20El%20Pacumuto%20Trinitario!5e0!3m2!1ses-419!2sbo!4v1572386061113!5m2!1ses-419!2sbo\" width=\"1110\" height=\"600\" frameborder=\"0\" allowfullscreen=\"\"></iframe></p>', NULL, 4, 'churrasqueria-el-pacumuto-trinitario', '[\"busines\\/October2019\\/l7GkALbNLgMDS5Txgu3X.jpg\",\"busines\\/October2019\\/SG9KzISX5wYyGwKtYBhI.jpg\"]', NULL, '[\"6\"]', '2019-10-30 00:05:33', '2020-01-16 02:06:27', NULL, 'https://goo.gl/maps/fKkZFzZKUDUA5rQy5', 7, 1);
-
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `bussine_ranges`
+-- Table structure for table `bussine_ranges`
 --
 
 CREATE TABLE `bussine_ranges` (
@@ -90,7 +64,7 @@ CREATE TABLE `bussine_ranges` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Volcado de datos para la tabla `bussine_ranges`
+-- Dumping data for table `bussine_ranges`
 --
 
 INSERT INTO `bussine_ranges` (`id`, `value`, `label`, `image`, `description`, `created_at`, `updated_at`, `deleted_at`) VALUES
@@ -101,7 +75,7 @@ INSERT INTO `bussine_ranges` (`id`, `value`, `label`, `image`, `description`, `c
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `categorias`
+-- Table structure for table `categorias`
 --
 
 CREATE TABLE `categorias` (
@@ -115,7 +89,7 @@ CREATE TABLE `categorias` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Volcado de datos para la tabla `categorias`
+-- Dumping data for table `categorias`
 --
 
 INSERT INTO `categorias` (`id`, `name`, `image`, `icon`, `created_at`, `updated_at`, `deleted_at`) VALUES
@@ -138,7 +112,7 @@ INSERT INTO `categorias` (`id`, `name`, `image`, `icon`, `created_at`, `updated_
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `categories`
+-- Table structure for table `categories`
 --
 
 CREATE TABLE `categories` (
@@ -152,7 +126,7 @@ CREATE TABLE `categories` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Volcado de datos para la tabla `categories`
+-- Dumping data for table `categories`
 --
 
 INSERT INTO `categories` (`id`, `parent_id`, `order`, `name`, `slug`, `created_at`, `updated_at`) VALUES
@@ -162,7 +136,7 @@ INSERT INTO `categories` (`id`, `parent_id`, `order`, `name`, `slug`, `created_a
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `comments`
+-- Table structure for table `comments`
 --
 
 CREATE TABLE `comments` (
@@ -180,20 +154,10 @@ CREATE TABLE `comments` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
---
--- Volcado de datos para la tabla `comments`
---
-
-INSERT INTO `comments` (`id`, `commenter_id`, `commenter_type`, `guest_name`, `guest_email`, `commentable_type`, `commentable_id`, `comment`, `approved`, `child_id`, `created_at`, `updated_at`) VALUES
-(1, '2', 'App\\User', NULL, NULL, 'App\\Busine', '2', 'Esta Negocio esta mal Registrado', 1, NULL, '2019-10-27 04:41:45', '2019-10-27 04:41:45'),
-(2, '1', 'App\\User', NULL, NULL, 'App\\Busine', '5', 'Buenas pizas', 1, NULL, '2019-10-29 00:51:38', '2019-10-29 00:51:38'),
-(3, '4', 'App\\User', NULL, NULL, 'App\\Busine', '5', 'Seria bueno la promociones', 1, NULL, '2019-10-29 00:53:07', '2019-10-29 00:53:07'),
-(4, '1', 'App\\User', NULL, NULL, 'App\\Busine', '8', 'los precios muy accesible', 1, NULL, '2019-11-06 00:08:14', '2019-12-06 20:48:15');
-
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `data_rows`
+-- Table structure for table `data_rows`
 --
 
 CREATE TABLE `data_rows` (
@@ -213,7 +177,7 @@ CREATE TABLE `data_rows` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Volcado de datos para la tabla `data_rows`
+-- Dumping data for table `data_rows`
 --
 
 INSERT INTO `data_rows` (`id`, `data_type_id`, `field`, `type`, `display_name`, `required`, `browse`, `read`, `edit`, `add`, `delete`, `details`, `order`) VALUES
@@ -279,7 +243,7 @@ INSERT INTO `data_rows` (`id`, `data_type_id`, `field`, `type`, `display_name`, 
 (61, 7, 'longitude', 'text', 'Longitude', 0, 0, 1, 1, 1, 0, '{\"display\":{\"width\":\"6\"}}', 28),
 (62, 7, 'latitude', 'text', 'Latitude', 0, 0, 1, 1, 1, 0, '{\"display\":{\"width\":\"6\"}}', 27),
 (63, 7, 'description', 'text_area', 'Descripcion Corta del Negocio', 0, 0, 1, 1, 1, 0, '{\"display\":{\"width\":\"6\"}}', 9),
-(64, 7, 'site', 'text', 'Sitio Web del Neocio', 0, 0, 1, 1, 1, 0, '{\"display\":{\"width\":\"6\"}}', 7),
+(64, 7, 'site', 'text', 'Sitio Web del Negocio', 0, 0, 1, 1, 1, 0, '{\"display\":{\"width\":\"6\"}}', 7),
 (65, 7, 'categoria_id', 'text', 'Categoria Id', 1, 1, 1, 1, 1, 1, '{}', 2),
 (66, 7, 'description_long', 'rich_text_box', 'Description Long', 0, 0, 1, 1, 1, 0, '{}', 16),
 (67, 7, 'user_id', 'text', 'User Id', 1, 0, 1, 1, 1, 1, '{}', 3),
@@ -325,8 +289,8 @@ INSERT INTO `data_rows` (`id`, `data_type_id`, `field`, `type`, `display_name`, 
 (126, 7, 'busine_hasmany_social_network_relationship', 'relationship', 'Redes Sociales', 0, 1, 1, 1, 1, 0, '{\"model\":\"App\\\\SocialNetwork\",\"table\":\"social_networks\",\"type\":\"hasMany\",\"column\":\"busine_id\",\"key\":\"id\",\"label\":\"link\",\"pivot_table\":\"busines\",\"pivot\":\"0\",\"taggable\":\"0\"}', 13),
 (127, 7, 'sharemap', 'text', 'Ruta hacia el Negocio', 1, 0, 1, 1, 1, 0, '{\"display\":{\"width\":\"6\"}}', 8),
 (128, 1, 'email_verified_at', 'timestamp', 'Email Verified At', 0, 1, 1, 1, 1, 0, '{}', 6),
-(129, 10, 'redes', 'select_dropdown', 'Redes', 0, 1, 1, 1, 1, 1, '{\"options\":{\"1\":\"Facebook\",\"2\":\"Twitter\",\"3\":\"Youtube\",\"4\":\"Instagram\"}}', 4),
-(130, 10, 'icon', 'select_dropdown', 'Icon', 1, 1, 1, 1, 1, 1, '{\"options\":{\"fab fa-facebook-square fa-lg mr-3\":\"facebook\",\"fab fa-twitter  fa-lg mr-3\":\"twitter\",\"fab fa-youtube fa-fw red-text fa-lg mr-3\":\"youtube\",\"fab fa-instagram fa-fw pink-text fa-lg mr-3\":\"instagram\"}}', 5),
+(129, 10, 'redes', 'select_dropdown', 'Redes', 0, 0, 0, 0, 0, 0, '{\"options\":{\"1\":\"Facebook\",\"2\":\"Twitter\",\"3\":\"Youtube\",\"4\":\"Instagram\"}}', 4),
+(130, 10, 'icon', 'select_dropdown', 'Red social', 1, 1, 1, 1, 1, 1, '{\"options\":{\"fab fa-facebook-square fa-lg mr-3\":\"facebook\",\"fab fa-twitter  fa-lg mr-3\":\"twitter\",\"fab fa-youtube fa-fw red-text fa-lg mr-3\":\"youtube\",\"fab fa-instagram fa-fw pink-text fa-lg mr-3\":\"instagram\"}}', 5),
 (131, 7, 'deleted_at', 'timestamp', 'Deleted At', 0, 0, 0, 0, 0, 0, '{}', 18),
 (132, 7, 'views', 'text', 'Views', 0, 1, 1, 0, 0, 0, '{}', 21),
 (133, 14, 'id', 'text', 'Id', 1, 0, 0, 0, 0, 0, '{}', 1),
@@ -341,12 +305,19 @@ INSERT INTO `data_rows` (`id`, `data_type_id`, `field`, `type`, `display_name`, 
 (142, 7, 'busine_belongsto_bussine_range_relationship', 'relationship', 'range', 0, 1, 1, 1, 1, 1, '{\"model\":\"App\\\\BussineRange\",\"table\":\"bussine_ranges\",\"type\":\"belongsTo\",\"column\":\"range_id\",\"key\":\"id\",\"label\":\"value\",\"pivot_table\":\"busines\",\"pivot\":\"0\",\"taggable\":\"0\"}', 25),
 (143, 7, 'state', 'checkbox', 'State', 0, 1, 1, 1, 1, 1, '{\"on\":\"Activo\",\"off\":\"Incativo\",\"checked\":\"true\"}', 26),
 (144, 7, 'phone', 'number', 'Phone', 0, 1, 1, 1, 1, 1, '{\"display\":{\"width\":\"6\"}}', 6),
-(145, 7, 'description_app', 'rich_text_box', 'Description App', 0, 0, 0, 1, 1, 1, '{}', 17);
+(145, 7, 'description_app', 'rich_text_box', 'Description App', 0, 0, 0, 1, 1, 1, '{}', 17),
+(146, 1, 'phone', 'text', 'Phone', 0, 1, 1, 1, 1, 1, '{}', 5),
+(147, 1, 'address', 'text', 'Address', 0, 1, 1, 1, 1, 1, '{}', 6),
+(148, 16, 'id', 'text', 'Id', 1, 0, 0, 0, 0, 0, '{}', 1),
+(149, 16, 'key', 'text', 'Key', 1, 1, 1, 1, 1, 1, '{}', 2),
+(150, 16, 'table_name', 'text', 'Table Name', 0, 1, 1, 1, 1, 1, '{}', 3),
+(151, 16, 'created_at', 'timestamp', 'Created At', 0, 1, 1, 0, 0, 0, '{}', 4),
+(152, 16, 'updated_at', 'timestamp', 'Updated At', 0, 0, 0, 0, 0, 0, '{}', 5);
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `data_types`
+-- Table structure for table `data_types`
 --
 
 CREATE TABLE `data_types` (
@@ -368,27 +339,28 @@ CREATE TABLE `data_types` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Volcado de datos para la tabla `data_types`
+-- Dumping data for table `data_types`
 --
 
 INSERT INTO `data_types` (`id`, `name`, `slug`, `display_name_singular`, `display_name_plural`, `icon`, `model_name`, `policy_name`, `controller`, `description`, `generate_permissions`, `server_side`, `details`, `created_at`, `updated_at`) VALUES
-(1, 'users', 'users', 'Usuario', 'Usuarios', 'voyager-person', 'TCG\\Voyager\\Models\\User', 'TCG\\Voyager\\Policies\\UserPolicy', 'TCG\\Voyager\\Http\\Controllers\\VoyagerUserController', NULL, 1, 1, '{\"order_column\":\"updated_at\",\"order_display_column\":\"name\",\"order_direction\":\"desc\",\"default_search_key\":\"name\",\"scope\":null}', '2019-10-25 04:33:22', '2019-10-27 04:14:05'),
+(1, 'users', 'users', 'Usuario', 'Usuarios', 'voyager-person', 'TCG\\Voyager\\Models\\User', 'TCG\\Voyager\\Policies\\UserPolicy', 'TCG\\Voyager\\Http\\Controllers\\VoyagerUserController', NULL, 1, 1, '{\"order_column\":\"updated_at\",\"order_display_column\":\"name\",\"order_direction\":\"desc\",\"default_search_key\":\"name\",\"scope\":null}', '2019-10-25 04:33:22', '2020-01-20 21:40:39'),
 (2, 'menus', 'menus', 'Menú', 'Menús', 'voyager-list', 'TCG\\Voyager\\Models\\Menu', NULL, '', '', 1, 0, NULL, '2019-10-25 04:33:22', '2019-10-25 04:33:22'),
 (3, 'roles', 'roles', 'Rol', 'Roles', 'voyager-lock', 'TCG\\Voyager\\Models\\Role', NULL, NULL, NULL, 1, 1, '{\"order_column\":\"updated_at\",\"order_display_column\":\"name\",\"order_direction\":\"desc\",\"default_search_key\":\"name\",\"scope\":null}', '2019-10-25 04:33:22', '2019-10-27 04:18:43'),
 (4, 'categories', 'categories', 'Categoría', 'Categorías', 'voyager-categories', 'TCG\\Voyager\\Models\\Category', NULL, NULL, NULL, 1, 0, '{\"order_column\":null,\"order_display_column\":null,\"order_direction\":\"desc\",\"default_search_key\":null,\"scope\":null}', '2019-10-25 04:33:22', '2019-10-29 04:08:29'),
 (5, 'posts', 'posts', 'Post', 'Posts', 'voyager-news', 'TCG\\Voyager\\Models\\Post', 'TCG\\Voyager\\Policies\\PostPolicy', '', '', 1, 0, NULL, '2019-10-25 04:33:22', '2019-10-25 04:33:22'),
 (6, 'pages', 'pages', 'Página', 'Páginas', 'voyager-file-text', 'TCG\\Voyager\\Models\\Page', NULL, '', '', 1, 0, NULL, '2019-10-25 04:33:22', '2019-10-25 04:33:22'),
-(7, 'busines', 'busines', 'Negocios', 'Neogicio', 'voyager-shop', 'App\\Busine', NULL, NULL, 'Formulario par crear & editar Negocio o Comercios', 1, 1, '{\"order_column\":\"updated_at\",\"order_display_column\":\"name\",\"order_direction\":\"desc\",\"default_search_key\":\"name\",\"scope\":null}', '2019-10-25 04:44:42', '2019-12-12 02:07:41'),
+(7, 'busines', 'busines', 'Negocios', 'Neogicio', 'voyager-shop', 'App\\Busine', NULL, NULL, 'Formulario par crear & editar Negocio o Comercios', 1, 1, '{\"order_column\":\"updated_at\",\"order_display_column\":\"name\",\"order_direction\":\"desc\",\"default_search_key\":\"name\",\"scope\":null}', '2019-10-25 04:44:42', '2020-01-23 23:56:48'),
 (8, 'categorias', 'categorias', 'Categoria', 'Categorias', 'voyager-list', 'App\\Categoria', NULL, NULL, 'Formulario para gestionar los categorias', 1, 1, '{\"order_column\":\"updated_at\",\"order_display_column\":\"name\",\"order_direction\":\"desc\",\"default_search_key\":\"name\",\"scope\":null}', '2019-10-25 05:20:24', '2019-10-30 03:21:17'),
-(10, 'social_networks', 'social-networks', 'Red Social', 'Redes Sociales', 'voyager-facebook', 'App\\SocialNetwork', NULL, NULL, NULL, 1, 1, '{\"order_column\":\"updated_at\",\"order_display_column\":\"link\",\"order_direction\":\"desc\",\"default_search_key\":\"link\",\"scope\":null}', '2019-10-25 16:30:19', '2019-10-28 19:23:19'),
+(10, 'social_networks', 'social-networks', 'Red Social', 'Redes Sociales', 'voyager-facebook', 'App\\SocialNetwork', NULL, NULL, NULL, 1, 1, '{\"order_column\":\"updated_at\",\"order_display_column\":\"link\",\"order_direction\":\"desc\",\"default_search_key\":\"link\",\"scope\":null}', '2019-10-25 16:30:19', '2020-01-23 19:12:21'),
 (11, 'starts', 'starts', 'Start', 'Starts', NULL, 'App\\Start', NULL, NULL, NULL, 1, 0, '{\"order_column\":null,\"order_display_column\":null,\"order_direction\":\"asc\",\"default_search_key\":null,\"scope\":null}', '2019-10-25 16:31:13', '2019-10-25 16:32:05'),
 (13, 'horarios', 'horarios', 'Horario', 'Horarios', 'voyager-watch', 'App\\Horario', NULL, NULL, 'Formulario para  gestionar los horarios', 1, 1, '{\"order_column\":\"created_at\",\"order_display_column\":\"title\",\"order_direction\":\"desc\",\"default_search_key\":\"title\",\"scope\":null}', '2019-10-25 21:20:44', '2019-10-29 04:12:16'),
-(14, 'bussine_ranges', 'bussine-ranges', 'Bussine Range', 'Bussine Ranges', 'voyager-certificate', 'App\\BussineRange', NULL, NULL, NULL, 1, 0, '{\"order_column\":null,\"order_display_column\":null,\"order_direction\":\"asc\",\"default_search_key\":null,\"scope\":null}', '2019-12-10 20:53:58', '2019-12-10 21:04:57');
+(14, 'bussine_ranges', 'bussine-ranges', 'Bussine Range', 'Bussine Ranges', 'voyager-certificate', 'App\\BussineRange', NULL, NULL, NULL, 1, 0, '{\"order_column\":null,\"order_display_column\":null,\"order_direction\":\"asc\",\"default_search_key\":null,\"scope\":null}', '2019-12-10 20:53:58', '2019-12-10 21:04:57'),
+(16, 'permissions', 'permissions', 'Permission', 'Permissions', 'voyager-certificate', 'App\\Permission', NULL, NULL, NULL, 1, 0, '{\"order_column\":null,\"order_display_column\":null,\"order_direction\":\"asc\",\"default_search_key\":null,\"scope\":null}', '2020-01-24 01:36:43', '2020-01-24 01:37:42');
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `horarios`
+-- Table structure for table `horarios`
 --
 
 CREATE TABLE `horarios` (
@@ -403,28 +375,10 @@ CREATE TABLE `horarios` (
   `deleted_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
---
--- Volcado de datos para la tabla `horarios`
---
-
-INSERT INTO `horarios` (`id`, `title`, `dias`, `hora_inicio`, `hora_final`, `busine_id`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(2, 'horario tatu', '[\"1\",\"7\"]', '18:00:00', '00:30:00', 1, '2019-10-25 21:28:34', '2019-10-25 21:29:21', NULL),
-(3, 'horario pizzeria la popular', '[\"1\",\"7\"]', '18:00:00', '23:59:00', 5, '2019-10-27 05:28:52', '2019-10-27 05:28:52', NULL),
-(4, 'horario de la salle', '[\"1\",\"2\",\"3\",\"4\",\"5\",\"6\"]', '07:00:00', '12:30:00', 3, '2019-10-27 05:39:21', '2019-10-27 05:40:57', NULL),
-(5, 'Horario La palabra del beni', '[\"1\",\"2\",\"3\",\"4\",\"5\",\"6\"]', '07:00:00', '18:00:00', 7, '2019-10-28 19:31:00', '2019-10-28 19:31:00', NULL),
-(7, 'horario', '[\"1\",\"2\",\"3\",\"4\",\"5\",\"6\",\"7\"]', '17:10:00', '02:00:00', 2, '2019-10-28 19:54:35', '2019-10-28 20:31:59', NULL),
-(8, 'Horario de Supermercado trinidad', '[\"1\",\"2\",\"3\",\"4\",\"5\",\"6\"]', '07:00:00', '10:00:00', 8, '2019-10-29 01:16:54', '2019-10-29 01:16:54', NULL),
-(9, 'Horario de Supermercado trinidad', '[\"7\"]', '08:30:00', '14:00:00', 8, '2019-10-29 01:22:54', '2019-10-29 01:22:54', NULL),
-(10, 'Horario Museo ICTICOLA', '[\"1\",\"2\",\"3\",\"4\",\"5\"]', '07:30:00', '18:00:00', 9, '2019-10-29 02:16:04', '2019-10-29 02:16:04', NULL),
-(11, 'Horario Museo ICTICOLA', '[\"6\"]', '07:00:00', '12:00:00', 9, '2019-10-29 02:19:43', '2019-10-29 02:19:43', NULL),
-(12, 'Horario FARMACORP', '[\"1\",\"2\",\"3\",\"4\",\"5\",\"6\",\"7\"]', '00:00:00', '23:59:00', 10, '2019-10-29 02:58:39', '2019-10-29 02:58:39', NULL),
-(13, 'Horario: La Churrasqueria Estancia', '[\"1\"]', '11:00:00', '15:00:00', 11, '2019-10-29 04:01:02', '2019-10-29 04:01:02', NULL),
-(14, 'Horario Churrasqueria El Pacumuto Trinitario', '[\"1\",\"2\",\"3\",\"4\",\"5\",\"6\",\"7\"]', '11:30:00', '23:30:00', 12, '2019-10-30 00:18:51', '2019-10-30 00:18:51', NULL);
-
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `likes`
+-- Table structure for table `likes`
 --
 
 CREATE TABLE `likes` (
@@ -436,49 +390,10 @@ CREATE TABLE `likes` (
   `deleted_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
---
--- Volcado de datos para la tabla `likes`
---
-
-INSERT INTO `likes` (`id`, `user_id`, `busine_id`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(1, 6, 2, '2019-12-06 20:31:57', '2019-12-06 20:31:57', NULL),
-(2, 6, 4, '2019-12-06 20:41:47', '2019-12-06 20:41:47', NULL),
-(3, 1, 8, '2019-12-06 20:47:55', '2019-12-06 20:47:55', NULL),
-(4, 1, 7, '2019-12-06 22:38:29', '2019-12-06 22:38:29', NULL),
-(5, 1, 12, '2019-12-06 22:39:19', '2019-12-06 22:39:19', NULL),
-(6, 6, 10, '2019-12-06 22:39:44', '2019-12-06 22:39:44', '2020-01-08 00:05:56'),
-(8, 6, 10, '2020-01-08 00:01:03', '2020-01-08 00:01:03', '2020-01-08 00:05:56'),
-(9, 6, 7, '2020-01-08 00:04:25', '2020-01-08 00:04:25', '2020-01-08 00:04:34'),
-(10, 6, 10, '2020-01-08 00:04:30', '2020-01-08 00:04:30', '2020-01-08 00:05:56'),
-(11, 6, 10, '2020-01-08 00:05:56', '2020-01-08 00:05:56', NULL),
-(12, 6, 3, '2020-01-08 00:07:48', '2020-01-08 00:07:48', NULL),
-(13, 8, 7, '2020-01-08 02:40:05', '2020-01-08 02:40:05', NULL),
-(14, 9, 10, '2020-01-08 03:48:10', '2020-01-08 03:48:10', '2020-01-12 03:47:07'),
-(15, 9, 10, '2020-01-08 03:48:19', '2020-01-08 03:48:19', '2020-01-12 03:47:07'),
-(16, 9, 2, '2020-01-08 04:04:08', '2020-01-08 04:04:08', '2020-01-09 01:04:42'),
-(17, 9, 8, '2020-01-08 04:04:13', '2020-01-08 04:04:13', NULL),
-(18, 9, 3, '2020-01-08 04:04:18', '2020-01-08 04:04:18', NULL),
-(19, 9, 9, '2020-01-08 04:04:29', '2020-01-08 04:04:29', NULL),
-(20, 9, 7, '2020-01-08 23:37:10', '2020-01-08 23:37:10', '2020-01-15 00:45:07'),
-(21, 9, 10, '2020-01-09 00:29:48', '2020-01-09 00:29:48', '2020-01-12 03:47:07'),
-(22, 9, 7, '2020-01-09 00:34:01', '2020-01-09 00:34:01', '2020-01-15 00:45:07'),
-(23, 9, 10, '2020-01-09 00:36:02', '2020-01-09 00:36:02', '2020-01-12 03:47:07'),
-(24, 9, 2, '2020-01-09 01:04:42', '2020-01-09 01:04:42', NULL),
-(25, 9, 10, '2020-01-09 01:20:26', '2020-01-09 01:20:26', '2020-01-12 03:47:07'),
-(26, 9, 10, '2020-01-09 01:20:35', '2020-01-09 01:20:35', '2020-01-12 03:47:07'),
-(27, 9, 7, '2020-01-11 02:14:48', '2020-01-11 02:14:48', '2020-01-15 00:45:07'),
-(28, 9, 10, '2020-01-12 03:47:07', '2020-01-12 03:47:07', NULL),
-(29, 9, 6, '2020-01-12 03:47:28', '2020-01-12 03:47:28', NULL),
-(30, 10, 7, '2020-01-15 06:13:13', '2020-01-15 06:13:13', '2020-01-16 07:18:29'),
-(31, 11, 2, '2020-01-16 02:00:49', '2020-01-16 02:00:49', NULL),
-(32, 11, 10, '2020-01-16 02:01:00', '2020-01-16 02:01:00', NULL),
-(33, 11, 6, '2020-01-16 02:01:00', '2020-01-16 02:01:00', NULL),
-(34, 10, 10, '2020-01-16 02:04:09', '2020-01-16 02:04:09', NULL);
-
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `menus`
+-- Table structure for table `menus`
 --
 
 CREATE TABLE `menus` (
@@ -489,7 +404,7 @@ CREATE TABLE `menus` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Volcado de datos para la tabla `menus`
+-- Dumping data for table `menus`
 --
 
 INSERT INTO `menus` (`id`, `name`, `created_at`, `updated_at`) VALUES
@@ -498,7 +413,7 @@ INSERT INTO `menus` (`id`, `name`, `created_at`, `updated_at`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `menu_items`
+-- Table structure for table `menu_items`
 --
 
 CREATE TABLE `menu_items` (
@@ -518,7 +433,7 @@ CREATE TABLE `menu_items` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Volcado de datos para la tabla `menu_items`
+-- Dumping data for table `menu_items`
 --
 
 INSERT INTO `menu_items` (`id`, `menu_id`, `title`, `url`, `target`, `icon_class`, `color`, `parent_id`, `order`, `created_at`, `updated_at`, `route`, `parameters`) VALUES
@@ -527,15 +442,15 @@ INSERT INTO `menu_items` (`id`, `menu_id`, `title`, `url`, `target`, `icon_class
 (3, 1, 'Usuarios', '', '_self', 'voyager-person', NULL, 22, 1, '2019-10-25 04:33:22', '2019-10-27 03:42:55', 'voyager.users.index', NULL),
 (4, 1, 'Roles', '', '_self', 'voyager-lock', NULL, 22, 2, '2019-10-25 04:33:22', '2019-10-27 03:42:55', 'voyager.roles.index', NULL),
 (5, 1, 'Herramientas', '', '_self', 'voyager-tools', NULL, NULL, 5, '2019-10-25 04:33:22', '2019-12-10 20:55:21', NULL, NULL),
-(6, 1, 'Menús', '', '_self', 'voyager-list', '#000000', 5, 4, '2019-10-25 04:33:22', '2019-12-10 20:55:16', 'voyager.menus.index', 'null'),
+(6, 1, 'Menús', '', '_self', 'voyager-list', '#000000', 5, 4, '2019-10-25 04:33:22', '2020-01-24 01:38:07', 'voyager.menus.index', 'null'),
 (7, 1, 'Base de Datos', '', '_self', 'voyager-data', NULL, 5, 2, '2019-10-25 04:33:22', '2019-10-28 18:47:05', 'voyager.database.index', NULL),
-(8, 1, 'Compás', '', '_self', 'voyager-compass', NULL, 5, 5, '2019-10-25 04:33:22', '2019-12-10 20:55:16', 'voyager.compass.index', NULL),
+(8, 1, 'Compás', '', '_self', 'voyager-compass', NULL, 5, 5, '2019-10-25 04:33:22', '2020-01-24 01:38:07', 'voyager.compass.index', NULL),
 (9, 1, 'BREAD', '', '_self', 'voyager-bread', NULL, 5, 1, '2019-10-25 04:33:22', '2019-10-28 18:46:56', 'voyager.bread.index', NULL),
 (10, 1, 'Parámetros', '', '_self', 'voyager-settings', NULL, NULL, 2, '2019-10-25 04:33:22', '2019-10-27 03:59:23', 'voyager.settings.index', NULL),
-(11, 1, 'Categorías', '', '_self', 'voyager-categories', NULL, 5, 6, '2019-10-25 04:33:22', '2019-12-10 20:55:16', 'voyager.categories.index', NULL),
-(12, 1, 'Posts', '', '_self', 'voyager-news', NULL, 5, 7, '2019-10-25 04:33:22', '2019-12-10 20:55:16', 'voyager.posts.index', NULL),
-(13, 1, 'Páginas', '', '_self', 'voyager-file-text', NULL, 5, 8, '2019-10-25 04:33:23', '2019-12-10 20:55:16', 'voyager.pages.index', NULL),
-(14, 1, 'Hooks', '', '_self', 'voyager-hook', NULL, 5, 9, '2019-10-25 04:33:23', '2019-12-10 20:55:16', 'voyager.hooks', NULL),
+(11, 1, 'Categorías', '', '_self', 'voyager-categories', NULL, 5, 6, '2019-10-25 04:33:22', '2020-01-24 01:38:07', 'voyager.categories.index', NULL),
+(12, 1, 'Posts', '', '_self', 'voyager-news', NULL, 5, 7, '2019-10-25 04:33:22', '2020-01-24 01:38:07', 'voyager.posts.index', NULL),
+(13, 1, 'Páginas', '', '_self', 'voyager-file-text', NULL, 5, 8, '2019-10-25 04:33:23', '2020-01-24 01:38:07', 'voyager.pages.index', NULL),
+(14, 1, 'Hooks', '', '_self', 'voyager-hook', NULL, 5, 9, '2019-10-25 04:33:23', '2020-01-24 01:38:07', 'voyager.hooks', NULL),
 (15, 1, 'Bussines', '', '_self', 'voyager-double-right', '#000000', 23, 1, '2019-10-25 04:44:42', '2019-10-28 18:45:09', 'voyager.busines.index', 'null'),
 (16, 1, 'Categorias', '', '_self', 'voyager-double-right', '#000000', 23, 2, '2019-10-25 05:20:24', '2019-10-28 18:45:21', 'voyager.categorias.index', 'null'),
 (18, 1, 'Social Networks', '', '_self', 'voyager-double-right', '#000000', 23, 4, '2019-10-25 16:30:19', '2019-12-10 20:55:20', 'voyager.social-networks.index', 'null'),
@@ -543,12 +458,14 @@ INSERT INTO `menu_items` (`id`, `menu_id`, `title`, `url`, `target`, `icon_class
 (21, 1, 'Horarios', '', '_self', 'voyager-double-right', '#000000', 23, 5, '2019-10-25 21:20:44', '2019-12-10 20:55:21', 'voyager.horarios.index', 'null'),
 (22, 1, 'User & Roles', '', '_self', 'voyager-group', '#000000', NULL, 4, '2019-10-27 03:42:24', '2019-12-10 20:55:21', NULL, ''),
 (23, 1, 'M. Bussines', '', '_self', 'voyager-shop', '#000000', NULL, 3, '2019-10-27 03:44:36', '2019-10-27 03:59:36', NULL, ''),
-(24, 1, 'Bussine Ranges', '', '_self', 'voyager-double-right', '#000000', 23, 3, '2019-12-10 20:53:58', '2019-12-10 20:57:27', 'voyager.bussine-ranges.index', 'null');
+(24, 1, 'Bussine Ranges', '', '_self', 'voyager-double-right', '#000000', 23, 3, '2019-12-10 20:53:58', '2019-12-10 20:57:27', 'voyager.bussine-ranges.index', 'null'),
+(25, 1, 'Mi negocio', '', '_self', 'voyager-shop', '#000000', NULL, 6, '2020-01-20 19:56:50', '2020-01-20 20:01:19', 'negocios_index', 'null'),
+(26, 1, 'Permissions', '', '_self', 'voyager-certificate', '#000000', 22, 3, '2020-01-24 01:36:44', '2020-01-24 01:38:07', 'voyager.permissions.index', 'null');
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `messages`
+-- Table structure for table `messages`
 --
 
 CREATE TABLE `messages` (
@@ -565,7 +482,7 @@ CREATE TABLE `messages` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `migrations`
+-- Table structure for table `migrations`
 --
 
 CREATE TABLE `migrations` (
@@ -575,7 +492,7 @@ CREATE TABLE `migrations` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Volcado de datos para la tabla `migrations`
+-- Dumping data for table `migrations`
 --
 
 INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
@@ -616,7 +533,7 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `pages`
+-- Table structure for table `pages`
 --
 
 CREATE TABLE `pages` (
@@ -635,7 +552,7 @@ CREATE TABLE `pages` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Volcado de datos para la tabla `pages`
+-- Dumping data for table `pages`
 --
 
 INSERT INTO `pages` (`id`, `author_id`, `title`, `excerpt`, `body`, `image`, `slug`, `meta_description`, `meta_keywords`, `status`, `created_at`, `updated_at`) VALUES
@@ -644,7 +561,7 @@ INSERT INTO `pages` (`id`, `author_id`, `title`, `excerpt`, `body`, `image`, `sl
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `password_resets`
+-- Table structure for table `password_resets`
 --
 
 CREATE TABLE `password_resets` (
@@ -654,7 +571,7 @@ CREATE TABLE `password_resets` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Volcado de datos para la tabla `password_resets`
+-- Dumping data for table `password_resets`
 --
 
 INSERT INTO `password_resets` (`email`, `token`, `created_at`) VALUES
@@ -663,7 +580,7 @@ INSERT INTO `password_resets` (`email`, `token`, `created_at`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `permissions`
+-- Table structure for table `permissions`
 --
 
 CREATE TABLE `permissions` (
@@ -675,7 +592,7 @@ CREATE TABLE `permissions` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Volcado de datos para la tabla `permissions`
+-- Dumping data for table `permissions`
 --
 
 INSERT INTO `permissions` (`id`, `key`, `table_name`, `created_at`, `updated_at`) VALUES
@@ -749,12 +666,18 @@ INSERT INTO `permissions` (`id`, `key`, `table_name`, `created_at`, `updated_at`
 (78, 'read_bussine_ranges', 'bussine_ranges', '2019-12-10 20:53:58', '2019-12-10 20:53:58'),
 (79, 'edit_bussine_ranges', 'bussine_ranges', '2019-12-10 20:53:58', '2019-12-10 20:53:58'),
 (80, 'add_bussine_ranges', 'bussine_ranges', '2019-12-10 20:53:58', '2019-12-10 20:53:58'),
-(81, 'delete_bussine_ranges', 'bussine_ranges', '2019-12-10 20:53:58', '2019-12-10 20:53:58');
+(81, 'delete_bussine_ranges', 'bussine_ranges', '2019-12-10 20:53:58', '2019-12-10 20:53:58'),
+(82, 'browse_permissions', 'permissions', '2020-01-24 01:36:44', '2020-01-24 01:36:44'),
+(83, 'read_permissions', 'permissions', '2020-01-24 01:36:44', '2020-01-24 01:36:44'),
+(84, 'edit_permissions', 'permissions', '2020-01-24 01:36:44', '2020-01-24 01:36:44'),
+(85, 'add_permissions', 'permissions', '2020-01-24 01:36:44', '2020-01-24 01:36:44'),
+(86, 'delete_permissions', 'permissions', '2020-01-24 01:36:44', '2020-01-24 01:36:44'),
+(87, 'browse_negocios', 'negocios', '2020-01-24 01:39:30', '2020-01-24 01:39:30');
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `permission_role`
+-- Table structure for table `permission_role`
 --
 
 CREATE TABLE `permission_role` (
@@ -763,7 +686,7 @@ CREATE TABLE `permission_role` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Volcado de datos para la tabla `permission_role`
+-- Dumping data for table `permission_role`
 --
 
 INSERT INTO `permission_role` (`permission_id`, `role_id`) VALUES
@@ -857,12 +780,19 @@ INSERT INTO `permission_role` (`permission_id`, `role_id`) VALUES
 (78, 1),
 (79, 1),
 (80, 1),
-(81, 1);
+(81, 1),
+(82, 1),
+(83, 1),
+(84, 1),
+(85, 1),
+(86, 1),
+(87, 1),
+(87, 2);
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `posts`
+-- Table structure for table `posts`
 --
 
 CREATE TABLE `posts` (
@@ -884,7 +814,7 @@ CREATE TABLE `posts` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Volcado de datos para la tabla `posts`
+-- Dumping data for table `posts`
 --
 
 INSERT INTO `posts` (`id`, `author_id`, `category_id`, `title`, `seo_title`, `excerpt`, `body`, `image`, `slug`, `meta_description`, `meta_keywords`, `status`, `featured`, `created_at`, `updated_at`) VALUES
@@ -896,7 +826,7 @@ INSERT INTO `posts` (`id`, `author_id`, `category_id`, `title`, `seo_title`, `ex
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `roles`
+-- Table structure for table `roles`
 --
 
 CREATE TABLE `roles` (
@@ -908,7 +838,7 @@ CREATE TABLE `roles` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Volcado de datos para la tabla `roles`
+-- Dumping data for table `roles`
 --
 
 INSERT INTO `roles` (`id`, `name`, `display_name`, `created_at`, `updated_at`) VALUES
@@ -919,7 +849,7 @@ INSERT INTO `roles` (`id`, `name`, `display_name`, `created_at`, `updated_at`) V
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `settings`
+-- Table structure for table `settings`
 --
 
 CREATE TABLE `settings` (
@@ -934,7 +864,7 @@ CREATE TABLE `settings` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Volcado de datos para la tabla `settings`
+-- Dumping data for table `settings`
 --
 
 INSERT INTO `settings` (`id`, `key`, `display_name`, `value`, `details`, `type`, `order`, `group`) VALUES
@@ -955,12 +885,19 @@ INSERT INTO `settings` (`id`, `key`, `display_name`, `value`, `details`, `type`,
 (15, 'site.paginador_lp', 'Paginador de LandingPage', '12', NULL, 'text', 10, 'Site'),
 (16, 'aboutus.direccion', 'Dirección', 'Av. David Shriqui Urbanización Santa Inés', NULL, 'text_area', 11, 'AboutUs'),
 (17, 'aboutus.telefono', 'Teléfono', '+591 71130523', NULL, 'text', 12, 'AboutUs'),
-(18, 'aboutus.email', 'E-mail', 'empresa.loginweb@gmail.com', NULL, 'text', 13, 'AboutUs');
+(18, 'aboutus.email', 'E-mail', 'empresa.loginweb@gmail.com', NULL, 'text', 13, 'AboutUs'),
+(20, 'social.link_facebook', 'Facebook', NULL, NULL, 'text', 14, 'Social'),
+(22, 'social.link_instagram', 'Instagram', NULL, NULL, 'text', 15, 'Social'),
+(23, 'social.link_twitter', 'Twitter', NULL, NULL, 'text', 16, 'Social'),
+(24, 'social.link_linkedIn', 'LinkedIn', NULL, NULL, 'text', 17, 'Social'),
+(25, 'aboutus.name', 'Nombre', 'LoginWeb', NULL, 'text', 10, 'AboutUs'),
+(26, 'aboutus.description', 'Descripción', 'Somos una empresa de tecnología especializada en desarrollo de Software y Hardware.', NULL, 'text', 10, 'AboutUs'),
+(27, 'social.link_github', 'GitHub', NULL, NULL, 'text', 18, 'Social');
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `social_networks`
+-- Table structure for table `social_networks`
 --
 
 CREATE TABLE `social_networks` (
@@ -973,34 +910,10 @@ CREATE TABLE `social_networks` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
---
--- Volcado de datos para la tabla `social_networks`
---
-
-INSERT INTO `social_networks` (`id`, `link`, `redes`, `icon`, `busine_id`, `created_at`, `updated_at`) VALUES
-(1, 'www.youtube.com', '3', 'fab fa-youtube fa-fw red-text fa-lg mr-3', 1, '2019-10-25 16:33:32', '2019-10-28 19:19:27'),
-(2, 'https://facebook.com/pizzaspopular', '1', 'fab fa-facebook-square fa-lg mr-3', 5, '2019-10-27 05:27:54', '2019-10-29 06:13:42'),
-(3, 'https://facebook.com/LaSalleTddOficial/', '1', 'fab fa-facebook-square fa-lg mr-3', 3, '2019-10-27 05:29:49', '2019-10-29 06:14:09'),
-(4, 'https://facebook.com/pg/supermercadotdd/posts/', '1', 'fab fa-facebook-square fa-lg mr-3', 8, '2019-10-27 06:10:07', '2019-10-29 06:12:39'),
-(5, 'www.instagram.com', '4', 'fab fa-instagram fa-fw pink-text fa-lg mr-3', 4, '2019-10-28 19:10:47', '2019-10-28 19:19:17'),
-(6, 'www.youtube.com', '3', 'fab fa-youtube fa-fw red-text fa-lg mr-3', 4, '2019-10-28 19:12:13', '2019-10-28 19:19:07'),
-(7, 'www.facebook.com', '1', 'fab fa-facebook-square fa-lg mr-3', 4, '2019-10-28 19:12:44', '2019-10-28 19:24:18'),
-(8, 'www.facebook.com', '1', 'fab fa-facebook-square fa-lg mr-3', 7, '2019-10-28 19:42:50', '2019-10-28 19:42:50'),
-(9, 'www.twitter.com', '2', 'fab fa-twitter  fa-lg mr-3', 7, '2019-10-28 19:43:24', '2019-10-28 19:43:24'),
-(10, 'www.youtube.com', '3', 'fab fa-youtube fa-fw red-text fa-lg mr-3', 7, '2019-10-28 19:44:00', '2019-10-28 19:44:00'),
-(11, 'www.instagram.com', '4', 'fab fa-instagram fa-fw pink-text fa-lg mr-3', 7, '2019-10-28 19:44:23', '2019-10-28 19:44:23'),
-(12, 'https://facebook.com/Fexpobeni', '1', 'fab fa-facebook-square fa-lg mr-3', 2, '2019-10-28 20:01:09', '2019-10-29 06:10:43'),
-(13, 'https://twitter.com', '2', 'fab fa-twitter  fa-lg mr-3', 2, '2019-10-28 20:01:29', '2019-10-29 06:12:14'),
-(14, 'https://youtube.com', '3', 'fab fa-youtube fa-fw red-text fa-lg mr-3', 2, '2019-10-28 20:01:55', '2019-10-29 06:11:53'),
-(15, 'https://facebook.com/museo.icticoladelbeni/', '1', 'fab fa-facebook-square fa-lg mr-3', 9, '2019-10-29 02:10:53', '2019-10-29 06:11:26'),
-(16, 'https://facebook.com/farmacorp', '1', 'fab fa-facebook-square fa-lg mr-3', 10, '2019-10-29 03:07:37', '2019-10-29 06:11:13'),
-(17, 'https://facebook.com/ChurrasqueriaLaEstancia/', '1', 'fab fa-facebook-square fa-lg mr-3', 11, '2019-10-29 03:57:44', '2019-10-29 06:10:59'),
-(18, 'https://www.facebook.com/PacumutoTrinitario', '1', 'fab fa-facebook-square fa-lg mr-3', 12, '2019-10-30 00:13:43', '2019-10-30 00:13:43');
-
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `starts`
+-- Table structure for table `starts`
 --
 
 CREATE TABLE `starts` (
@@ -1013,26 +926,10 @@ CREATE TABLE `starts` (
   `deleted_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
---
--- Volcado de datos para la tabla `starts`
---
-
-INSERT INTO `starts` (`id`, `puntuacion`, `busine_id`, `user_id`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(2, 1, 1, 1, '2019-10-26 04:53:20', '2019-10-26 04:53:20', NULL),
-(3, 5, 3, 4, '2019-10-29 01:00:21', '2019-10-29 01:00:21', NULL),
-(4, 3, 8, 4, '2019-10-29 01:10:37', '2019-10-29 01:10:37', NULL),
-(6, 1, 7, 1, '2019-12-06 01:34:08', '2019-12-06 01:34:08', NULL),
-(7, 5, 2, 1, '2019-12-06 20:39:49', '2019-12-06 20:39:49', NULL),
-(8, 4, 4, 1, '2019-12-06 20:41:28', '2019-12-06 20:41:28', NULL),
-(9, 3, 5, 1, '2019-12-06 20:42:39', '2019-12-06 20:42:39', NULL),
-(10, 1, 10, 1, '2019-12-06 20:43:04', '2019-12-06 20:43:04', NULL),
-(11, 5, 8, 1, '2019-12-06 21:22:09', '2019-12-06 21:22:09', NULL),
-(12, 4, 12, 1, '2019-12-06 22:39:13', '2019-12-06 22:39:13', NULL);
-
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `telescope_entries`
+-- Table structure for table `telescope_entries`
 --
 
 CREATE TABLE `telescope_entries` (
@@ -1049,7 +946,7 @@ CREATE TABLE `telescope_entries` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `telescope_entries_tags`
+-- Table structure for table `telescope_entries_tags`
 --
 
 CREATE TABLE `telescope_entries_tags` (
@@ -1060,7 +957,7 @@ CREATE TABLE `telescope_entries_tags` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `telescope_monitoring`
+-- Table structure for table `telescope_monitoring`
 --
 
 CREATE TABLE `telescope_monitoring` (
@@ -1070,7 +967,7 @@ CREATE TABLE `telescope_monitoring` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `translations`
+-- Table structure for table `translations`
 --
 
 CREATE TABLE `translations` (
@@ -1085,7 +982,7 @@ CREATE TABLE `translations` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Volcado de datos para la tabla `translations`
+-- Dumping data for table `translations`
 --
 
 INSERT INTO `translations` (`id`, `table_name`, `column_name`, `foreign_key`, `locale`, `value`, `created_at`, `updated_at`) VALUES
@@ -1123,7 +1020,7 @@ INSERT INTO `translations` (`id`, `table_name`, `column_name`, `foreign_key`, `l
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `users`
+-- Table structure for table `users`
 --
 
 CREATE TABLE `users` (
@@ -1143,22 +1040,23 @@ CREATE TABLE `users` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Volcado de datos para la tabla `users`
+-- Dumping data for table `users`
 --
 
 INSERT INTO `users` (`id`, `role_id`, `name`, `email`, `phone`, `address`, `avatar`, `email_verified_at`, `password`, `remember_token`, `settings`, `created_at`, `updated_at`) VALUES
-(1, 1, 'Admin', 'admin@admin.com', NULL, NULL, 'users/default.png', NULL, '$2y$10$AqAZWeSmoJz5shYLqdA6luXMM.CiHmUH1OPqDdmrh1WnWq/Ys0hTW', 'PZeLGZZpEH3m3kbKkeio09M6IdqcnguakdwVOUheyURBdNvLHnFcaD3VM1fG', NULL, '2019-10-25 04:33:22', '2019-10-25 04:33:22'),
+(1, 1, 'Admin', 'admin@admin.com', NULL, NULL, 'users/default.png', NULL, '$2y$10$AqAZWeSmoJz5shYLqdA6luXMM.CiHmUH1OPqDdmrh1WnWq/Ys0hTW', 's6DK9So5R4jI84vSMXSiCF8Z8bKY1p5LteayJdCcAcUkydQdr06aWQcYzd7H', NULL, '2019-10-25 04:33:22', '2019-10-25 04:33:22'),
 (2, 3, 'percy alvarez', 'percy.alvarez.2017@gmail.com', NULL, NULL, 'users/default.png', NULL, '$2y$10$7WwPHdodDEqPEz2kiaSxBeFxKTw4t5I9FARUK0TSeq/t7kaBcJgKO', NULL, '{\"locale\":\"es\"}', '2019-10-27 03:05:49', '2019-10-27 04:21:34'),
 (3, 3, 'paul', 'paulbrayan2011@gmail.com', NULL, NULL, 'users/default.png', NULL, '$2y$10$AqAZWeSmoJz5shYLqdA6luXMM.CiHmUH1OPqDdmrh1WnWq/Ys0hTW', NULL, '{\"locale\":\"es\"}', '2019-10-27 03:25:01', '2019-10-27 04:28:24'),
 (4, 3, 'richard eddy', 'r.e.t.c.bolivia@gmail.com', NULL, NULL, 'users/default.png', NULL, '$2y$10$KiBHIhJIbMIY097KUltYfOH4QtaJ85l1m/Du4ytXbYiBUrrv.wibO', NULL, '{\"locale\":\"es\"}', '2019-10-27 03:27:50', '2019-10-29 00:26:29'),
 (9, 2, 'Empresa Loginweb', '126369682179959@deni.com', '78786756', 'calle 1', 'http://graph.facebook.com/126369682179959/picture?type=large', NULL, '$2y$10$2J/TZ6r0hbE5uzBfv7eLDOYmbZkrLpgEc4OFhZ0Z7N4lfyySl667S', NULL, NULL, '2020-01-08 02:54:16', '2020-01-10 02:51:54'),
 (10, 2, 'Agustin Mejia', '172278994011973@deni.com', NULL, NULL, 'http://graph.facebook.com/172278994011973/picture?type=large', NULL, '$2y$10$yqiLpj/XAMQdXn3DgwIkwON80kuWYZKdsqgrzT93cOaW.jM2fxg/2', NULL, NULL, '2020-01-15 06:12:49', '2020-01-15 06:12:49'),
-(11, 2, 'Rodrigo Raul Montero Acosta', '2809897112407593@deni.com', '76880951', 'Zona pantanal', 'http://graph.facebook.com/2809897112407593/picture?type=large', NULL, '$2y$10$ENGg1cjt7mR.n4XKp7fLCe.yarPTLrA0YGPgJc5J7PakBxAJHN2n.', NULL, NULL, '2020-01-16 01:59:31', '2020-01-16 02:05:55');
+(11, 2, 'Rodrigo Raul Montero Acosta', '2809897112407593@deni.com', '76880951', 'Zona pantanal', 'http://graph.facebook.com/2809897112407593/picture?type=large', NULL, '$2y$10$ENGg1cjt7mR.n4XKp7fLCe.yarPTLrA0YGPgJc5J7PakBxAJHN2n.', NULL, NULL, '2020-01-16 01:59:31', '2020-01-16 02:05:55'),
+(12, 2, 'Miguel Angel Perez', 'miguelangel@gmail.com', NULL, NULL, 'users/default.png', NULL, '$2y$10$RPs8CSofMDLZSLmLPfEVC.5E2JmiAayAL7JzTadEkCqisAXN5.d56', NULL, NULL, '2020-01-18 01:52:37', '2020-01-18 01:52:37');
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `user_roles`
+-- Table structure for table `user_roles`
 --
 
 CREATE TABLE `user_roles` (
@@ -1169,7 +1067,7 @@ CREATE TABLE `user_roles` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `websockets_statistics_entries`
+-- Table structure for table `websockets_statistics_entries`
 --
 
 CREATE TABLE `websockets_statistics_entries` (
@@ -1184,11 +1082,11 @@ CREATE TABLE `websockets_statistics_entries` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Índices para tablas volcadas
+-- Indexes for dumped tables
 --
 
 --
--- Indices de la tabla `busines`
+-- Indexes for table `busines`
 --
 ALTER TABLE `busines`
   ADD PRIMARY KEY (`id`),
@@ -1196,19 +1094,19 @@ ALTER TABLE `busines`
   ADD KEY `busines_user_id_foreign` (`user_id`);
 
 --
--- Indices de la tabla `bussine_ranges`
+-- Indexes for table `bussine_ranges`
 --
 ALTER TABLE `bussine_ranges`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `categorias`
+-- Indexes for table `categorias`
 --
 ALTER TABLE `categorias`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `categories`
+-- Indexes for table `categories`
 --
 ALTER TABLE `categories`
   ADD PRIMARY KEY (`id`),
@@ -1216,7 +1114,7 @@ ALTER TABLE `categories`
   ADD KEY `categories_parent_id_foreign` (`parent_id`);
 
 --
--- Indices de la tabla `comments`
+-- Indexes for table `comments`
 --
 ALTER TABLE `comments`
   ADD PRIMARY KEY (`id`),
@@ -1225,14 +1123,14 @@ ALTER TABLE `comments`
   ADD KEY `comments_child_id_foreign` (`child_id`);
 
 --
--- Indices de la tabla `data_rows`
+-- Indexes for table `data_rows`
 --
 ALTER TABLE `data_rows`
   ADD PRIMARY KEY (`id`),
   ADD KEY `data_rows_data_type_id_foreign` (`data_type_id`);
 
 --
--- Indices de la tabla `data_types`
+-- Indexes for table `data_types`
 --
 ALTER TABLE `data_types`
   ADD PRIMARY KEY (`id`),
@@ -1240,66 +1138,66 @@ ALTER TABLE `data_types`
   ADD UNIQUE KEY `data_types_slug_unique` (`slug`);
 
 --
--- Indices de la tabla `horarios`
+-- Indexes for table `horarios`
 --
 ALTER TABLE `horarios`
   ADD PRIMARY KEY (`id`),
   ADD KEY `horarios_busine_id_foreign` (`busine_id`);
 
 --
--- Indices de la tabla `likes`
+-- Indexes for table `likes`
 --
 ALTER TABLE `likes`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `menus`
+-- Indexes for table `menus`
 --
 ALTER TABLE `menus`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `menus_name_unique` (`name`);
 
 --
--- Indices de la tabla `menu_items`
+-- Indexes for table `menu_items`
 --
 ALTER TABLE `menu_items`
   ADD PRIMARY KEY (`id`),
   ADD KEY `menu_items_menu_id_foreign` (`menu_id`);
 
 --
--- Indices de la tabla `messages`
+-- Indexes for table `messages`
 --
 ALTER TABLE `messages`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `migrations`
+-- Indexes for table `migrations`
 --
 ALTER TABLE `migrations`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `pages`
+-- Indexes for table `pages`
 --
 ALTER TABLE `pages`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `pages_slug_unique` (`slug`);
 
 --
--- Indices de la tabla `password_resets`
+-- Indexes for table `password_resets`
 --
 ALTER TABLE `password_resets`
   ADD KEY `password_resets_email_index` (`email`);
 
 --
--- Indices de la tabla `permissions`
+-- Indexes for table `permissions`
 --
 ALTER TABLE `permissions`
   ADD PRIMARY KEY (`id`),
   ADD KEY `permissions_key_index` (`key`);
 
 --
--- Indices de la tabla `permission_role`
+-- Indexes for table `permission_role`
 --
 ALTER TABLE `permission_role`
   ADD PRIMARY KEY (`permission_id`,`role_id`),
@@ -1307,35 +1205,35 @@ ALTER TABLE `permission_role`
   ADD KEY `permission_role_role_id_index` (`role_id`);
 
 --
--- Indices de la tabla `posts`
+-- Indexes for table `posts`
 --
 ALTER TABLE `posts`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `posts_slug_unique` (`slug`);
 
 --
--- Indices de la tabla `roles`
+-- Indexes for table `roles`
 --
 ALTER TABLE `roles`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `roles_name_unique` (`name`);
 
 --
--- Indices de la tabla `settings`
+-- Indexes for table `settings`
 --
 ALTER TABLE `settings`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `settings_key_unique` (`key`);
 
 --
--- Indices de la tabla `social_networks`
+-- Indexes for table `social_networks`
 --
 ALTER TABLE `social_networks`
   ADD PRIMARY KEY (`id`),
   ADD KEY `social_networks_busine_id_foreign` (`busine_id`);
 
 --
--- Indices de la tabla `starts`
+-- Indexes for table `starts`
 --
 ALTER TABLE `starts`
   ADD PRIMARY KEY (`id`),
@@ -1343,7 +1241,7 @@ ALTER TABLE `starts`
   ADD KEY `starts_busine_id_foreign` (`busine_id`);
 
 --
--- Indices de la tabla `telescope_entries`
+-- Indexes for table `telescope_entries`
 --
 ALTER TABLE `telescope_entries`
   ADD PRIMARY KEY (`sequence`),
@@ -1353,21 +1251,21 @@ ALTER TABLE `telescope_entries`
   ADD KEY `telescope_entries_family_hash_index` (`family_hash`);
 
 --
--- Indices de la tabla `telescope_entries_tags`
+-- Indexes for table `telescope_entries_tags`
 --
 ALTER TABLE `telescope_entries_tags`
   ADD KEY `telescope_entries_tags_entry_uuid_tag_index` (`entry_uuid`,`tag`),
   ADD KEY `telescope_entries_tags_tag_index` (`tag`);
 
 --
--- Indices de la tabla `translations`
+-- Indexes for table `translations`
 --
 ALTER TABLE `translations`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `translations_table_name_column_name_foreign_key_locale_unique` (`table_name`,`column_name`,`foreign_key`,`locale`);
 
 --
--- Indices de la tabla `users`
+-- Indexes for table `users`
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`id`),
@@ -1375,7 +1273,7 @@ ALTER TABLE `users`
   ADD KEY `users_role_id_foreign` (`role_id`);
 
 --
--- Indices de la tabla `user_roles`
+-- Indexes for table `user_roles`
 --
 ALTER TABLE `user_roles`
   ADD PRIMARY KEY (`user_id`,`role_id`),
@@ -1383,240 +1281,235 @@ ALTER TABLE `user_roles`
   ADD KEY `user_roles_role_id_index` (`role_id`);
 
 --
--- Indices de la tabla `websockets_statistics_entries`
+-- Indexes for table `websockets_statistics_entries`
 --
 ALTER TABLE `websockets_statistics_entries`
   ADD PRIMARY KEY (`id`);
 
 --
--- AUTO_INCREMENT de las tablas volcadas
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT de la tabla `busines`
+-- AUTO_INCREMENT for table `busines`
 --
 ALTER TABLE `busines`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `bussine_ranges`
+-- AUTO_INCREMENT for table `bussine_ranges`
 --
 ALTER TABLE `bussine_ranges`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT de la tabla `categorias`
+-- AUTO_INCREMENT for table `categorias`
 --
 ALTER TABLE `categorias`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
--- AUTO_INCREMENT de la tabla `categories`
+-- AUTO_INCREMENT for table `categories`
 --
 ALTER TABLE `categories`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT de la tabla `comments`
+-- AUTO_INCREMENT for table `comments`
 --
 ALTER TABLE `comments`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `data_rows`
+-- AUTO_INCREMENT for table `data_rows`
 --
 ALTER TABLE `data_rows`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=146;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=153;
 
 --
--- AUTO_INCREMENT de la tabla `data_types`
+-- AUTO_INCREMENT for table `data_types`
 --
 ALTER TABLE `data_types`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
--- AUTO_INCREMENT de la tabla `horarios`
+-- AUTO_INCREMENT for table `horarios`
 --
 ALTER TABLE `horarios`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `likes`
+-- AUTO_INCREMENT for table `likes`
 --
 ALTER TABLE `likes`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `menus`
+-- AUTO_INCREMENT for table `menus`
 --
 ALTER TABLE `menus`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT de la tabla `menu_items`
+-- AUTO_INCREMENT for table `menu_items`
 --
 ALTER TABLE `menu_items`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 
 --
--- AUTO_INCREMENT de la tabla `messages`
+-- AUTO_INCREMENT for table `messages`
 --
 ALTER TABLE `messages`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `migrations`
+-- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
 
 --
--- AUTO_INCREMENT de la tabla `pages`
+-- AUTO_INCREMENT for table `pages`
 --
 ALTER TABLE `pages`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT de la tabla `permissions`
+-- AUTO_INCREMENT for table `permissions`
 --
 ALTER TABLE `permissions`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=82;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=88;
 
 --
--- AUTO_INCREMENT de la tabla `posts`
+-- AUTO_INCREMENT for table `posts`
 --
 ALTER TABLE `posts`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT de la tabla `roles`
+-- AUTO_INCREMENT for table `roles`
 --
 ALTER TABLE `roles`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT de la tabla `settings`
+-- AUTO_INCREMENT for table `settings`
 --
 ALTER TABLE `settings`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 
 --
--- AUTO_INCREMENT de la tabla `social_networks`
+-- AUTO_INCREMENT for table `social_networks`
 --
 ALTER TABLE `social_networks`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `starts`
+-- AUTO_INCREMENT for table `starts`
 --
 ALTER TABLE `starts`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `telescope_entries`
+-- AUTO_INCREMENT for table `telescope_entries`
 --
 ALTER TABLE `telescope_entries`
   MODIFY `sequence` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `translations`
+-- AUTO_INCREMENT for table `translations`
 --
 ALTER TABLE `translations`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 
 --
--- AUTO_INCREMENT de la tabla `users`
+-- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
--- AUTO_INCREMENT de la tabla `websockets_statistics_entries`
+-- AUTO_INCREMENT for table `websockets_statistics_entries`
 --
 ALTER TABLE `websockets_statistics_entries`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- Restricciones para tablas volcadas
+-- Constraints for dumped tables
 --
 
 --
--- Filtros para la tabla `busines`
+-- Constraints for table `busines`
 --
 ALTER TABLE `busines`
   ADD CONSTRAINT `busines_categoria_id_foreign` FOREIGN KEY (`categoria_id`) REFERENCES `categorias` (`id`),
   ADD CONSTRAINT `busines_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`);
 
 --
--- Filtros para la tabla `categories`
+-- Constraints for table `categories`
 --
 ALTER TABLE `categories`
   ADD CONSTRAINT `categories_parent_id_foreign` FOREIGN KEY (`parent_id`) REFERENCES `categories` (`id`) ON DELETE SET NULL ON UPDATE CASCADE;
 
 --
--- Filtros para la tabla `comments`
+-- Constraints for table `comments`
 --
 ALTER TABLE `comments`
   ADD CONSTRAINT `comments_child_id_foreign` FOREIGN KEY (`child_id`) REFERENCES `comments` (`id`) ON DELETE CASCADE;
 
 --
--- Filtros para la tabla `data_rows`
+-- Constraints for table `data_rows`
 --
 ALTER TABLE `data_rows`
   ADD CONSTRAINT `data_rows_data_type_id_foreign` FOREIGN KEY (`data_type_id`) REFERENCES `data_types` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Filtros para la tabla `horarios`
+-- Constraints for table `horarios`
 --
 ALTER TABLE `horarios`
   ADD CONSTRAINT `horarios_busine_id_foreign` FOREIGN KEY (`busine_id`) REFERENCES `busines` (`id`);
 
 --
--- Filtros para la tabla `menu_items`
+-- Constraints for table `menu_items`
 --
 ALTER TABLE `menu_items`
   ADD CONSTRAINT `menu_items_menu_id_foreign` FOREIGN KEY (`menu_id`) REFERENCES `menus` (`id`) ON DELETE CASCADE;
 
 --
--- Filtros para la tabla `permission_role`
+-- Constraints for table `permission_role`
 --
 ALTER TABLE `permission_role`
   ADD CONSTRAINT `permission_role_permission_id_foreign` FOREIGN KEY (`permission_id`) REFERENCES `permissions` (`id`) ON DELETE CASCADE,
   ADD CONSTRAINT `permission_role_role_id_foreign` FOREIGN KEY (`role_id`) REFERENCES `roles` (`id`) ON DELETE CASCADE;
 
 --
--- Filtros para la tabla `social_networks`
+-- Constraints for table `social_networks`
 --
 ALTER TABLE `social_networks`
   ADD CONSTRAINT `social_networks_busine_id_foreign` FOREIGN KEY (`busine_id`) REFERENCES `busines` (`id`);
 
 --
--- Filtros para la tabla `starts`
+-- Constraints for table `starts`
 --
 ALTER TABLE `starts`
   ADD CONSTRAINT `starts_busine_id_foreign` FOREIGN KEY (`busine_id`) REFERENCES `busines` (`id`),
   ADD CONSTRAINT `starts_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`);
 
 --
--- Filtros para la tabla `telescope_entries_tags`
+-- Constraints for table `telescope_entries_tags`
 --
 ALTER TABLE `telescope_entries_tags`
   ADD CONSTRAINT `telescope_entries_tags_entry_uuid_foreign` FOREIGN KEY (`entry_uuid`) REFERENCES `telescope_entries` (`uuid`) ON DELETE CASCADE;
 
 --
--- Filtros para la tabla `users`
+-- Constraints for table `users`
 --
 ALTER TABLE `users`
   ADD CONSTRAINT `users_role_id_foreign` FOREIGN KEY (`role_id`) REFERENCES `roles` (`id`);
 
 --
--- Filtros para la tabla `user_roles`
+-- Constraints for table `user_roles`
 --
 ALTER TABLE `user_roles`
   ADD CONSTRAINT `user_roles_role_id_foreign` FOREIGN KEY (`role_id`) REFERENCES `roles` (`id`) ON DELETE CASCADE,
   ADD CONSTRAINT `user_roles_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE;
-COMMIT;
-
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
