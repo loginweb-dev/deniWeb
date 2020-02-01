@@ -9,13 +9,10 @@
     <div class="card card-ecommerce">
 
         <!-- Card image -->
-        <div class="view overlay">
-
-        <img src="{{ asset('storage/'.$item->image) }}" width="100%" style="height:200px" class="img-fluid" alt="">
-        <a href="{{ route('company', $item->slug) }}">
-            <div class="mask rgba-white-slight"></div>
-        </a>
-
+        <div class="view overlay" style="height:200px;background-image: url({{ asset('storage/'.str_replace('.', '_medium.', $item->image)) }});background-size: cover;background-position: center center;">
+            <a href="{{ route('company', $item->slug) }}">
+                <div class="mask rgba-white-slight"></div>
+            </a>
         </div>
         <!-- Card image -->
 
@@ -28,46 +25,28 @@
 
         <span class="badge badge-danger mb-2">{{ $item->category }}</span>
         <!-- Rating -->
-        <ul class="rating">
-            @php
-            $rating = $item->rating;
-            @endphp
-            
-            @for ($i = 0; $i < 5; $i++)
-            
-            @if ($rating >= 1)
-            <li><i class="fas fa-star blue-text"></i></li>
-            @elseif($rating > 0 && $rating < 1)    
-            <li><i class="fas fa-star-half-alt blue-text"></i></li>
-            @else
-            <li><i class="far fa-star blue-text"></i></li>
-            @endif
+            <ul class="rating">
+                @php
+                $rating = $item->rating;
+                @endphp
+                
+                @for ($i = 0; $i < 5; $i++)
+                
+                @if ($rating >= 1)
+                <li><i class="fas fa-star blue-text"></i></li>
+                @elseif($rating > 0 && $rating < 1)    
+                <li><i class="fas fa-star-half-alt blue-text"></i></li>
+                @else
+                <li><i class="far fa-star blue-text"></i></li>
+                @endif
 
-            @php
-            $rating--;
-            @endphp
-            
-            @endfor
-            <li class="text-muted" style="margin-left:5px">{{ number_format($item->rating, 1, ',', '') }}</li>
-        </ul>
-
-        <!-- Card footer -->
-        {{-- <div class="card-footer pb-0">
-
-            <div class="row mb-0">
-
-            <span class="float-left"><strong>1439$</strong></span>
-
-            <span class="float-right">
-
-                <a class="" data-toggle="tooltip" data-placement="top" title="Add to Cart"><i
-                    class="fas fa-shopping-cart ml-3"></i></a>
-
-            </span>
-
-            </div>
-
-        </div> --}}
+                @php
+                $rating--;
+                @endphp
+                
+                @endfor
+                <li class="text-muted" style="margin-left:5px">{{ number_format($item->rating, 1, ',', '') }}</li>
+            </ul>
 
         </div>
         <!-- Card content -->

@@ -22,6 +22,8 @@ Route::post('/login/social', 'ApiController@login_social');
 Route::post('/profile/update', 'ApiController@profile_update');
 
 Route::get('/{user_id}', 'ApiController@index');
+Route::get('/categories/list', 'ApiController@categories_list');
+Route::post('/company/search/list', 'ApiController@company_search');
 Route::get('/company/favorites/{user_id}', 'ApiController@company_favorites');
 Route::get('/company/{id}', 'ApiController@company');
 Route::get('/company/like/{id}/{user_id}/{value}', 'ApiController@company_like');

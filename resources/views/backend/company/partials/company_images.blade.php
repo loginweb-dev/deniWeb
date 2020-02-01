@@ -4,7 +4,7 @@
     </button>
     @forelse ($company_images as $item)
         <div style="display:inline-block;">
-            <img src="{{ url('storage').'/'.$item }}" alt="..." height="80px" style="padding:3px">
+            <img src="{{ url('storage').'/'.str_replace('.', '_small.', $item) }}" alt="..." height="90px" style="padding:3px">
         </div>
     @empty
 

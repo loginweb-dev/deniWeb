@@ -16,31 +16,48 @@
         <!-- Grid row -->
         <div class="section pt-4" >
           <!--Carousel Wrapper-->
-          <div id="carousel-example-1z" class="carousel slide carousel-fade carousel-sm" data-ride="carousel">
+          <div id="carousel-example-1z" class="carousel slide carousel-fade carousel-sm" data-interval="10000" data-ride="carousel">
             <!--Indicators-->
             <ol class="carousel-indicators">
-              <li data-target="#carousel-example-1z" data-slide-to="0" class=""></li>
-              <li data-target="#carousel-example-1z" data-slide-to="1" class=""></li>
-              <li data-target="#carousel-example-1z" data-slide-to="2" class="active"></li>
+              @php
+                $active = 'active';
+                $cont = 0;
+              @endphp
+              @foreach ($banner as $item)
+                <li data-target="#carousel-example-1z" data-slide-to="{{ $cont }}" class="{{ $active }}"></li>
+                @php
+                  $active = '';
+                  $cont++;
+                @endphp
+              @endforeach
             </ol>
             <!--/.Indicators-->
             <!--Slides-->
             <div class="carousel-inner" role="listbox">
-              <!--First slide-->
-              <div class="carousel-item">
-                <img class="d-block w-100" src="https://scontent-lim1-1.xx.fbcdn.net/v/t1.0-9/29790578_1652095124869213_3634760196162584576_o.jpg?_nc_cat=105&_nc_oc=AQnjH36ohFi0vNv6S4yp8pxQk8yT3VTUOTfwWIMTlO0wnTYGN_GN0umMA_XFzmW493g&_nc_ht=scontent-lim1-1.xx&oh=0fa75f2122a6abc310bb72f4cc03091f&oe=5E4A431D" alt="First slide">
-              </div>
-              <!--/First slide-->
-              <!--Second slide-->
-              <div class="carousel-item">
-                <img class="d-block w-100" src="https://scontent-lim1-1.xx.fbcdn.net/v/t1.0-9/29101387_1647344482027980_6174117086654044263_n.jpg?_nc_cat=110&_nc_oc=AQktGouvw1F8rT62tcMEd3LIgD6yZeC6pFkvy3QuhLDvh3eExvFPYlPYdDB-sBUGnKc&_nc_ht=scontent-lim1-1.xx&oh=6a840b0cd12e55114bbf197e1d5c85ac&oe=5E492A7D" alt="Second slide">
-              </div>
-              <!--/Second slide-->
-              <!--Third slide-->
-              <div class="carousel-item active">
-                <img class="d-block w-100" src="https://scontent-lim1-1.xx.fbcdn.net/v/t1.0-9/71337311_2445782875500430_3443607840520929280_n.jpg?_nc_cat=100&_nc_oc=AQkPJe1IU43XizJjvwe2P_fFIp5mXUM8yiqTglECbAETxRN9GlRaVueklKzZVeGVgmo&_nc_ht=scontent-lim1-1.xx&oh=41213b792838244d54f0912f7808da0c&oe=5E5A31FB" alt="Third slide">
-              </div>
-              <!--/Third slide-->
+              @php
+                $active = 'active';
+              @endphp
+              @foreach ($banner as $item)
+                <div class="carousel-item {{ $active }}">
+                  <img class="d-block w-100" src="{{ url('storage').'/'.$item->image }}" alt="{{ $item->title }}">
+                  <div class="carousel-caption">
+                    @if ($item->title || $item->subtitle)
+                      <div style="display:inline-block;background-color:rgba(0, 0, 0, 0.6);padding:0px 100px;padding-top:15px">
+                        <h2 class="h3-responsive">{{ $item->title }}</h2>
+                        <p>{{ $item->subtitle }}</p>
+                      </div>
+                    @endif 
+                    <div>
+                      @if ($item->link)
+                        <a href="{{ $item->link }}" class="btn btn-primary">Ver mas</a>
+                      @endif
+                    </div>
+                  </div>
+                </div>
+                @php
+                  $active = '';
+                @endphp
+              @endforeach
             </div>
             <!--/.Slides-->
             <!--Controls-->
@@ -77,6 +94,7 @@
                         <p><a class="dark-grey-text link-ordering" data-value="views">Mas populares</a></p>
                         <p><a class="dark-grey-text link-ordering" data-value="comments">Mas comentados</a></p>
                         <p><a class="dark-grey-text link-ordering" data-value="rating">Mayor puntuación</a></p>
+                        <p><a class="dark-grey-text link-ordering" data-value="favorites">Mis favoritos</a></p>
                       </div>
           
                       <!-- Filter by category -->

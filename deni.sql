@@ -2,22 +2,40 @@
 -- version 4.9.0.1
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost:3306
--- Generation Time: Jan 24, 2020 at 02:03 AM
--- Server version: 5.7.26
--- PHP Version: 7.3.8
+-- Servidor: localhost:3306
+-- Tiempo de generación: 01-02-2020 a las 20:09:21
+-- Versión del servidor: 5.7.26
+-- Versión de PHP: 7.3.8
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
 
 --
--- Database: `deni`
+-- Base de datos: `deni`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `busines`
+-- Estructura de tabla para la tabla `banner_images`
+--
+
+CREATE TABLE `banner_images` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `image` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `title` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `subtitle` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `link` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `state` int(11) DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `deleted_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `busines`
 --
 
 CREATE TABLE `busines` (
@@ -41,15 +59,15 @@ CREATE TABLE `busines` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   `deleted_at` timestamp NULL DEFAULT NULL,
-  `sharemap` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `views` int(11) DEFAULT NULL,
+  `sharemap` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `views` int(11) DEFAULT '0',
   `state` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `bussine_ranges`
+-- Estructura de tabla para la tabla `bussine_ranges`
 --
 
 CREATE TABLE `bussine_ranges` (
@@ -64,7 +82,7 @@ CREATE TABLE `bussine_ranges` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `bussine_ranges`
+-- Volcado de datos para la tabla `bussine_ranges`
 --
 
 INSERT INTO `bussine_ranges` (`id`, `value`, `label`, `image`, `description`, `created_at`, `updated_at`, `deleted_at`) VALUES
@@ -75,7 +93,7 @@ INSERT INTO `bussine_ranges` (`id`, `value`, `label`, `image`, `description`, `c
 -- --------------------------------------------------------
 
 --
--- Table structure for table `categorias`
+-- Estructura de tabla para la tabla `categorias`
 --
 
 CREATE TABLE `categorias` (
@@ -89,7 +107,7 @@ CREATE TABLE `categorias` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `categorias`
+-- Volcado de datos para la tabla `categorias`
 --
 
 INSERT INTO `categorias` (`id`, `name`, `image`, `icon`, `created_at`, `updated_at`, `deleted_at`) VALUES
@@ -102,7 +120,7 @@ INSERT INTO `categorias` (`id`, `name`, `image`, `icon`, `created_at`, `updated_
 (7, 'Restaurantes', '', 'fas fa-hamburger dark-grey-text mr-3', '2019-10-20 05:38:08', '2019-10-25 08:24:40', NULL),
 (8, 'Hoteles', '', '', '2019-10-20 05:38:23', '2019-10-20 05:38:23', NULL),
 (9, 'Transporte', '', '', '2019-10-20 05:38:37', '2019-10-20 05:38:37', NULL),
-(10, 'Religion', '', '', '2019-10-20 05:38:49', '2019-10-20 05:38:49', NULL),
+(10, 'Frapes', '', 'fas fa-ice-cream dark-grey-text mr-3', '2019-10-20 05:38:49', '2020-01-26 03:18:25', NULL),
 (11, 'Casas Comerciales', '', '', '2019-10-20 05:39:00', '2019-10-20 05:39:15', NULL),
 (12, 'Super & shoping', '', '', '2019-10-20 05:39:42', '2019-10-20 05:39:42', NULL),
 (13, 'Boutique & Zapatos', '', 'fas fa-shoe-prints dark-grey-text mr-3', '2019-10-20 05:40:01', '2019-10-24 07:22:38', NULL),
@@ -112,7 +130,7 @@ INSERT INTO `categorias` (`id`, `name`, `image`, `icon`, `created_at`, `updated_
 -- --------------------------------------------------------
 
 --
--- Table structure for table `categories`
+-- Estructura de tabla para la tabla `categories`
 --
 
 CREATE TABLE `categories` (
@@ -126,7 +144,7 @@ CREATE TABLE `categories` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `categories`
+-- Volcado de datos para la tabla `categories`
 --
 
 INSERT INTO `categories` (`id`, `parent_id`, `order`, `name`, `slug`, `created_at`, `updated_at`) VALUES
@@ -136,7 +154,7 @@ INSERT INTO `categories` (`id`, `parent_id`, `order`, `name`, `slug`, `created_a
 -- --------------------------------------------------------
 
 --
--- Table structure for table `comments`
+-- Estructura de tabla para la tabla `comments`
 --
 
 CREATE TABLE `comments` (
@@ -157,7 +175,7 @@ CREATE TABLE `comments` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `data_rows`
+-- Estructura de tabla para la tabla `data_rows`
 --
 
 CREATE TABLE `data_rows` (
@@ -177,7 +195,7 @@ CREATE TABLE `data_rows` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `data_rows`
+-- Volcado de datos para la tabla `data_rows`
 --
 
 INSERT INTO `data_rows` (`id`, `data_type_id`, `field`, `type`, `display_name`, `required`, `browse`, `read`, `edit`, `add`, `delete`, `details`, `order`) VALUES
@@ -238,7 +256,7 @@ INSERT INTO `data_rows` (`id`, `data_type_id`, `field`, `type`, `display_name`, 
 (55, 6, 'image', 'image', 'Imagen de la página', 0, 1, 1, 1, 1, 1, NULL, 12),
 (56, 7, 'id', 'text', 'Id', 1, 1, 1, 0, 0, 0, '{}', 1),
 (57, 7, 'name', 'text', 'Nombre Comercial', 1, 1, 1, 1, 1, 1, '{\"display\":{\"width\":\"6\"}}', 5),
-(58, 7, 'image', 'image', 'Image Default', 0, 0, 1, 1, 1, 0, '{\"display\":{\"width\":\"6\"}}', 11),
+(58, 7, 'image', 'image', 'Image Default', 0, 0, 0, 0, 0, 0, '{\"display\":{\"width\":\"6\"}}', 11),
 (60, 7, 'addres', 'text_area', 'Direccion del Negocio', 0, 0, 1, 1, 1, 0, '{\"display\":{\"width\":\"6\"}}', 10),
 (61, 7, 'longitude', 'text', 'Longitude', 0, 0, 1, 1, 1, 0, '{\"display\":{\"width\":\"6\"}}', 28),
 (62, 7, 'latitude', 'text', 'Latitude', 0, 0, 1, 1, 1, 0, '{\"display\":{\"width\":\"6\"}}', 27),
@@ -248,7 +266,7 @@ INSERT INTO `data_rows` (`id`, `data_type_id`, `field`, `type`, `display_name`, 
 (66, 7, 'description_long', 'rich_text_box', 'Description Long', 0, 0, 1, 1, 1, 0, '{}', 16),
 (67, 7, 'user_id', 'text', 'User Id', 1, 0, 1, 1, 1, 1, '{}', 3),
 (68, 7, 'slug', 'text', 'Slug', 1, 0, 1, 0, 0, 0, '{}', 19),
-(69, 7, 'images', 'multiple_images', 'Images (3-5)', 0, 0, 1, 1, 1, 0, '{\"display\":{\"width\":\"6\"}}', 12),
+(69, 7, 'images', 'multiple_images', 'Images (3-5)', 0, 0, 0, 0, 0, 0, '{\"display\":{\"width\":\"6\"}}', 12),
 (70, 7, 'busine_relation', 'select_multiple', 'Busine Relation', 0, 0, 1, 1, 1, 0, '{\"options\":{\"2\":\"uabjb\",\"3\":\"La salle\",\"4\":\"terminal Jose ballivian\",\"5\":\"hotel jacaranda\",\"6\":\"LoginWeb\"}}', 20),
 (71, 7, 'created_at', 'timestamp', 'Created At', 0, 0, 1, 0, 0, 0, '{}', 22),
 (72, 7, 'updated_at', 'timestamp', 'Updated At', 0, 0, 0, 0, 0, 0, '{}', 23),
@@ -262,9 +280,9 @@ INSERT INTO `data_rows` (`id`, `data_type_id`, `field`, `type`, `display_name`, 
 (90, 7, 'busine_hasmany_horario_relationship', 'relationship', 'Horario del Negocio', 0, 0, 1, 1, 1, 0, '{\"model\":\"App\\\\Horario\",\"table\":\"horarios\",\"type\":\"hasMany\",\"column\":\"busine_id\",\"key\":\"id\",\"label\":\"title\",\"pivot_table\":\"busines\",\"pivot\":\"0\",\"taggable\":\"0\"}', 15),
 (91, 10, 'id', 'text', 'Id', 1, 1, 1, 0, 0, 0, '{}', 1),
 (92, 10, 'link', 'text', 'Link', 1, 1, 1, 1, 1, 0, '{}', 3),
-(93, 10, 'busine_id', 'text', 'Busine Id', 1, 1, 1, 1, 1, 1, '{}', 4),
-(94, 10, 'created_at', 'timestamp', 'Created At', 0, 0, 1, 0, 0, 0, '{}', 5),
-(95, 10, 'updated_at', 'timestamp', 'Updated At', 0, 1, 1, 0, 0, 0, '{}', 6),
+(93, 10, 'busine_id', 'text', 'Busine Id', 1, 1, 1, 1, 1, 1, '{}', 5),
+(94, 10, 'created_at', 'timestamp', 'Created At', 0, 0, 1, 0, 0, 0, '{}', 6),
+(95, 10, 'updated_at', 'timestamp', 'Updated At', 0, 1, 1, 0, 0, 0, '{}', 7),
 (96, 10, 'social_network_belongsto_busine_relationship', 'relationship', 'Negocio o Comercio', 0, 1, 1, 1, 1, 0, '{\"model\":\"App\\\\Busine\",\"table\":\"busines\",\"type\":\"belongsTo\",\"column\":\"busine_id\",\"key\":\"id\",\"label\":\"name\",\"pivot_table\":\"busines\",\"pivot\":\"0\",\"taggable\":\"0\"}', 2),
 (97, 11, 'id', 'text', 'Id', 1, 0, 0, 0, 0, 0, '{}', 1),
 (98, 11, 'puntuacion', 'text', 'Puntuacion', 1, 1, 1, 1, 1, 1, '{}', 4),
@@ -289,8 +307,7 @@ INSERT INTO `data_rows` (`id`, `data_type_id`, `field`, `type`, `display_name`, 
 (126, 7, 'busine_hasmany_social_network_relationship', 'relationship', 'Redes Sociales', 0, 1, 1, 1, 1, 0, '{\"model\":\"App\\\\SocialNetwork\",\"table\":\"social_networks\",\"type\":\"hasMany\",\"column\":\"busine_id\",\"key\":\"id\",\"label\":\"link\",\"pivot_table\":\"busines\",\"pivot\":\"0\",\"taggable\":\"0\"}', 13),
 (127, 7, 'sharemap', 'text', 'Ruta hacia el Negocio', 1, 0, 1, 1, 1, 0, '{\"display\":{\"width\":\"6\"}}', 8),
 (128, 1, 'email_verified_at', 'timestamp', 'Email Verified At', 0, 1, 1, 1, 1, 0, '{}', 6),
-(129, 10, 'redes', 'select_dropdown', 'Redes', 0, 0, 0, 0, 0, 0, '{\"options\":{\"1\":\"Facebook\",\"2\":\"Twitter\",\"3\":\"Youtube\",\"4\":\"Instagram\"}}', 4),
-(130, 10, 'icon', 'select_dropdown', 'Red social', 1, 1, 1, 1, 1, 1, '{\"options\":{\"fab fa-facebook-square fa-lg mr-3\":\"facebook\",\"fab fa-twitter  fa-lg mr-3\":\"twitter\",\"fab fa-youtube fa-fw red-text fa-lg mr-3\":\"youtube\",\"fab fa-instagram fa-fw pink-text fa-lg mr-3\":\"instagram\"}}', 5),
+(130, 10, 'icon', 'select_dropdown', 'Red social', 1, 1, 1, 1, 1, 1, '{\"options\":{\"fab fa-facebook-square fa-lg mr-3\":\"facebook\",\"fab fa-twitter  fa-lg mr-3\":\"twitter\",\"fab fa-youtube fa-fw red-text fa-lg mr-3\":\"youtube\",\"fab fa-instagram fa-fw pink-text fa-lg mr-3\":\"instagram\"}}', 4),
 (131, 7, 'deleted_at', 'timestamp', 'Deleted At', 0, 0, 0, 0, 0, 0, '{}', 18),
 (132, 7, 'views', 'text', 'Views', 0, 1, 1, 0, 0, 0, '{}', 21),
 (133, 14, 'id', 'text', 'Id', 1, 0, 0, 0, 0, 0, '{}', 1),
@@ -312,12 +329,22 @@ INSERT INTO `data_rows` (`id`, `data_type_id`, `field`, `type`, `display_name`, 
 (149, 16, 'key', 'text', 'Key', 1, 1, 1, 1, 1, 1, '{}', 2),
 (150, 16, 'table_name', 'text', 'Table Name', 0, 1, 1, 1, 1, 1, '{}', 3),
 (151, 16, 'created_at', 'timestamp', 'Created At', 0, 1, 1, 0, 0, 0, '{}', 4),
-(152, 16, 'updated_at', 'timestamp', 'Updated At', 0, 0, 0, 0, 0, 0, '{}', 5);
+(152, 16, 'updated_at', 'timestamp', 'Updated At', 0, 0, 0, 0, 0, 0, '{}', 5),
+(153, 10, 'deleted_at', 'timestamp', 'Deleted At', 0, 1, 1, 1, 1, 1, '{}', 8),
+(154, 17, 'id', 'text', 'Id', 1, 1, 1, 0, 0, 0, '{}', 1),
+(155, 17, 'image', 'image', 'Imagen', 0, 1, 1, 1, 1, 1, '{}', 2),
+(156, 17, 'title', 'text', 'Titulo', 0, 1, 1, 1, 1, 1, '{\"display\":{\"width\":\"6\"}}', 3),
+(157, 17, 'subtitle', 'text', 'Subtitulo', 0, 1, 1, 1, 1, 1, '{\"display\":{\"width\":\"6\"}}', 4),
+(158, 17, 'link', 'text', 'Link de boton', 0, 1, 1, 1, 1, 1, '{\"display\":{\"width\":\"6\"}}', 5),
+(159, 17, 'state', 'checkbox', 'Estado', 0, 1, 1, 1, 1, 1, '{\"display\":{\"width\":\"6\"},\"on\":\"Activo\",\"off\":\"Inactivo\",\"checked\":true}', 6),
+(160, 17, 'created_at', 'timestamp', 'Createdo', 0, 1, 1, 0, 0, 0, '{}', 7),
+(161, 17, 'updated_at', 'timestamp', 'Updated At', 0, 0, 0, 0, 0, 0, '{}', 8),
+(162, 17, 'deleted_at', 'timestamp', 'Deleted At', 0, 0, 0, 0, 0, 0, '{}', 9);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `data_types`
+-- Estructura de tabla para la tabla `data_types`
 --
 
 CREATE TABLE `data_types` (
@@ -339,7 +366,7 @@ CREATE TABLE `data_types` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `data_types`
+-- Volcado de datos para la tabla `data_types`
 --
 
 INSERT INTO `data_types` (`id`, `name`, `slug`, `display_name_singular`, `display_name_plural`, `icon`, `model_name`, `policy_name`, `controller`, `description`, `generate_permissions`, `server_side`, `details`, `created_at`, `updated_at`) VALUES
@@ -349,26 +376,28 @@ INSERT INTO `data_types` (`id`, `name`, `slug`, `display_name_singular`, `displa
 (4, 'categories', 'categories', 'Categoría', 'Categorías', 'voyager-categories', 'TCG\\Voyager\\Models\\Category', NULL, NULL, NULL, 1, 0, '{\"order_column\":null,\"order_display_column\":null,\"order_direction\":\"desc\",\"default_search_key\":null,\"scope\":null}', '2019-10-25 04:33:22', '2019-10-29 04:08:29'),
 (5, 'posts', 'posts', 'Post', 'Posts', 'voyager-news', 'TCG\\Voyager\\Models\\Post', 'TCG\\Voyager\\Policies\\PostPolicy', '', '', 1, 0, NULL, '2019-10-25 04:33:22', '2019-10-25 04:33:22'),
 (6, 'pages', 'pages', 'Página', 'Páginas', 'voyager-file-text', 'TCG\\Voyager\\Models\\Page', NULL, '', '', 1, 0, NULL, '2019-10-25 04:33:22', '2019-10-25 04:33:22'),
-(7, 'busines', 'busines', 'Negocios', 'Neogicio', 'voyager-shop', 'App\\Busine', NULL, NULL, 'Formulario par crear & editar Negocio o Comercios', 1, 1, '{\"order_column\":\"updated_at\",\"order_display_column\":\"name\",\"order_direction\":\"desc\",\"default_search_key\":\"name\",\"scope\":null}', '2019-10-25 04:44:42', '2020-01-23 23:56:48'),
+(7, 'busines', 'busines', 'Negocios', 'Neogicio', 'voyager-shop', 'App\\Busine', NULL, NULL, 'Formulario par crear & editar Negocio o Comercios', 1, 1, '{\"order_column\":\"updated_at\",\"order_display_column\":\"name\",\"order_direction\":\"desc\",\"default_search_key\":\"name\",\"scope\":null}', '2019-10-25 04:44:42', '2020-01-25 00:15:20'),
 (8, 'categorias', 'categorias', 'Categoria', 'Categorias', 'voyager-list', 'App\\Categoria', NULL, NULL, 'Formulario para gestionar los categorias', 1, 1, '{\"order_column\":\"updated_at\",\"order_display_column\":\"name\",\"order_direction\":\"desc\",\"default_search_key\":\"name\",\"scope\":null}', '2019-10-25 05:20:24', '2019-10-30 03:21:17'),
-(10, 'social_networks', 'social-networks', 'Red Social', 'Redes Sociales', 'voyager-facebook', 'App\\SocialNetwork', NULL, NULL, NULL, 1, 1, '{\"order_column\":\"updated_at\",\"order_display_column\":\"link\",\"order_direction\":\"desc\",\"default_search_key\":\"link\",\"scope\":null}', '2019-10-25 16:30:19', '2020-01-23 19:12:21'),
+(10, 'social_networks', 'social-networks', 'Red Social', 'Redes Sociales', 'voyager-facebook', 'App\\SocialNetwork', NULL, NULL, NULL, 1, 1, '{\"order_column\":\"updated_at\",\"order_display_column\":\"link\",\"order_direction\":\"desc\",\"default_search_key\":\"link\",\"scope\":null}', '2019-10-25 16:30:19', '2020-01-30 23:51:10'),
 (11, 'starts', 'starts', 'Start', 'Starts', NULL, 'App\\Start', NULL, NULL, NULL, 1, 0, '{\"order_column\":null,\"order_display_column\":null,\"order_direction\":\"asc\",\"default_search_key\":null,\"scope\":null}', '2019-10-25 16:31:13', '2019-10-25 16:32:05'),
 (13, 'horarios', 'horarios', 'Horario', 'Horarios', 'voyager-watch', 'App\\Horario', NULL, NULL, 'Formulario para  gestionar los horarios', 1, 1, '{\"order_column\":\"created_at\",\"order_display_column\":\"title\",\"order_direction\":\"desc\",\"default_search_key\":\"title\",\"scope\":null}', '2019-10-25 21:20:44', '2019-10-29 04:12:16'),
 (14, 'bussine_ranges', 'bussine-ranges', 'Bussine Range', 'Bussine Ranges', 'voyager-certificate', 'App\\BussineRange', NULL, NULL, NULL, 1, 0, '{\"order_column\":null,\"order_display_column\":null,\"order_direction\":\"asc\",\"default_search_key\":null,\"scope\":null}', '2019-12-10 20:53:58', '2019-12-10 21:04:57'),
-(16, 'permissions', 'permissions', 'Permission', 'Permissions', 'voyager-certificate', 'App\\Permission', NULL, NULL, NULL, 1, 0, '{\"order_column\":null,\"order_display_column\":null,\"order_direction\":\"asc\",\"default_search_key\":null,\"scope\":null}', '2020-01-24 01:36:43', '2020-01-24 01:37:42');
+(16, 'permissions', 'permissions', 'Permission', 'Permissions', 'voyager-certificate', 'App\\Permission', NULL, NULL, NULL, 1, 0, '{\"order_column\":null,\"order_display_column\":null,\"order_direction\":\"asc\",\"default_search_key\":null,\"scope\":null}', '2020-01-24 01:36:43', '2020-01-24 01:37:42'),
+(17, 'banner_images', 'banner-images', 'Banner', 'Banner', 'voyager-photo', 'App\\BannerImage', NULL, NULL, NULL, 1, 0, '{\"order_column\":null,\"order_display_column\":null,\"order_direction\":\"asc\",\"default_search_key\":null,\"scope\":null}', '2020-01-31 22:04:20', '2020-01-31 22:07:57');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `horarios`
+-- Estructura de tabla para la tabla `horarios`
 --
 
 CREATE TABLE `horarios` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `title` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `dias` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `hora_inicio` time DEFAULT '00:00:04',
-  `hora_final` time DEFAULT '23:59:04',
+  `dia` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `hora_inicio1` time DEFAULT NULL,
+  `hora_final1` time DEFAULT NULL,
+  `hora_inicio2` time DEFAULT NULL,
+  `hora_final2` time DEFAULT NULL,
   `busine_id` bigint(20) UNSIGNED NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
@@ -378,7 +407,7 @@ CREATE TABLE `horarios` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `likes`
+-- Estructura de tabla para la tabla `likes`
 --
 
 CREATE TABLE `likes` (
@@ -393,7 +422,7 @@ CREATE TABLE `likes` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `menus`
+-- Estructura de tabla para la tabla `menus`
 --
 
 CREATE TABLE `menus` (
@@ -404,7 +433,7 @@ CREATE TABLE `menus` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `menus`
+-- Volcado de datos para la tabla `menus`
 --
 
 INSERT INTO `menus` (`id`, `name`, `created_at`, `updated_at`) VALUES
@@ -413,7 +442,7 @@ INSERT INTO `menus` (`id`, `name`, `created_at`, `updated_at`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `menu_items`
+-- Estructura de tabla para la tabla `menu_items`
 --
 
 CREATE TABLE `menu_items` (
@@ -433,39 +462,40 @@ CREATE TABLE `menu_items` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `menu_items`
+-- Volcado de datos para la tabla `menu_items`
 --
 
 INSERT INTO `menu_items` (`id`, `menu_id`, `title`, `url`, `target`, `icon_class`, `color`, `parent_id`, `order`, `created_at`, `updated_at`, `route`, `parameters`) VALUES
 (1, 1, 'Panel', '', '_self', 'voyager-boat', '#000000', NULL, 1, '2019-10-25 04:33:22', '2019-10-27 03:42:42', 'voyager.dashboard', 'null'),
-(2, 1, 'Multimedia', '', '_self', 'voyager-images', NULL, 5, 3, '2019-10-25 04:33:22', '2019-10-28 18:47:05', 'voyager.media.index', NULL),
+(2, 1, 'Multimedia', '', '_self', 'voyager-images', NULL, 5, 3, '2019-10-25 04:33:22', '2020-01-31 22:04:39', 'voyager.media.index', NULL),
 (3, 1, 'Usuarios', '', '_self', 'voyager-person', NULL, 22, 1, '2019-10-25 04:33:22', '2019-10-27 03:42:55', 'voyager.users.index', NULL),
 (4, 1, 'Roles', '', '_self', 'voyager-lock', NULL, 22, 2, '2019-10-25 04:33:22', '2019-10-27 03:42:55', 'voyager.roles.index', NULL),
-(5, 1, 'Herramientas', '', '_self', 'voyager-tools', NULL, NULL, 5, '2019-10-25 04:33:22', '2019-12-10 20:55:21', NULL, NULL),
-(6, 1, 'Menús', '', '_self', 'voyager-list', '#000000', 5, 4, '2019-10-25 04:33:22', '2020-01-24 01:38:07', 'voyager.menus.index', 'null'),
+(5, 1, 'Herramientas', '', '_self', 'voyager-tools', NULL, NULL, 6, '2019-10-25 04:33:22', '2020-01-31 22:05:16', NULL, NULL),
+(6, 1, 'Menús', '', '_self', 'voyager-list', '#000000', 5, 4, '2019-10-25 04:33:22', '2020-01-31 22:04:39', 'voyager.menus.index', 'null'),
 (7, 1, 'Base de Datos', '', '_self', 'voyager-data', NULL, 5, 2, '2019-10-25 04:33:22', '2019-10-28 18:47:05', 'voyager.database.index', NULL),
-(8, 1, 'Compás', '', '_self', 'voyager-compass', NULL, 5, 5, '2019-10-25 04:33:22', '2020-01-24 01:38:07', 'voyager.compass.index', NULL),
+(8, 1, 'Compás', '', '_self', 'voyager-compass', NULL, 5, 5, '2019-10-25 04:33:22', '2020-01-31 22:04:39', 'voyager.compass.index', NULL),
 (9, 1, 'BREAD', '', '_self', 'voyager-bread', NULL, 5, 1, '2019-10-25 04:33:22', '2019-10-28 18:46:56', 'voyager.bread.index', NULL),
 (10, 1, 'Parámetros', '', '_self', 'voyager-settings', NULL, NULL, 2, '2019-10-25 04:33:22', '2019-10-27 03:59:23', 'voyager.settings.index', NULL),
-(11, 1, 'Categorías', '', '_self', 'voyager-categories', NULL, 5, 6, '2019-10-25 04:33:22', '2020-01-24 01:38:07', 'voyager.categories.index', NULL),
-(12, 1, 'Posts', '', '_self', 'voyager-news', NULL, 5, 7, '2019-10-25 04:33:22', '2020-01-24 01:38:07', 'voyager.posts.index', NULL),
-(13, 1, 'Páginas', '', '_self', 'voyager-file-text', NULL, 5, 8, '2019-10-25 04:33:23', '2020-01-24 01:38:07', 'voyager.pages.index', NULL),
-(14, 1, 'Hooks', '', '_self', 'voyager-hook', NULL, 5, 9, '2019-10-25 04:33:23', '2020-01-24 01:38:07', 'voyager.hooks', NULL),
+(11, 1, 'Categorías', '', '_self', 'voyager-categories', NULL, 5, 6, '2019-10-25 04:33:22', '2020-01-31 22:04:39', 'voyager.categories.index', NULL),
+(12, 1, 'Posts', '', '_self', 'voyager-news', NULL, 5, 8, '2019-10-25 04:33:22', '2020-01-31 22:04:39', 'voyager.posts.index', NULL),
+(13, 1, 'Páginas', '', '_self', 'voyager-file-text', NULL, 5, 7, '2019-10-25 04:33:23', '2020-01-31 22:04:39', 'voyager.pages.index', NULL),
+(14, 1, 'Hooks', '', '_self', 'voyager-hook', NULL, 5, 9, '2019-10-25 04:33:23', '2020-01-31 22:04:39', 'voyager.hooks', NULL),
 (15, 1, 'Bussines', '', '_self', 'voyager-double-right', '#000000', 23, 1, '2019-10-25 04:44:42', '2019-10-28 18:45:09', 'voyager.busines.index', 'null'),
 (16, 1, 'Categorias', '', '_self', 'voyager-double-right', '#000000', 23, 2, '2019-10-25 05:20:24', '2019-10-28 18:45:21', 'voyager.categorias.index', 'null'),
 (18, 1, 'Social Networks', '', '_self', 'voyager-double-right', '#000000', 23, 4, '2019-10-25 16:30:19', '2019-12-10 20:55:20', 'voyager.social-networks.index', 'null'),
 (19, 1, 'Puntuaciones', '', '_self', 'voyager-double-right', '#000000', 23, 6, '2019-10-25 16:31:13', '2019-12-10 20:55:21', 'voyager.starts.index', 'null'),
 (21, 1, 'Horarios', '', '_self', 'voyager-double-right', '#000000', 23, 5, '2019-10-25 21:20:44', '2019-12-10 20:55:21', 'voyager.horarios.index', 'null'),
-(22, 1, 'User & Roles', '', '_self', 'voyager-group', '#000000', NULL, 4, '2019-10-27 03:42:24', '2019-12-10 20:55:21', NULL, ''),
+(22, 1, 'User & Roles', '', '_self', 'voyager-group', '#000000', NULL, 5, '2019-10-27 03:42:24', '2020-01-31 22:05:16', NULL, ''),
 (23, 1, 'M. Bussines', '', '_self', 'voyager-shop', '#000000', NULL, 3, '2019-10-27 03:44:36', '2019-10-27 03:59:36', NULL, ''),
 (24, 1, 'Bussine Ranges', '', '_self', 'voyager-double-right', '#000000', 23, 3, '2019-12-10 20:53:58', '2019-12-10 20:57:27', 'voyager.bussine-ranges.index', 'null'),
-(25, 1, 'Mi negocio', '', '_self', 'voyager-shop', '#000000', NULL, 6, '2020-01-20 19:56:50', '2020-01-20 20:01:19', 'negocios_index', 'null'),
-(26, 1, 'Permissions', '', '_self', 'voyager-certificate', '#000000', 22, 3, '2020-01-24 01:36:44', '2020-01-24 01:38:07', 'voyager.permissions.index', 'null');
+(25, 1, 'Administración', '', '_self', 'voyager-shop', '#000000', NULL, 7, '2020-01-20 19:56:50', '2020-01-31 22:05:16', 'negocios_index', 'null'),
+(26, 1, 'Permissions', '', '_self', 'voyager-certificate', '#000000', 22, 3, '2020-01-24 01:36:44', '2020-01-24 01:38:07', 'voyager.permissions.index', 'null'),
+(27, 1, 'Banner', '', '_self', 'voyager-photo', NULL, NULL, 4, '2020-01-31 22:04:20', '2020-01-31 22:05:16', 'voyager.banner-images.index', NULL);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `messages`
+-- Estructura de tabla para la tabla `messages`
 --
 
 CREATE TABLE `messages` (
@@ -482,7 +512,7 @@ CREATE TABLE `messages` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `migrations`
+-- Estructura de tabla para la tabla `migrations`
 --
 
 CREATE TABLE `migrations` (
@@ -492,7 +522,7 @@ CREATE TABLE `migrations` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `migrations`
+-- Volcado de datos para la tabla `migrations`
 --
 
 INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
@@ -533,7 +563,7 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `pages`
+-- Estructura de tabla para la tabla `pages`
 --
 
 CREATE TABLE `pages` (
@@ -552,7 +582,7 @@ CREATE TABLE `pages` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `pages`
+-- Volcado de datos para la tabla `pages`
 --
 
 INSERT INTO `pages` (`id`, `author_id`, `title`, `excerpt`, `body`, `image`, `slug`, `meta_description`, `meta_keywords`, `status`, `created_at`, `updated_at`) VALUES
@@ -561,7 +591,7 @@ INSERT INTO `pages` (`id`, `author_id`, `title`, `excerpt`, `body`, `image`, `sl
 -- --------------------------------------------------------
 
 --
--- Table structure for table `password_resets`
+-- Estructura de tabla para la tabla `password_resets`
 --
 
 CREATE TABLE `password_resets` (
@@ -571,7 +601,7 @@ CREATE TABLE `password_resets` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `password_resets`
+-- Volcado de datos para la tabla `password_resets`
 --
 
 INSERT INTO `password_resets` (`email`, `token`, `created_at`) VALUES
@@ -580,7 +610,7 @@ INSERT INTO `password_resets` (`email`, `token`, `created_at`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `permissions`
+-- Estructura de tabla para la tabla `permissions`
 --
 
 CREATE TABLE `permissions` (
@@ -592,7 +622,7 @@ CREATE TABLE `permissions` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `permissions`
+-- Volcado de datos para la tabla `permissions`
 --
 
 INSERT INTO `permissions` (`id`, `key`, `table_name`, `created_at`, `updated_at`) VALUES
@@ -672,12 +702,17 @@ INSERT INTO `permissions` (`id`, `key`, `table_name`, `created_at`, `updated_at`
 (84, 'edit_permissions', 'permissions', '2020-01-24 01:36:44', '2020-01-24 01:36:44'),
 (85, 'add_permissions', 'permissions', '2020-01-24 01:36:44', '2020-01-24 01:36:44'),
 (86, 'delete_permissions', 'permissions', '2020-01-24 01:36:44', '2020-01-24 01:36:44'),
-(87, 'browse_negocios', 'negocios', '2020-01-24 01:39:30', '2020-01-24 01:39:30');
+(87, 'browse_negocios', 'negocios', '2020-01-24 01:39:30', '2020-01-24 01:39:30'),
+(88, 'browse_banner_images', 'banner_images', '2020-01-31 22:04:20', '2020-01-31 22:04:20'),
+(89, 'read_banner_images', 'banner_images', '2020-01-31 22:04:20', '2020-01-31 22:04:20'),
+(90, 'edit_banner_images', 'banner_images', '2020-01-31 22:04:20', '2020-01-31 22:04:20'),
+(91, 'add_banner_images', 'banner_images', '2020-01-31 22:04:20', '2020-01-31 22:04:20'),
+(92, 'delete_banner_images', 'banner_images', '2020-01-31 22:04:20', '2020-01-31 22:04:20');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `permission_role`
+-- Estructura de tabla para la tabla `permission_role`
 --
 
 CREATE TABLE `permission_role` (
@@ -686,7 +721,7 @@ CREATE TABLE `permission_role` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `permission_role`
+-- Volcado de datos para la tabla `permission_role`
 --
 
 INSERT INTO `permission_role` (`permission_id`, `role_id`) VALUES
@@ -732,49 +767,29 @@ INSERT INTO `permission_role` (`permission_id`, `role_id`) VALUES
 (39, 1),
 (40, 1),
 (42, 1),
-(42, 3),
 (43, 1),
-(43, 3),
 (44, 1),
-(44, 3),
 (45, 1),
-(45, 3),
 (46, 1),
 (47, 1),
-(47, 3),
 (48, 1),
-(48, 3),
 (49, 1),
-(49, 3),
 (50, 1),
-(50, 3),
 (51, 1),
 (57, 1),
-(57, 3),
 (58, 1),
-(58, 3),
 (59, 1),
-(59, 3),
 (60, 1),
-(60, 3),
 (61, 1),
 (62, 1),
-(62, 3),
 (63, 1),
-(63, 3),
 (64, 1),
-(64, 3),
 (65, 1),
-(65, 3),
 (66, 1),
 (72, 1),
-(72, 3),
 (73, 1),
-(73, 3),
 (74, 1),
-(74, 3),
 (75, 1),
-(75, 3),
 (76, 1),
 (77, 1),
 (78, 1),
@@ -787,12 +802,17 @@ INSERT INTO `permission_role` (`permission_id`, `role_id`) VALUES
 (85, 1),
 (86, 1),
 (87, 1),
-(87, 2);
+(87, 3),
+(88, 1),
+(89, 1),
+(90, 1),
+(91, 1),
+(92, 1);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `posts`
+-- Estructura de tabla para la tabla `posts`
 --
 
 CREATE TABLE `posts` (
@@ -814,7 +834,7 @@ CREATE TABLE `posts` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `posts`
+-- Volcado de datos para la tabla `posts`
 --
 
 INSERT INTO `posts` (`id`, `author_id`, `category_id`, `title`, `seo_title`, `excerpt`, `body`, `image`, `slug`, `meta_description`, `meta_keywords`, `status`, `featured`, `created_at`, `updated_at`) VALUES
@@ -826,7 +846,7 @@ INSERT INTO `posts` (`id`, `author_id`, `category_id`, `title`, `seo_title`, `ex
 -- --------------------------------------------------------
 
 --
--- Table structure for table `roles`
+-- Estructura de tabla para la tabla `roles`
 --
 
 CREATE TABLE `roles` (
@@ -838,18 +858,18 @@ CREATE TABLE `roles` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `roles`
+-- Volcado de datos para la tabla `roles`
 --
 
 INSERT INTO `roles` (`id`, `name`, `display_name`, `created_at`, `updated_at`) VALUES
 (1, 'admin', 'Administrador', '2019-10-25 04:33:22', '2019-10-25 04:33:22'),
 (2, 'user', 'Usuario Normal', '2019-10-25 04:33:22', '2019-10-25 04:33:22'),
-(3, 'Editor', 'Editor de Bussines', '2019-10-27 04:20:26', '2019-10-27 04:20:26');
+(3, 'administrador', 'Administrador', '2019-10-27 04:20:26', '2020-01-31 02:18:09');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `settings`
+-- Estructura de tabla para la tabla `settings`
 --
 
 CREATE TABLE `settings` (
@@ -864,19 +884,19 @@ CREATE TABLE `settings` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `settings`
+-- Volcado de datos para la tabla `settings`
 --
 
 INSERT INTO `settings` (`id`, `key`, `display_name`, `value`, `details`, `type`, `order`, `group`) VALUES
 (1, 'site.title', 'Título del sitio', 'DENI', '', 'text', 1, 'Site'),
 (2, 'site.description', 'Descripción del sitio', 'DIRECTORIOS PARA EMPRESA Y NEGOCIOS EN INTERNET', '', 'text', 2, 'Site'),
-(3, 'site.logo', 'Logo del sitio', '', '', 'image', 3, 'Site'),
+(3, 'site.logo', 'Logo del sitio', 'settings/January2020/AXxzSyrZKJBt8uYgpCRY.png', '', 'image', 3, 'Site'),
 (4, 'site.google_analytics_tracking_id', 'ID de rastreo de Google Analytics', NULL, '', 'text', 4, 'Site'),
 (5, 'admin.bg_image', 'Imagen de fondo del administrador', '', '', 'image', 5, 'Admin'),
 (6, 'admin.title', 'Título del administrador', 'Deni', '', 'text', 1, 'Admin'),
 (7, 'admin.description', 'Descripción del administrador', 'Bienvenido a Voyager. El administrador que le faltaba a Laravel', '', 'text', 2, 'Admin'),
 (8, 'admin.loader', 'Imagen de carga del administrador', '', '', 'image', 3, 'Admin'),
-(9, 'admin.icon_image', 'Ícono del administrador', '', '', 'image', 4, 'Admin'),
+(9, 'admin.icon_image', 'Ícono del administrador', 'settings/January2020/kaJXIZJeHEZ4dVHWx6tH.png', '', 'image', 4, 'Admin'),
 (10, 'admin.google_analytics_client_id', 'ID de Cliente para Google Analytics (usado para el tablero de administrador)', NULL, '', 'text', 1, 'Admin'),
 (11, 'site.banner', 'banner', 'settings\\October2019\\EWkPbz4eWe5m1MJAdUOL.png', NULL, 'image', 6, 'Site'),
 (12, 'image-carousel.banner_1', 'banner 1', '', NULL, 'image', 7, 'Image_carousel'),
@@ -897,23 +917,23 @@ INSERT INTO `settings` (`id`, `key`, `display_name`, `value`, `details`, `type`,
 -- --------------------------------------------------------
 
 --
--- Table structure for table `social_networks`
+-- Estructura de tabla para la tabla `social_networks`
 --
 
 CREATE TABLE `social_networks` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `link` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `redes` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `icon` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `busine_id` bigint(20) UNSIGNED NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `deleted_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `starts`
+-- Estructura de tabla para la tabla `starts`
 --
 
 CREATE TABLE `starts` (
@@ -929,7 +949,7 @@ CREATE TABLE `starts` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `telescope_entries`
+-- Estructura de tabla para la tabla `telescope_entries`
 --
 
 CREATE TABLE `telescope_entries` (
@@ -946,7 +966,7 @@ CREATE TABLE `telescope_entries` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `telescope_entries_tags`
+-- Estructura de tabla para la tabla `telescope_entries_tags`
 --
 
 CREATE TABLE `telescope_entries_tags` (
@@ -957,7 +977,7 @@ CREATE TABLE `telescope_entries_tags` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `telescope_monitoring`
+-- Estructura de tabla para la tabla `telescope_monitoring`
 --
 
 CREATE TABLE `telescope_monitoring` (
@@ -967,7 +987,7 @@ CREATE TABLE `telescope_monitoring` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `translations`
+-- Estructura de tabla para la tabla `translations`
 --
 
 CREATE TABLE `translations` (
@@ -982,7 +1002,7 @@ CREATE TABLE `translations` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `translations`
+-- Volcado de datos para la tabla `translations`
 --
 
 INSERT INTO `translations` (`id`, `table_name`, `column_name`, `foreign_key`, `locale`, `value`, `created_at`, `updated_at`) VALUES
@@ -1020,7 +1040,7 @@ INSERT INTO `translations` (`id`, `table_name`, `column_name`, `foreign_key`, `l
 -- --------------------------------------------------------
 
 --
--- Table structure for table `users`
+-- Estructura de tabla para la tabla `users`
 --
 
 CREATE TABLE `users` (
@@ -1040,23 +1060,20 @@ CREATE TABLE `users` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `users`
+-- Volcado de datos para la tabla `users`
 --
 
 INSERT INTO `users` (`id`, `role_id`, `name`, `email`, `phone`, `address`, `avatar`, `email_verified_at`, `password`, `remember_token`, `settings`, `created_at`, `updated_at`) VALUES
-(1, 1, 'Admin', 'admin@admin.com', NULL, NULL, 'users/default.png', NULL, '$2y$10$AqAZWeSmoJz5shYLqdA6luXMM.CiHmUH1OPqDdmrh1WnWq/Ys0hTW', 's6DK9So5R4jI84vSMXSiCF8Z8bKY1p5LteayJdCcAcUkydQdr06aWQcYzd7H', NULL, '2019-10-25 04:33:22', '2019-10-25 04:33:22'),
-(2, 3, 'percy alvarez', 'percy.alvarez.2017@gmail.com', NULL, NULL, 'users/default.png', NULL, '$2y$10$7WwPHdodDEqPEz2kiaSxBeFxKTw4t5I9FARUK0TSeq/t7kaBcJgKO', NULL, '{\"locale\":\"es\"}', '2019-10-27 03:05:49', '2019-10-27 04:21:34'),
-(3, 3, 'paul', 'paulbrayan2011@gmail.com', NULL, NULL, 'users/default.png', NULL, '$2y$10$AqAZWeSmoJz5shYLqdA6luXMM.CiHmUH1OPqDdmrh1WnWq/Ys0hTW', NULL, '{\"locale\":\"es\"}', '2019-10-27 03:25:01', '2019-10-27 04:28:24'),
-(4, 3, 'richard eddy', 'r.e.t.c.bolivia@gmail.com', NULL, NULL, 'users/default.png', NULL, '$2y$10$KiBHIhJIbMIY097KUltYfOH4QtaJ85l1m/Du4ytXbYiBUrrv.wibO', NULL, '{\"locale\":\"es\"}', '2019-10-27 03:27:50', '2019-10-29 00:26:29'),
+(1, 1, 'Admin', 'admin@admin.com', NULL, NULL, 'users/default.png', NULL, '$2y$10$AqAZWeSmoJz5shYLqdA6luXMM.CiHmUH1OPqDdmrh1WnWq/Ys0hTW', 'bh3uu9xIQTv3ETtxo4cdo7NbVT9PsMLVpmk8zVoaUaOU9ZrQ82jTwqTDavsG', NULL, '2019-10-25 04:33:22', '2019-10-25 04:33:22'),
 (9, 2, 'Empresa Loginweb', '126369682179959@deni.com', '78786756', 'calle 1', 'http://graph.facebook.com/126369682179959/picture?type=large', NULL, '$2y$10$2J/TZ6r0hbE5uzBfv7eLDOYmbZkrLpgEc4OFhZ0Z7N4lfyySl667S', NULL, NULL, '2020-01-08 02:54:16', '2020-01-10 02:51:54'),
-(10, 2, 'Agustin Mejia', '172278994011973@deni.com', NULL, NULL, 'http://graph.facebook.com/172278994011973/picture?type=large', NULL, '$2y$10$yqiLpj/XAMQdXn3DgwIkwON80kuWYZKdsqgrzT93cOaW.jM2fxg/2', NULL, NULL, '2020-01-15 06:12:49', '2020-01-15 06:12:49'),
+(10, 3, 'Agustin Mejia', '172278994011973@deni.com', NULL, NULL, 'http://graph.facebook.com/172278994011973/picture?type=large', NULL, '$2y$10$5nQVkJ/J2b2v1GeQkfezk.u4XVh7Jyd/T49bF8JzMNgrS2Pz7PxVu', NULL, '{\"locale\":\"es\"}', '2020-01-15 06:12:49', '2020-01-24 22:42:25'),
 (11, 2, 'Rodrigo Raul Montero Acosta', '2809897112407593@deni.com', '76880951', 'Zona pantanal', 'http://graph.facebook.com/2809897112407593/picture?type=large', NULL, '$2y$10$ENGg1cjt7mR.n4XKp7fLCe.yarPTLrA0YGPgJc5J7PakBxAJHN2n.', NULL, NULL, '2020-01-16 01:59:31', '2020-01-16 02:05:55'),
-(12, 2, 'Miguel Angel Perez', 'miguelangel@gmail.com', NULL, NULL, 'users/default.png', NULL, '$2y$10$RPs8CSofMDLZSLmLPfEVC.5E2JmiAayAL7JzTadEkCqisAXN5.d56', NULL, NULL, '2020-01-18 01:52:37', '2020-01-18 01:52:37');
+(13, 3, 'augusto', 'augusto@deni.com', NULL, NULL, 'users/default.png', NULL, '$2y$10$4vkZUG7mRXtQwaDZoQ32UObnwpk7NczuJZj05MO8pONhZo1ZccTaq', NULL, '{\"locale\":\"es\"}', '2020-01-26 03:04:59', '2020-01-26 03:04:59');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `user_roles`
+-- Estructura de tabla para la tabla `user_roles`
 --
 
 CREATE TABLE `user_roles` (
@@ -1067,7 +1084,7 @@ CREATE TABLE `user_roles` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `websockets_statistics_entries`
+-- Estructura de tabla para la tabla `websockets_statistics_entries`
 --
 
 CREATE TABLE `websockets_statistics_entries` (
@@ -1082,11 +1099,17 @@ CREATE TABLE `websockets_statistics_entries` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Indexes for dumped tables
+-- Índices para tablas volcadas
 --
 
 --
--- Indexes for table `busines`
+-- Indices de la tabla `banner_images`
+--
+ALTER TABLE `banner_images`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indices de la tabla `busines`
 --
 ALTER TABLE `busines`
   ADD PRIMARY KEY (`id`),
@@ -1094,19 +1117,19 @@ ALTER TABLE `busines`
   ADD KEY `busines_user_id_foreign` (`user_id`);
 
 --
--- Indexes for table `bussine_ranges`
+-- Indices de la tabla `bussine_ranges`
 --
 ALTER TABLE `bussine_ranges`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `categorias`
+-- Indices de la tabla `categorias`
 --
 ALTER TABLE `categorias`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `categories`
+-- Indices de la tabla `categories`
 --
 ALTER TABLE `categories`
   ADD PRIMARY KEY (`id`),
@@ -1114,7 +1137,7 @@ ALTER TABLE `categories`
   ADD KEY `categories_parent_id_foreign` (`parent_id`);
 
 --
--- Indexes for table `comments`
+-- Indices de la tabla `comments`
 --
 ALTER TABLE `comments`
   ADD PRIMARY KEY (`id`),
@@ -1123,14 +1146,14 @@ ALTER TABLE `comments`
   ADD KEY `comments_child_id_foreign` (`child_id`);
 
 --
--- Indexes for table `data_rows`
+-- Indices de la tabla `data_rows`
 --
 ALTER TABLE `data_rows`
   ADD PRIMARY KEY (`id`),
   ADD KEY `data_rows_data_type_id_foreign` (`data_type_id`);
 
 --
--- Indexes for table `data_types`
+-- Indices de la tabla `data_types`
 --
 ALTER TABLE `data_types`
   ADD PRIMARY KEY (`id`),
@@ -1138,66 +1161,66 @@ ALTER TABLE `data_types`
   ADD UNIQUE KEY `data_types_slug_unique` (`slug`);
 
 --
--- Indexes for table `horarios`
+-- Indices de la tabla `horarios`
 --
 ALTER TABLE `horarios`
   ADD PRIMARY KEY (`id`),
   ADD KEY `horarios_busine_id_foreign` (`busine_id`);
 
 --
--- Indexes for table `likes`
+-- Indices de la tabla `likes`
 --
 ALTER TABLE `likes`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `menus`
+-- Indices de la tabla `menus`
 --
 ALTER TABLE `menus`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `menus_name_unique` (`name`);
 
 --
--- Indexes for table `menu_items`
+-- Indices de la tabla `menu_items`
 --
 ALTER TABLE `menu_items`
   ADD PRIMARY KEY (`id`),
   ADD KEY `menu_items_menu_id_foreign` (`menu_id`);
 
 --
--- Indexes for table `messages`
+-- Indices de la tabla `messages`
 --
 ALTER TABLE `messages`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `migrations`
+-- Indices de la tabla `migrations`
 --
 ALTER TABLE `migrations`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `pages`
+-- Indices de la tabla `pages`
 --
 ALTER TABLE `pages`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `pages_slug_unique` (`slug`);
 
 --
--- Indexes for table `password_resets`
+-- Indices de la tabla `password_resets`
 --
 ALTER TABLE `password_resets`
   ADD KEY `password_resets_email_index` (`email`);
 
 --
--- Indexes for table `permissions`
+-- Indices de la tabla `permissions`
 --
 ALTER TABLE `permissions`
   ADD PRIMARY KEY (`id`),
   ADD KEY `permissions_key_index` (`key`);
 
 --
--- Indexes for table `permission_role`
+-- Indices de la tabla `permission_role`
 --
 ALTER TABLE `permission_role`
   ADD PRIMARY KEY (`permission_id`,`role_id`),
@@ -1205,35 +1228,35 @@ ALTER TABLE `permission_role`
   ADD KEY `permission_role_role_id_index` (`role_id`);
 
 --
--- Indexes for table `posts`
+-- Indices de la tabla `posts`
 --
 ALTER TABLE `posts`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `posts_slug_unique` (`slug`);
 
 --
--- Indexes for table `roles`
+-- Indices de la tabla `roles`
 --
 ALTER TABLE `roles`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `roles_name_unique` (`name`);
 
 --
--- Indexes for table `settings`
+-- Indices de la tabla `settings`
 --
 ALTER TABLE `settings`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `settings_key_unique` (`key`);
 
 --
--- Indexes for table `social_networks`
+-- Indices de la tabla `social_networks`
 --
 ALTER TABLE `social_networks`
   ADD PRIMARY KEY (`id`),
   ADD KEY `social_networks_busine_id_foreign` (`busine_id`);
 
 --
--- Indexes for table `starts`
+-- Indices de la tabla `starts`
 --
 ALTER TABLE `starts`
   ADD PRIMARY KEY (`id`),
@@ -1241,7 +1264,7 @@ ALTER TABLE `starts`
   ADD KEY `starts_busine_id_foreign` (`busine_id`);
 
 --
--- Indexes for table `telescope_entries`
+-- Indices de la tabla `telescope_entries`
 --
 ALTER TABLE `telescope_entries`
   ADD PRIMARY KEY (`sequence`),
@@ -1251,21 +1274,21 @@ ALTER TABLE `telescope_entries`
   ADD KEY `telescope_entries_family_hash_index` (`family_hash`);
 
 --
--- Indexes for table `telescope_entries_tags`
+-- Indices de la tabla `telescope_entries_tags`
 --
 ALTER TABLE `telescope_entries_tags`
   ADD KEY `telescope_entries_tags_entry_uuid_tag_index` (`entry_uuid`,`tag`),
   ADD KEY `telescope_entries_tags_tag_index` (`tag`);
 
 --
--- Indexes for table `translations`
+-- Indices de la tabla `translations`
 --
 ALTER TABLE `translations`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `translations_table_name_column_name_foreign_key_locale_unique` (`table_name`,`column_name`,`foreign_key`,`locale`);
 
 --
--- Indexes for table `users`
+-- Indices de la tabla `users`
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`id`),
@@ -1273,7 +1296,7 @@ ALTER TABLE `users`
   ADD KEY `users_role_id_foreign` (`role_id`);
 
 --
--- Indexes for table `user_roles`
+-- Indices de la tabla `user_roles`
 --
 ALTER TABLE `user_roles`
   ADD PRIMARY KEY (`user_id`,`role_id`),
@@ -1281,234 +1304,240 @@ ALTER TABLE `user_roles`
   ADD KEY `user_roles_role_id_index` (`role_id`);
 
 --
--- Indexes for table `websockets_statistics_entries`
+-- Indices de la tabla `websockets_statistics_entries`
 --
 ALTER TABLE `websockets_statistics_entries`
   ADD PRIMARY KEY (`id`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT de las tablas volcadas
 --
 
 --
--- AUTO_INCREMENT for table `busines`
+-- AUTO_INCREMENT de la tabla `banner_images`
+--
+ALTER TABLE `banner_images`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de la tabla `busines`
 --
 ALTER TABLE `busines`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `bussine_ranges`
+-- AUTO_INCREMENT de la tabla `bussine_ranges`
 --
 ALTER TABLE `bussine_ranges`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT for table `categorias`
+-- AUTO_INCREMENT de la tabla `categorias`
 --
 ALTER TABLE `categorias`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
--- AUTO_INCREMENT for table `categories`
+-- AUTO_INCREMENT de la tabla `categories`
 --
 ALTER TABLE `categories`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT for table `comments`
+-- AUTO_INCREMENT de la tabla `comments`
 --
 ALTER TABLE `comments`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `data_rows`
+-- AUTO_INCREMENT de la tabla `data_rows`
 --
 ALTER TABLE `data_rows`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=153;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=163;
 
 --
--- AUTO_INCREMENT for table `data_types`
+-- AUTO_INCREMENT de la tabla `data_types`
 --
 ALTER TABLE `data_types`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
--- AUTO_INCREMENT for table `horarios`
+-- AUTO_INCREMENT de la tabla `horarios`
 --
 ALTER TABLE `horarios`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `likes`
+-- AUTO_INCREMENT de la tabla `likes`
 --
 ALTER TABLE `likes`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `menus`
+-- AUTO_INCREMENT de la tabla `menus`
 --
 ALTER TABLE `menus`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT for table `menu_items`
+-- AUTO_INCREMENT de la tabla `menu_items`
 --
 ALTER TABLE `menu_items`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 
 --
--- AUTO_INCREMENT for table `messages`
+-- AUTO_INCREMENT de la tabla `messages`
 --
 ALTER TABLE `messages`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `migrations`
+-- AUTO_INCREMENT de la tabla `migrations`
 --
 ALTER TABLE `migrations`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
 
 --
--- AUTO_INCREMENT for table `pages`
+-- AUTO_INCREMENT de la tabla `pages`
 --
 ALTER TABLE `pages`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT for table `permissions`
+-- AUTO_INCREMENT de la tabla `permissions`
 --
 ALTER TABLE `permissions`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=88;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=93;
 
 --
--- AUTO_INCREMENT for table `posts`
+-- AUTO_INCREMENT de la tabla `posts`
 --
 ALTER TABLE `posts`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT for table `roles`
+-- AUTO_INCREMENT de la tabla `roles`
 --
 ALTER TABLE `roles`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT for table `settings`
+-- AUTO_INCREMENT de la tabla `settings`
 --
 ALTER TABLE `settings`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 
 --
--- AUTO_INCREMENT for table `social_networks`
+-- AUTO_INCREMENT de la tabla `social_networks`
 --
 ALTER TABLE `social_networks`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `starts`
+-- AUTO_INCREMENT de la tabla `starts`
 --
 ALTER TABLE `starts`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `telescope_entries`
+-- AUTO_INCREMENT de la tabla `telescope_entries`
 --
 ALTER TABLE `telescope_entries`
   MODIFY `sequence` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `translations`
+-- AUTO_INCREMENT de la tabla `translations`
 --
 ALTER TABLE `translations`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 
 --
--- AUTO_INCREMENT for table `users`
+-- AUTO_INCREMENT de la tabla `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
--- AUTO_INCREMENT for table `websockets_statistics_entries`
+-- AUTO_INCREMENT de la tabla `websockets_statistics_entries`
 --
 ALTER TABLE `websockets_statistics_entries`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- Constraints for dumped tables
+-- Restricciones para tablas volcadas
 --
 
 --
--- Constraints for table `busines`
+-- Filtros para la tabla `busines`
 --
 ALTER TABLE `busines`
   ADD CONSTRAINT `busines_categoria_id_foreign` FOREIGN KEY (`categoria_id`) REFERENCES `categorias` (`id`),
   ADD CONSTRAINT `busines_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`);
 
 --
--- Constraints for table `categories`
+-- Filtros para la tabla `categories`
 --
 ALTER TABLE `categories`
   ADD CONSTRAINT `categories_parent_id_foreign` FOREIGN KEY (`parent_id`) REFERENCES `categories` (`id`) ON DELETE SET NULL ON UPDATE CASCADE;
 
 --
--- Constraints for table `comments`
+-- Filtros para la tabla `comments`
 --
 ALTER TABLE `comments`
   ADD CONSTRAINT `comments_child_id_foreign` FOREIGN KEY (`child_id`) REFERENCES `comments` (`id`) ON DELETE CASCADE;
 
 --
--- Constraints for table `data_rows`
+-- Filtros para la tabla `data_rows`
 --
 ALTER TABLE `data_rows`
   ADD CONSTRAINT `data_rows_data_type_id_foreign` FOREIGN KEY (`data_type_id`) REFERENCES `data_types` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `horarios`
+-- Filtros para la tabla `horarios`
 --
 ALTER TABLE `horarios`
   ADD CONSTRAINT `horarios_busine_id_foreign` FOREIGN KEY (`busine_id`) REFERENCES `busines` (`id`);
 
 --
--- Constraints for table `menu_items`
+-- Filtros para la tabla `menu_items`
 --
 ALTER TABLE `menu_items`
   ADD CONSTRAINT `menu_items_menu_id_foreign` FOREIGN KEY (`menu_id`) REFERENCES `menus` (`id`) ON DELETE CASCADE;
 
 --
--- Constraints for table `permission_role`
+-- Filtros para la tabla `permission_role`
 --
 ALTER TABLE `permission_role`
   ADD CONSTRAINT `permission_role_permission_id_foreign` FOREIGN KEY (`permission_id`) REFERENCES `permissions` (`id`) ON DELETE CASCADE,
   ADD CONSTRAINT `permission_role_role_id_foreign` FOREIGN KEY (`role_id`) REFERENCES `roles` (`id`) ON DELETE CASCADE;
 
 --
--- Constraints for table `social_networks`
+-- Filtros para la tabla `social_networks`
 --
 ALTER TABLE `social_networks`
   ADD CONSTRAINT `social_networks_busine_id_foreign` FOREIGN KEY (`busine_id`) REFERENCES `busines` (`id`);
 
 --
--- Constraints for table `starts`
+-- Filtros para la tabla `starts`
 --
 ALTER TABLE `starts`
   ADD CONSTRAINT `starts_busine_id_foreign` FOREIGN KEY (`busine_id`) REFERENCES `busines` (`id`),
   ADD CONSTRAINT `starts_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`);
 
 --
--- Constraints for table `telescope_entries_tags`
+-- Filtros para la tabla `telescope_entries_tags`
 --
 ALTER TABLE `telescope_entries_tags`
   ADD CONSTRAINT `telescope_entries_tags_entry_uuid_foreign` FOREIGN KEY (`entry_uuid`) REFERENCES `telescope_entries` (`uuid`) ON DELETE CASCADE;
 
 --
--- Constraints for table `users`
+-- Filtros para la tabla `users`
 --
 ALTER TABLE `users`
   ADD CONSTRAINT `users_role_id_foreign` FOREIGN KEY (`role_id`) REFERENCES `roles` (`id`);
 
 --
--- Constraints for table `user_roles`
+-- Filtros para la tabla `user_roles`
 --
 ALTER TABLE `user_roles`
   ADD CONSTRAINT `user_roles_role_id_foreign` FOREIGN KEY (`role_id`) REFERENCES `roles` (`id`) ON DELETE CASCADE,

@@ -16,6 +16,7 @@
     <link href="{{ url('recursos/css/style.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="{{ url('css/jquery.floating-social-share.min.css') }}">
     <link rel="icon" type="image/png" href="{{ url('recursos/img/icon.png') }}" />
+    @yield('header')
     <style>
 
     </style>

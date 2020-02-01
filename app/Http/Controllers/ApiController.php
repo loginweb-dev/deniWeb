@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Hash;
 use Carbon\Carbon;
 
 use App\Busine;
+use App\Categoria;
 use App\User;
 use App\Like;
 
@@ -33,6 +34,27 @@ class ApiController extends Controller
                             // ->limit(5)
                             ->get();
         return response()->json(['carousel' => $carousel, 'business' => $business]);
+    }
+    
+    public function categories_list(){
+        $categorias = Categoria::where('deleted_at', null)->select('id as value', 'name as label')->get();
+        return response()->json($categorias);
+    }
+    
+    public function company_search(Request $request){
+        $user_id = $request->user_id;
+        $q = $request->search;
+        
+        $business = DB::table('busines as b')
+                            ->join('categorias as c', 'c.id', 'b.categoria_id')
+                            ->select('b.id', 'b.name', 'b.description', DB::raw("REPLACE(b.image, '\\\\', '/') as image"), 'b.range_id', 'b.views')
+                            ->where('b.state', 1)->where('b.deleted_at', NULL)
+                            ->where('b.image', '<>', NULL)
+                            ->whereRaw("(b.name like '%$q%' or c.name like '%$q%')")
+                            ->orderBy('b.range_id', 'DESC')
+                            ->orderBy('b.views', 'DESC')
+                            ->get();
+        return response()->json($business);
     }
     
     public function company_favorites($user_id){

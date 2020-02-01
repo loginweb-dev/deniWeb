@@ -66,9 +66,7 @@
 
           <h2
             class="h2-responsive text-center text-md-left product-name font-weight-bold dark-grey-text mb-1 ml-xl-0 ml-4">
-
             <strong>{{ $detail->name }}</strong>
-
           </h2>
        
           <div class="row">
@@ -124,7 +122,7 @@
               <div id="collapseTwo2" class="collapse" role="tabpanel" aria-labelledby="headingTwo2"data-parent="#accordionEx">
                 <div class="card-body">
                     @forelse ($redes as $item)
-                        <a href="{{ $item->link }}" target="_blank"><i class="{{ $item->icon}}"></i>{{ $item->link }}</a><br>
+                        <a href="{{ $item->link }}" target="_blank"> <i class="{{ $item->icon}} fa-2x"></i> &nbsp; {{ $item->link }}</a><br>
                         @empty
                     @endforelse 
                 </div>
@@ -149,23 +147,27 @@
                 data-parent="#accordionEx">
 
                 <div class="card-body">
-                  {{-- @php
-                      dd($horario);
-                  @endphp --}}
-                @if ($horario != "")
                     @php
-                      $nombre_dias = array('Lunes', 'Martes', 'Miercoles', 'Jueves', 'Viernes', 'Sábado', 'Domingo');
-                      $horarios=json_decode($horario->dias);
+                      $nombre_dias = array('', 'Lunes', 'Martes', 'Miercoles', 'Jueves', 'Viernes', 'Sábado', 'Domingo');
                     @endphp
-                    <p><i class="far fa-calendar-alt"></i>
-                      @for ($i = 0; $i < count($horarios); $i++)
-                            {{ $nombre_dias[$i] }}
-                      @endfor
-                   </p> 
-                    <p><i class="far fa-clock"></i> :{{ $horario->hora_inicio }}</p>
-                    <p><i class="fas fa-clock"></i> :{{ $horario->hora_final }}</p>
-                @endif
-               
+                    <table cellpadding="5">
+                      @forelse ($horario as $item)
+                        <tr>
+                          <td><p><i class="far fa-calendar-alt"></i> {{ $nombre_dias[$item->dia] }}</p> </td>
+                          <td>
+                            <p>
+                              <i class="far fa-clock"></i> 
+                              {{ date('H:i', strtotime($item->hora_inicio1)) }} a {{ date('H:i', strtotime($item->hora_final1)) }}
+                              @if ($item->hora_inicio2 && $item->hora_fin2)
+                                - {{ date('H:i', strtotime($item->hora_inicio2)) }} a {{ date('H:i', strtotime($item->hora_final2)) }}
+                              @endif
+                            </p>
+                          </td>
+                        </tr>
+                      @empty
+                        
+                      @endforelse
+                    </table>
                 </div>
             
               </div>
@@ -443,7 +445,7 @@
           text_title_case: true,
           popup: false,
           place: "content-right",
-          url: "https://github.com/ozdemirburak/jquery-floating-social-share"
+          url: window.location
         });
 
         // Obtener puntuación
@@ -468,6 +470,10 @@
               }).then((result) => {
                 if (result.value) {
                   window.location = url+'/http';
+                }else{
+                  $.get("{{ url('admin/forget_redirect') }}", function(data){
+                    // console.log(data)
+                  });
                 }
               })
             }
@@ -504,6 +510,10 @@
               }).then((result) => {
                 if (result.value) {
                   window.location = url+'/http';
+                }else{
+                  $.get("{{ url('admin/forget_redirect') }}", function(data){
+                    // console.log(data)
+                  });
                 }
               })
             }

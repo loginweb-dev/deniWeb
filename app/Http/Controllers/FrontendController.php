@@ -12,6 +12,7 @@ use App\Horario;
 use App\Categoria;
 use App\Start;
 use App\Like;
+use App\BannerImage;
 
 use Artesaos\SEOTools\Facades\SEOTools;
 
@@ -34,7 +35,8 @@ class FrontendController extends Controller
                                 $q->select('categoria_id')->from('busines')->where('deleted_at', null);
                             })
                             ->where('c.deleted_at', NULL)->get();
-        return view('index', compact('categorias'));
+        $banner = BannerImage::where('state',1)->where('deleted_at', NULL)->orderByRaw("RAND()")->get();
+        return view('index', compact('categorias','banner'));
         
     }
 
@@ -49,6 +51,9 @@ class FrontendController extends Controller
             case 'rating':
                 $ordering = "rating DESC";
                 break;
+            case 'favorites':
+                $ordering = "rating DESC";
+                break;
             default:
                 $ordering = "b.name DESC";
                 break;
@@ -57,7 +62,8 @@ class FrontendController extends Controller
         $filtro_categoria = $categoria != 'all' ? "c.id = $categoria" : 1;
         $filtro_busqueda = $busqueda != 'all' ? "(b.name like '%$busqueda%' or c.name like '%$busqueda%')" : 1;
         
-        $empresas = DB::table('busines as b')
+        $empresas = $orden != 'favorites' ?
+                            DB::table('busines as b')
                             ->join('categorias as c', 'c.id', 'b.categoria_id')
                             ->selectRaw("   b.id, b.name, b.image, b.slug, c.name as category,
                                             (select AVG(s.puntuacion) from starts s where s.busine_id = b.id) as rating,
@@ -67,8 +73,21 @@ class FrontendController extends Controller
                             ->whereRaw($filtro_busqueda)
                             ->where('b.deleted_at', NULL)
                             ->orderByRaw($ordering)
+                            ->paginate(setting('site.paginador_lp')) :
+                            // Si el ordenamiento es por favoritos de debe hacer un join con la tabla "likes"
+                            DB::table('busines as b')
+                            ->join('categorias as c', 'c.id', 'b.categoria_id')
+                            ->join('likes as l', 'l.busine_id', 'b.id')
+                            ->selectRaw("   b.id, b.name, b.image, b.slug, c.name as category,
+                                            (select AVG(s.puntuacion) from starts s where s.busine_id = b.id) as rating,
+                                            (select COUNT(co.id) from comments co where co.commentable_id = b.id) as comments
+                                        ")
+                            ->whereRaw($filtro_categoria)
+                            ->whereRaw($filtro_busqueda)
+                            ->where('b.deleted_at', NULL)
+                            ->orderByRaw($ordering)
                             ->paginate(setting('site.paginador_lp'));
-                            // dd($empresas);
+
         return view('companies_list', compact('empresas'));
     }
 
@@ -106,7 +125,7 @@ class FrontendController extends Controller
         // return $detail;
         $redes=SocialNetwork::where('busine_id',$detail->id)->get();
 
-        $horario = Horario::where('busine_id',$detail->id)->first();
+        $horario = Horario::where('busine_id',$detail->id)->where('deleted_at', NULL)->get();
         $categoria = Categoria::where('id', $detail->categoria_id)->first();
          //SEO Tools
          SEOTools::setTitle($detail->name);
@@ -246,6 +265,11 @@ class FrontendController extends Controller
         SEOTools::setTitle('LoginWeb');
         SEOTools::setDescription('Empresa de tecnología especializada en desarrollo de Hardware y Software');
         return view('contact');
+    }
+
+    public function forget_redirect(){
+        session()->forget('url.intended');
+        return 'clear';
     }
    
 }
