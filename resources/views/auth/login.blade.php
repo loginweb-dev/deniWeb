@@ -70,8 +70,8 @@
                     </form>
                     <hr>
                     <div class="text-center">
-                        <a href="{{ route('loginFacebook', 'facebook') }}" class="btn btn-primary">login con facebook</a>
-                        <a href="{{ route('loginFacebook', 'facebook') }}" class="btn btn-danger">login con Google</a>
+                        <a href="{{ route('socialLogin', 'facebook') }}" class="btn btn-primary">login con facebook</a>
+                        <a href="{{ route('socialLogin', 'google') }}" class="btn btn-danger">login con Google</a>
                     </div>
                 </div>
             </div>

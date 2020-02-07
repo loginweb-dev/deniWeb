@@ -1,9 +1,14 @@
 @extends('layouts.app')
-@section('title', 'Detalle Negocios')
+@section('meta-datos')
+    <title>{{ $detail->name }}</title>
+    <meta property="og:url"           content="{{route('company', ['producto' => $detail->slug])}}" />
+    <meta property="og:type"          content="E-Commerce" />
+    <meta property="og:title"         content="{{ $detail->name }}" />
+    <meta property="og:description"   content=" {{ $detail->description }}" />
+    <meta property="og:image"         content="{{ url('storage/'.str_replace('.', '_facebook.', $detail->image)) }}" />
+@endsection
 @section('sharesocial')
-<div class="content" style="margin-left: 0%; margin-right:10%; line-height: 72px; position:relative;">
-    
-</div>
+<div class="content" style="margin-left: 0%; margin-right:10%; line-height: 72px; position:relative;"></div>
 @endsection
 @section('content')
 <div class="container mt-5 pt-3">
@@ -26,11 +31,11 @@
                   @forelse (json_decode($detail->images) as $item)
                       @if ($loop->first)
                           <div class="carousel-item active">
-                            <img src="{{ asset('storage/'.$item) }}" alt="First slide"class="img-fluid">
+                            <img src="{{ asset('storage/'.str_replace('.', '_medium.', $item)) }}" alt="First slide"class="img-fluid">
                           </div>
                         @else
                           <div class="carousel-item">
-                            <img src="{{ asset('storage/'.$item) }}" alt="First slide"class="img-fluid">
+                            <img src="{{ asset('storage/'.str_replace('.', '_medium.', $item)) }}" alt="First slide"class="img-fluid">
                           </div>
                       @endif
                     @empty
@@ -158,8 +163,8 @@
                             <p>
                               <i class="far fa-clock"></i> 
                               {{ date('H:i', strtotime($item->hora_inicio1)) }} a {{ date('H:i', strtotime($item->hora_final1)) }}
-                              @if ($item->hora_inicio2 && $item->hora_fin2)
-                                - {{ date('H:i', strtotime($item->hora_inicio2)) }} a {{ date('H:i', strtotime($item->hora_final2)) }}
+                              @if ($item->hora_inicio2 && $item->hora_final2)
+                                - <i class="far fa-clock"></i>  {{ date('H:i', strtotime($item->hora_inicio2)) }} a {{ date('H:i', strtotime($item->hora_final2)) }}
                               @endif
                             </p>
                           </td>
@@ -188,8 +193,8 @@
                 <div class="col-md-12 text-center">
                   <div class="form-group">
                   
-                   <a href="https://wa.me/{{ $detail->phone }}" target="blanck" class="btn btn-success btn-rounded btn-md"><i class="fab fa-whatsapp"></i> Chatear</a>
-                   <a href="https://{{ $detail->sharemap }}" target="_blanck" class="btn btn-warning btn-rounded btn-md"><i class="fas fa-map-pin"></i> ubicacion</a>
+                   <a href="https://wa.me/591{{ $detail->phone }}" target="blanck" class="btn btn-success btn-rounded btn-md"><i class="fab fa-whatsapp"></i> Chatear</a>
+                   <a href="http://www.google.com/maps/place/{{ $detail->latitude }},{{ $detail->longitude }}" target="_blanck" class="btn btn-warning btn-rounded btn-md"><i class="fas fa-map-pin"></i> ubicacion</a>
                    <a id="btn-like" class="btn btn-primary btn-rounded btn-md"><i class="fas fa-thumbs-up"></i> Me Gusta</a>
                     
                 </div>   

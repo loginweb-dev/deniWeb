@@ -5,7 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
 //modelos
+use App\User;
 use App\Busine;
 use App\SocialNetwork;
 use App\Horario;
@@ -71,6 +73,7 @@ class FrontendController extends Controller
                                         ")
                             ->whereRaw($filtro_categoria)
                             ->whereRaw($filtro_busqueda)
+                            ->where('b.state', 1)
                             ->where('b.deleted_at', NULL)
                             ->orderByRaw($ordering)
                             ->paginate(setting('site.paginador_lp')) :
@@ -84,8 +87,10 @@ class FrontendController extends Controller
                                         ")
                             ->whereRaw($filtro_categoria)
                             ->whereRaw($filtro_busqueda)
+                            ->where('b.state', 1)
                             ->where('b.deleted_at', NULL)
                             ->orderByRaw($ordering)
+                            ->groupBy('b.id')
                             ->paginate(setting('site.paginador_lp'));
 
         return view('companies_list', compact('empresas'));
@@ -120,16 +125,10 @@ class FrontendController extends Controller
      */
     public function show($slug)
     {
-        //CONSULTAS
         $detail=Busine::where('slug',$slug)->first();
-        // return $detail;
-        $redes=SocialNetwork::where('busine_id',$detail->id)->get();
-
+        $redes=SocialNetwork::where('busine_id',$detail->id)->where('deleted_at', NULL)->get();
         $horario = Horario::where('busine_id',$detail->id)->where('deleted_at', NULL)->get();
         $categoria = Categoria::where('id', $detail->categoria_id)->first();
-         //SEO Tools
-         SEOTools::setTitle($detail->name);
-         SEOTools::setDescription($detail->description);
 
         return view('company',compact('detail','redes','horario', 'categoria'));
     }
@@ -260,6 +259,41 @@ class FrontendController extends Controller
         }
         
     }
+
+    public function signup(){
+        SEOTools::setTitle('Suscribirse');
+        SEOTools::setDescription('Suscripción a DENI');
+        return view('signup');
+    }
+
+    public function signup_store(Request $request)
+    {
+        $user = '';
+        if(!empty($request->email)){
+            $user = User::where('email', $request->email)->first();
+        }
+
+        if($user){
+            return response()->json(['error' => 'El email ingresado ya se encuentra registrado en el sistema.']);
+        }else{
+            $password = str_random(10);
+            $user = User::create([
+                        'name' => $request->name,
+                        'email' => $request->email ?? trim(str_ireplace(' ', '.', strtolower($request->name))).'.'.rand(1001, 9999).'@loginweb.com',
+                        'password' => Hash::make($password),
+                        'phone' => $request->phone,
+                        'address' => $request->address,
+                        'role_id' => 3
+                    ]);
+            if($user){
+                Auth::login($user, true);
+                return response()->json(['name' => $user->name, 'email' => $user->email, 'password' => $password]);
+            }else{
+                return response()->json(['error' => 'No se pudo realizar su registro, intente nuevamente.']);
+            }
+        }
+    }
+    
 
     public function contact(){
         SEOTools::setTitle('LoginWeb');

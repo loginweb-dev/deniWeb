@@ -49,7 +49,7 @@
                     @endif 
                     <div>
                       @if ($item->link)
-                        <a href="{{ $item->link }}" class="btn btn-primary">Ver mas</a>
+                        <a href="{{ $item->link }}" class="btn btn-primary" target="_blank">Ver mas</a>
                       @endif
                     </div>
                   </div>

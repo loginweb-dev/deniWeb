@@ -98,7 +98,7 @@ class ApiController extends Controller
         Busine::find($id)->increment('views', 1);
         $company = DB::table('busines as b')
                         ->join('categorias as c', 'c.id', 'b.categoria_id')
-                        ->select(   'b.id', 'b.name', 'b.description', 'b.phone', 'b.addres', 'b.latitude', 'b.longitude', 'b.description_app', 'c.name as category',
+                        ->select(   'b.id', 'b.name', 'b.description', 'b.phone', 'b.addres', 'b.latitude', 'b.longitude', 'b.description_app', 'b.slug', 'c.name as category',
                                     DB::raw("REPLACE(b.image, '\\\\', '/') as image"), 'b.views',
                                     DB::raw("REPLACE(b.images, '\\\\', '/') as images"))
                         ->where('b.state', 1)->where('b.deleted_at', NULL)->where('b.image', '<>', NULL)->where('b.images', '<>', NULL)

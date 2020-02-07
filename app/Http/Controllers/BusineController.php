@@ -275,7 +275,7 @@ class BusineController extends Controller
     public function list_images($id){
         $company = Busine::findOrFail($id);
         $company_images = $company->images ? json_decode($company->images) : [];
-        return view('backend.company.partials.company_images', compact('company_images'));
+        return view('backend.company.partials.company_images', compact('company_images', 'id'));
     }
 
     public function add_images($id, Request $request){
@@ -301,6 +301,28 @@ class BusineController extends Controller
             }
         }else{
             return response()->json(['error'=>"Archivo no válido"]);
+        }
+    }
+
+    public function remove_images(Request $request){
+        try{
+            $company = Busine::findOrFail($request->id);
+            $company_images = $company->images ? json_decode($company->images) : [];
+
+
+            if(count($company_images)){
+                $imagenes = '';
+                foreach($company_images as $item){
+                    if($item != $request->imagen){
+                        $imagenes .= '"'.$item.'",';
+                    }
+                }
+                $company->images = '['.substr($imagenes,0,-1).']';
+                $company->save();
+            }
+            return 1;
+        }catch (\Throwable $th) {
+            return 0;
         }
     }
 
@@ -333,6 +355,13 @@ class BusineController extends Controller
             });
             $path_small = 'busines/'.date('F').date('Y').'/'.$filename_small;
             $image_resize->save(public_path('../storage/app/public/'.$path_small));
+
+            // imagen facebook
+            $filename_fb = $base_name.'_facebook.'.$file->getClientOriginalExtension();
+            $image_resize = Image::make($file->getRealPath())->orientate();
+            $image_resize->resizeCanvas(1000, 523);
+            $path_fb =  'busines/'.date('F').date('Y').'/'.$filename_fb;
+            $image_resize->save(public_path('../storage/app/public/'.$path_fb));
             
             return $path;
 

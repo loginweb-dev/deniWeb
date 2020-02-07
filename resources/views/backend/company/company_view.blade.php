@@ -69,7 +69,7 @@
                                         </div>
                                     </div>
                                     <div class="col-md-6">
-                                        <label for="">Imagen de portada (1024x768) <i class="voyager-thumb-tack text-danger" data-toggle="tooltip" title="Requerido"></i></label>
+                                        <label for="">Imagen de portada (1000x1000) <i class="voyager-thumb-tack text-danger" data-toggle="tooltip" title="Requerido"></i></label>
                                         <div class="content_uploader">
                                             <div class="box">
                                             <p class="select_bottom">Seleccionar un archivo</p>

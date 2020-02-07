@@ -24,8 +24,10 @@ Route::get('/', 'FrontendController@index')->name('landingpage');
 Route::get('/filter/{order}/{category}/{search}', 'FrontendController@companies_list');
 Route::get('/empresa/{slug?}', 'FrontendController@show')->name('company');
 Route::get('/contact', 'FrontendController@contact')->name('contact');
+Route::get('/signup', 'FrontendController@signup')->name('signup');
+Route::post('/signup/store', 'FrontendController@signup_store')->name('signup_store');
 Route::get('/categoria/{slug?}', 'FrontendController@get_category')->name('lista_categoria');
-Route::get('login/{social}', 'SocialController@redirectToProvider')->name('loginFacebook');
+Route::get('login/{social}', 'SocialController@redirectToProvider')->name('socialLogin');
 Route::get('login/{social}/callback', 'SocialController@handleProviderCallback');
 
 Route::get('/empresa/rating/{slug}/{rating}/{request}','FrontendController@rating')->middleware('auth')->name('rating');
@@ -47,6 +49,7 @@ Route::post('admin/negocios/store', 'BusineController@negocios_store')->name('ne
 Route::get('admin/negocios/{id}/view', 'BusineController@negocios_view');
 Route::get('admin/negocios/{id}/list_images', 'BusineController@list_images')->name('list_images');
 Route::post('admin/negocios/{id}/add_images', 'BusineController@add_images')->name('add_images');
+Route::post('admin/negocios/remove_images', 'BusineController@remove_images')->name('remove_images');
 Route::post('admin/negocios/update', 'BusineController@negocios_update')->name('negocios_update');
 
 Route::get('admin/forget_redirect', 'FrontendController@forget_redirect');

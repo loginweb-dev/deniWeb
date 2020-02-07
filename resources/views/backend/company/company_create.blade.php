@@ -69,7 +69,7 @@
                                         </div>
                                     </div>
                                     <div class="col-md-6">
-                                        <label for="">Imagen de portada (1024x768) <i class="voyager-thumb-tack text-danger" data-toggle="tooltip" title="Requerido"></i></label>
+                                        <label for="">Imagen de portada (1000x1000) <i class="voyager-thumb-tack text-danger" data-toggle="tooltip" title="Requerido"></i></label>
                                         <div class="content_uploader">
                                             <div class="box">
                                             <p class="select_bottom">Seleccionar un archivo</p>
@@ -102,10 +102,10 @@
                                                 <thead>
                                                     <tr>
                                                         <th>Dias</th>
-                                                        <th>De</th>
-                                                        <th>a</th>
-                                                        <th>De</th>
-                                                        <th>a</th>
+                                                        <th>De <a href="" class="btn-copy" data-value="hora_inicio1"><span class="voyager-wand pull-right" data-toggle="tooltip" title="Copiar lunes en los demás dias"></span></a></th>
+                                                        <th>a <a href="" class="btn-copy" data-value="hora_final1"><span class="voyager-wand pull-right" data-toggle="tooltip" title="Copiar lunes en los demás dias"></span></a></th>
+                                                        <th>De <a href="" class="btn-copy" data-value="hora_inicio2"><span class="voyager-wand pull-right" data-toggle="tooltip" title="Copiar lunes en los demás dias"></span></a></th>
+                                                        <th>a <a href="" class="btn-copy" data-value="hora_final2"><span class="voyager-wand pull-right" data-toggle="tooltip" title="Copiar lunes en los demás dias"></span></a></th>
                                                     </tr>
                                                 </thead>
                                                 @php
@@ -229,6 +229,13 @@
         $(document).ready(function(){
             $('[data-toggle="tooltip"]').tooltip();
             setTimeout(()=>renderMap(), 200);
+
+            $('.btn-copy').click(function(e){
+                e.preventDefault();
+                let input = $(this).data('value');
+                let value = $(`input[name="${input}[]"]`).val();
+                $(`input[name="${input}[]"]`).val(value)
+            });
         });
 
         function renderMap(){
